@@ -1,0 +1,122 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
+public class camFollowTarget : MonoBehaviour {
+    public Transform target;
+    public Vector3 offset;
+    public float rayLength;
+    public LayerMask wallMask;
+
+    GameObject hitWall;
+    wallScript myWall;
+    
+
+    bool hasTarget;
+
+    EnemyGridController currentGrid;
+
+    float maxRangeX = 1000000000;
+    float minRangeX = -1000000000;
+    float maxRangeZ = 1000000000;
+    float minRangeZ = -1000000000;
+    float movementSpeed = 15f;
+    float normalizedspeed;
+
+    bool clamped = true;
+
+    private void Start()
+    {
+        SceneManager.sceneLoaded += onLevelWasLoaded;   
+        Vector3 targetPosition = target.position - offset;
+        transform.position = targetPosition;
+    }
+
+    public void onLevelWasLoaded(Scene scene, LoadSceneMode mode)
+    {
+        Debug.Log("Level has Changed");
+        resetPosition();
+    }
+    void resetPosition()
+    {
+        Debug.Log("resetting position");
+        transform.position = target.position - offset;
+    }
+
+    public void getNewGrid(EnemyGridController newGrid)
+    {
+        currentGrid = newGrid;
+        float RadX = newGrid.radiusX;
+        float RadZ = newGrid.radiusZ;
+
+        maxRangeX = newGrid.bufX.position.x;
+        minRangeX = newGrid.minBufX.position.x;
+        maxRangeZ = newGrid.bufZ.position.z;
+        minRangeZ = newGrid.minBufZ.position.z;
+        clamped = false;
+        
+        return;
+    }
+
+    // Update is called once per frame
+    void Update () {
+        if (target == null)
+        {
+            return;
+        }
+        if (target != null)
+        {
+            Vector3 targetPosition = target.position - offset;
+            normalizedspeed = movementSpeed * Time.smoothDeltaTime;
+            transform.position = Vector3.MoveTowards(transform.position, targetPosition, normalizedspeed);
+            if (clamped)
+            {
+                float xPos = Mathf.Clamp(transform.position.x, minRangeX, maxRangeX);
+                float ZPos = Mathf.Clamp(transform.position.z, minRangeZ, maxRangeZ);
+                transform.position = new Vector3(xPos, target.position.y - offset.y, ZPos);
+            }
+            if (!clamped)
+            {
+                if(transform.position.x < minRangeX)
+                {
+                    transform.Translate(Vector3.right * Time.deltaTime);
+                    
+                }
+                if(transform.position.x > maxRangeX)
+                {
+                    transform.Translate(Vector3.left * Time.deltaTime);
+                }
+                if(transform.position.z < minRangeZ)
+                {
+                    transform.Translate(Vector3.forward * Time.deltaTime);
+                }
+                if(transform.position.z > maxRangeZ)
+                {
+                    transform.Translate(Vector3.back * Time.deltaTime);
+                }
+
+                if(transform.position.x< maxRangeX && transform.position.x > minRangeX && transform.position.z > minRangeZ && transform.position.z < maxRangeZ)
+                {
+                    clamped = true;
+                }
+            }
+
+
+
+        }
+	}
+
+    public bool returnTarget()
+    {
+        if(target == null)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+
+    }
+}

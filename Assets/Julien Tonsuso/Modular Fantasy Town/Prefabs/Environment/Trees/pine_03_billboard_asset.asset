@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!226 &22600000
+BillboardAsset:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: pine_03_billboard_asset
+  serializedVersion: 2
+  width: -11.3
+  bottom: -0.4
+  height: 11.5
+  imageTexCoords:
+  - {x: 0, y: 0, z: 0.19999702, w: 0.452209}
+  - {x: 0.19999702, y: 0, z: 0.19999601, w: 0.452209}
+  - {x: 0.39999303, y: 0, z: 0.19999698, w: 0.452209}
+  - {x: 0.59999, y: 0, z: 0.199996, w: 0.452209}
+  - {x: 0.799986, y: 0, z: 0.19999701, w: 0.452209}
+  - {x: 0, y: 0.452209, z: 0.19999702, w: 0.45220804}
+  - {x: 0.19999702, y: 0.452209, z: 0.19999601, w: 0.45220804}
+  - {x: 0.39999303, y: 0.452209, z: 0.19999698, w: 0.45220804}
+  vertices:
+  - {x: 0, y: 0}
+  - {x: 0, y: 0.501}
+  - {x: 0, y: 1}
+  - {x: 1, y: 0}
+  - {x: 1, y: 0.501}
+  - {x: 1, y: 1}
+  indices: 000003000400000004000100010004000500010005000200
+  material: {fileID: 2100000, guid: 24e51d3675877aa47b187e3d69cd2aac, type: 2}

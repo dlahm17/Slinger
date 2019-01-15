@@ -28,6 +28,10 @@ public class EquipmentManager : MonoBehaviour {
         inventory = Inventory.instance;
 
     }
+    public Equipment getequip(int slotIndex)
+    {
+        return currentEquipment[slotIndex];
+    }
 
     public void Equip(Equipment newItem)
     {

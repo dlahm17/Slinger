@@ -47,5 +47,10 @@ public class EquipSlot : MonoBehaviour {
         
         
     }
+
+    public Item getItem()
+    {
+        return item;
+    }
 }
 

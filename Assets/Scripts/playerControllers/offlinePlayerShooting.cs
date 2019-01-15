@@ -11,6 +11,8 @@ public class offlinePlayerShooting : MonoBehaviour {
     //These base stats can be increased by leveling up or using certain weapons.
     public float timeToReload;
     public float ReloadTime;
+
+
     public float baseBulletDamage;
 
     playerStats playerstats;
@@ -25,6 +27,7 @@ public class offlinePlayerShooting : MonoBehaviour {
     //These particle systems are the muzzleflash 
     public ParticleSystem bulletSystem1;
     public ParticleSystem bulletSystem2;
+    
 
     public float range = 10f;
 
@@ -57,6 +60,20 @@ public class offlinePlayerShooting : MonoBehaviour {
     Vector3 defVecRight;
     Vector3 defVecLeft;
 
+
+
+
+    bool isDualWeapon;
+    bool isSingleShot;
+    bool isSpread;
+
+    float spread;
+    int shotsInSpread;
+    weaponType myWeaponType;
+    damageType myWeaponDamageType;
+
+    float timeToReloadBullet = .2f;
+
     private void Start()
     {
         //get the playerstats to get damage boosts
@@ -64,18 +81,24 @@ public class offlinePlayerShooting : MonoBehaviour {
 
         //canfire is set false if reloading, dashing or elsewise.  For any reason the player can't fire, this is set false.
         canFire = true;
+
         //These Vectors are where the gunshots are shown with the linerenderers
         defVecRight = myGunShotRenderer1.GetPosition(1);
         defVecLeft = myGunShotRenderer2.GetPosition(1);
+
         //Set the current ammo equal to max ammo
         rightAmmoCount = maxRAmmoCount;
         leftAmmoCount = maxLAmmoCount;
+
         //set the first gun to fire as the left handed gun.  note that this will have to change if we include single wielded weapons instead of dual for all
         right = false;
+
         //hasn't canceled means that the player hasn't canceled the reloading sequence
         hasntCanceled = false;
+
         //currently reloading is true if reloading, elsewise false
         isCurrentlyReloading = false;
+
         //set the renderers for the lines as false in order to make them invisible for now.
         myGunShotRenderer1.enabled = false;
         myGunShotRenderer2.enabled = false;
@@ -87,7 +110,38 @@ public class offlinePlayerShooting : MonoBehaviour {
         maxRtxt.text = maxRAmmoCount.ToString();
         maxLtxt.text = maxLAmmoCount.ToString();
         updateUI();
+
+        Equipment wpn;
+        wpn = EquipmentManager.instance.getequip(2);
+        
     }
+
+    public void setStats(Weapon wpn)
+    {
+        isDualWeapon = wpn.isDualWeapon;
+        isSingleShot = wpn.isSingleShot;
+        isSpread = wpn.isSpread;
+        spread = wpn.spread;
+        shotsInSpread = wpn.shotsInSpread;
+        myWeaponType = wpn.myWeaponType;
+        myWeaponDamageType = wpn.myType;
+
+        maxRAmmoCount = wpn.maxAmmo;
+        maxLAmmoCount = wpn.maxAmmo;
+        rightAmmoCount = wpn.maxAmmo;
+        leftAmmoCount = wpn.maxAmmo;
+
+        gunShotAudio1 = wpn.myAudio;
+        gunShotAudio2 = wpn.myAudio;
+
+        timeToReloadBullet = wpn.timeToReloadSingleShot;
+
+        maxRtxt.text = maxRAmmoCount.ToString();
+        maxLtxt.text = maxLAmmoCount.ToString();
+
+    }
+
+
     // Update is called once per frame
     void Update()
     {
@@ -130,7 +184,7 @@ public class offlinePlayerShooting : MonoBehaviour {
     {
         isCurrentlyReloading = true;
         hasntCanceled = false;
-        yield return new WaitForSeconds(.2f);
+        yield return new WaitForSeconds(timeToReloadBullet);
         while (!hasntCanceled)
         {
             if (rightAmmoCount < 6)
@@ -149,7 +203,7 @@ public class offlinePlayerShooting : MonoBehaviour {
             {
                 hasntCanceled = true;
             }
-            yield return new WaitForSeconds(.2f);
+            yield return new WaitForSeconds(timeToReloadBullet);
 
         }
         if (rightAmmoCount > 0)

@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7fd1fd92166b3304db66fce08a02288a, type: 3}
-  m_Name: Serenity_To_OW
+  m_Name: OWToUpSerenity
   m_EditorClassIdentifier: 
-  myID: 1
-  sceneToChangeTo: OverWorld
+  connectedDoor: {fileID: 11400000, guid: 5cd90a32225043443984d8d8d76b46e2, type: 2}
+  sceneToChangeTo: Serenity

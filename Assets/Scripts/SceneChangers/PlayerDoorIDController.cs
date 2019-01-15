@@ -17,8 +17,8 @@ public class PlayerDoorIDController : MonoBehaviour
 
     #endregion
 
+    Door InteractedDoor;
     Door ConnectedDoor;
-    int IDToFind;
 
     GameObject targetGO;
     GameObject[] doors;
@@ -30,33 +30,50 @@ public class PlayerDoorIDController : MonoBehaviour
         Player = GameObject.FindGameObjectWithTag("Player");
         SceneManager.sceneLoaded += onLevelWasLoaded;
     }
-    public void changeTheScene(Door interactedDoorID)
+    public void changeTheScene(Door interactedDoor)
     {
-        string sceneToChangeTo = "Debug";
-        sceneToChangeTo = interactedDoorID.sceneToChangeTo;
+        Debug.Log(interactedDoor);
+        ConnectedDoor = null;
+        targetGO = null;
+        doors = null;
         
-        IDToFind = interactedDoorID.myID;
-        Debug.Log("Looking for " + IDToFind);
+        string sceneToChangeTo = "Debug";
+        
+        sceneToChangeTo = interactedDoor.sceneToChangeTo;
+        ConnectedDoor = interactedDoor.connectedDoor;
+        Debug.Log("Looking for: " + ConnectedDoor);
         SceneManager.LoadScene(sceneToChangeTo);
 
 
     }
     public void onLevelWasLoaded(Scene scene, LoadSceneMode mode)
-    { 
+    {
+        lookForConnectedDoor();
+    }
+
+    void lookForConnectedDoor()
+    {
+        bool foundDoor = false;
         doors = GameObject.FindGameObjectsWithTag("Door");
         foreach (GameObject door in doors)
         {
-            Debug.Log("Looking at " + door);
-            if (door.GetComponent<InteractionSceneChange>().myDoor.myID == IDToFind)
+            Debug.Log("Looking at " + door.GetComponent<InteractionSceneChange>().myDoor);
+            if (door.GetComponent<InteractionSceneChange>().myDoor.Equals(ConnectedDoor) && !foundDoor)
             {
-                Debug.Log("Found Door with ID " + door.GetComponent<InteractionSceneChange>().myDoor.myID);
+                Debug.Log("Found Door: " + door.GetComponent<InteractionSceneChange>().myDoor);
                 targetGO = door;
+                foundDoor = true;
                 break;
             }
         }
         if (targetGO != null)
         {
             Player.transform.position = targetGO.GetComponent<InteractionSceneChange>().myTransOnChangingScene.position;
+            Player.GetComponent<offlinePlayerMovement>().resetCamPos();
+        }
+        if(targetGO == null)
+        {
+            Debug.Log("Could not find door");
         }
         return;
     }

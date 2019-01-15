@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class camFollowTarget : MonoBehaviour {
     public Transform target;
@@ -28,19 +27,13 @@ public class camFollowTarget : MonoBehaviour {
 
     private void Start()
     {
-        SceneManager.sceneLoaded += onLevelWasLoaded;   
         Vector3 targetPosition = target.position - offset;
         transform.position = targetPosition;
     }
+    
+    public void resetPosition()
+    {
 
-    public void onLevelWasLoaded(Scene scene, LoadSceneMode mode)
-    {
-        Debug.Log("Level has Changed");
-        resetPosition();
-    }
-    void resetPosition()
-    {
-        Debug.Log("resetting position");
         transform.position = target.position - offset;
     }
 

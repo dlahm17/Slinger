@@ -185,7 +185,7 @@ public class offlinePlayerMovement : MonoBehaviour
     {
         currentlyDashing = true;
         myAnim.SetBool("Dashing", true);
-        Debug.Log("Dashing");
+        //Debug.Log("Dashing");
         myShooting.reloadAllImmediately();
         //mylight.intensity = baseintensity * (Mathf.Abs(movX) + Mathf.Abs(movZ)) * dashMultiplier;
         Vector3 mov = new Vector3(movX * dashMultiplier, 0, movZ * dashMultiplier);
@@ -256,6 +256,11 @@ public class offlinePlayerMovement : MonoBehaviour
         playerRigidbody.velocity = Vector3.zero;
         playerRigidbody.useGravity = true;
         playerRigidbody.isKinematic = false;
+    }
+
+    public void resetCamPos()
+    {
+        thisCam.resetPosition();
     }
     
 }

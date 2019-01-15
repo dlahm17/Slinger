@@ -13,7 +13,7 @@ public class InteractionSceneChange : InteractablePickup
 
     public override void Interact()
     {
-        base.Interact();
+        //base.Interact();
         changeScene();
     }
     void changeScene()

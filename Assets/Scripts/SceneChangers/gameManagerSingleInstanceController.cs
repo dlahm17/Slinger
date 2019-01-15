@@ -17,6 +17,7 @@ public class gameManagerSingleInstanceController : MonoBehaviour
         }
         if(gmanage.Count > 1)
         {
+            Debug.Log("Too many of us, destroying myself");
             Destroy(gameObject);
         }
     }

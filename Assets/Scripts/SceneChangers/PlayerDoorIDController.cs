@@ -12,6 +12,10 @@ public class PlayerDoorIDController : MonoBehaviour
     public static PlayerDoorIDController instance;
     private void Awake()
     {
+        if(instance != null)
+        {
+            return;
+        }
         instance = this;
     }
 
@@ -48,11 +52,13 @@ public class PlayerDoorIDController : MonoBehaviour
     }
     public void onLevelWasLoaded(Scene scene, LoadSceneMode mode)
     {
+        Debug.Log("SceneChanged, now looking");
         lookForConnectedDoor();
     }
 
     void lookForConnectedDoor()
     {
+        Debug.Log("Looking for: " + ConnectedDoor);
         bool foundDoor = false;
         doors = GameObject.FindGameObjectsWithTag("Door");
         foreach (GameObject door in doors)
@@ -74,7 +80,11 @@ public class PlayerDoorIDController : MonoBehaviour
         if(targetGO == null)
         {
             Debug.Log("Could not find door");
+            
         }
+        ConnectedDoor = null;
+        targetGO = null;
+        doors = null;
         return;
     }
 }

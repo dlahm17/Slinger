@@ -12,6 +12,10 @@ public class DialogueController : MonoBehaviour
 
     private void Awake()
     {
+        if(instance != null)
+        {
+            return;
+        }
         instance = this;
     }
     #endregion

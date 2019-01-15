@@ -8,7 +8,10 @@ public class EquipmentManager : MonoBehaviour {
 
     void Awake()
     {
-        instance = this;
+        if (instance != null)
+        {
+            instance = this;
+        }
     }
     #endregion
 

@@ -6,10 +6,12 @@ public class player_Health : m_Health
 {
     playerStats playerstats;
     public int CurrentExp;
+    EquipmentManager hpManage;
     // Start is called before the first frame update
     public override void Start()
     {
-        EquipmentManager.instance.onEquipmentChanged += changeHP;
+        hpManage = EquipmentManager.instance;
+        hpManage.onEquipmentChanged += changeHP;
         
         playerstats = GetComponent<playerStats>();
         health = playerstats.health.GetValue();

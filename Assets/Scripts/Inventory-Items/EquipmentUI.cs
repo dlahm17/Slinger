@@ -15,6 +15,10 @@ public class EquipmentUI : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         Equipment = EquipmentManager.instance;
+        if(Equipment == null)
+        {
+            Debug.Log("Equipment manager is not available");
+        }
         Equipment.onEquipmentChanged += UpdateUI;
 	}
 	

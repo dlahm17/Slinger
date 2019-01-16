@@ -40,8 +40,8 @@ public class camFollowTarget : MonoBehaviour {
     public void getNewGrid(EnemyGridController newGrid)
     {
         currentGrid = newGrid;
-        float RadX = newGrid.radiusX;
-        float RadZ = newGrid.radiusZ;
+        //float RadX = newGrid.radiusX;
+        //float RadZ = newGrid.radiusZ;
 
         maxRangeX = newGrid.bufX.position.x;
         minRangeX = newGrid.minBufX.position.x;

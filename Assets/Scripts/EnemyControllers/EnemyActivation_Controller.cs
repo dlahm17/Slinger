@@ -13,7 +13,7 @@ public class EnemyActivation_Controller : MonoBehaviour {
     {
         if(instance != null)
         {
-            //Debug.LogWarning("More than one instance of the Enemy Controller found!");
+            Debug.LogWarning("More than one instance of the Enemy Controller found!");
             return;
         }
         instance = this;

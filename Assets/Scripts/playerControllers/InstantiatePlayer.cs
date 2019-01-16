@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Networking;
+//using UnityEngine.Networking;
 
 public class InstantiatePlayer : MonoBehaviour {
 
@@ -10,9 +10,9 @@ public class InstantiatePlayer : MonoBehaviour {
 	void Update () {
         if (Input.GetButtonDown("Fire1"))
         {
-            networkManager = GameObject.Find("NetworkManager");
-            networkManager.GetComponent<NetworkManager>().StartHost();
-            Destroy(gameObject);
+            //networkManager = GameObject.Find("NetworkManager");
+           // networkManager.GetComponent<NetworkManager>().StartHost();
+           // Destroy(gameObject);
         }
 	}
 }

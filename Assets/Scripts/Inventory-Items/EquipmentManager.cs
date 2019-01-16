@@ -10,8 +10,10 @@ public class EquipmentManager : MonoBehaviour {
     {
         if (instance != null)
         {
-            instance = this;
+            Debug.LogWarning("More than one equipment manager in the scene, deleting self");
+            return;
         }
+        instance = this;
     }
     #endregion
 
@@ -28,9 +30,15 @@ public class EquipmentManager : MonoBehaviour {
         inventory = Inventory.instance;
 
     }
-    public Equipment getequip(int slotIndex)
+
+    public Equipment getEquipment(int equipSlot)
     {
-        return currentEquipment[slotIndex];
+        Debug.Log("Getting equipment");
+        if (currentEquipment != null)
+        {
+            return currentEquipment[equipSlot];
+        }
+        return null;
     }
 
     public void Equip(Equipment newItem)

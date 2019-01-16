@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class playerStats :  characterStats {
 
+    EquipmentManager statManage;
 	// Use this for initialization
 	void Start () {
-        EquipmentManager.instance.onEquipmentChanged += OnEquipmentChanged;
+        statManage = EquipmentManager.instance;
+        statManage.onEquipmentChanged += OnEquipmentChanged;
 	}
 	
 

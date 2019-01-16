@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+public enum specialAbility {Absorb, Dynamite, Icicle }
+
 
 public class offlinePlayerShooting : MonoBehaviour {
     //These positions are where the bullets come from.
@@ -71,11 +73,14 @@ public class offlinePlayerShooting : MonoBehaviour {
     int shotsInSpread;
     weaponType myWeaponType;
     damageType myWeaponDamageType;
-
+    EquipmentManager eqManage;
     float timeToReloadBullet = .2f;
 
     private void Start()
     {
+        eqManage = EquipmentManager.instance;
+        eqManage.onEquipmentChanged += updateWeapon;
+
         //get the playerstats to get damage boosts
         playerstats = GetComponent<playerStats>();
 
@@ -111,9 +116,31 @@ public class offlinePlayerShooting : MonoBehaviour {
         maxLtxt.text = maxLAmmoCount.ToString();
         updateUI();
 
-        Equipment wpn;
-        wpn = EquipmentManager.instance.getequip(2);
+
         
+
+        setWeapon();
+    }
+
+    public void updateWeapon(Equipment newItem, Equipment oldItem)
+    {
+        Debug.Log("Setting weapon");
+        setWeapon();
+    }
+
+    void setWeapon()
+    {
+        Equipment myEquip = eqManage.getEquipment(2);
+        if(myEquip == null)
+        {
+            Debug.Log("Equipment is null");
+            return;
+        }
+        if (myEquip.equipSlot == EquipmentSlot.Weapon)
+        {
+            Weapon myWpn = (Weapon)myEquip;
+            setStats(myWpn);
+        }
     }
 
     public void setStats(Weapon wpn)
@@ -138,6 +165,12 @@ public class offlinePlayerShooting : MonoBehaviour {
 
         maxRtxt.text = maxRAmmoCount.ToString();
         maxLtxt.text = maxLAmmoCount.ToString();
+        updateUI();
+
+        if (isDualWeapon)
+        {
+
+        }
 
     }
 
@@ -171,7 +204,7 @@ public class offlinePlayerShooting : MonoBehaviour {
         curLtxt.text = leftAmmoCount.ToString();
     }
 
-    void specialAbility(string abilityToCall)
+    void specialAbility(specialAbility myabi)
     {
 
     }
@@ -187,19 +220,22 @@ public class offlinePlayerShooting : MonoBehaviour {
         yield return new WaitForSeconds(timeToReloadBullet);
         while (!hasntCanceled)
         {
-            if (rightAmmoCount < 6)
+            if (rightAmmoCount < maxRAmmoCount)
             {
                 
                 rightAmmoCount++;
                 updateUI();
             }
-            if (leftAmmoCount < 6)
+            if (isDualWeapon)
             {
-                
-                leftAmmoCount++;
-                updateUI();
+                if (leftAmmoCount < maxLAmmoCount)
+                {
+
+                    leftAmmoCount++;
+                    updateUI();
+                }
             }
-            if (rightAmmoCount >= 6 && leftAmmoCount >= 6)
+            if (rightAmmoCount >= maxRAmmoCount && leftAmmoCount >= maxLAmmoCount)
             {
                 hasntCanceled = true;
             }

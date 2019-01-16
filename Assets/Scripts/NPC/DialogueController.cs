@@ -14,6 +14,7 @@ public class DialogueController : MonoBehaviour
     {
         if(instance != null)
         {
+            Debug.LogWarning("More than one dialogue manager in the scene, deleting self");
             return;
         }
         instance = this;

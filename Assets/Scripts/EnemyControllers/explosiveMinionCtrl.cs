@@ -9,8 +9,7 @@ public class explosiveMinionCtrl : MonoBehaviour {
     m_Health myHP;
 
     public offlineWaveSpawning myofflineSpawner;
-
-    LayerMask playerLayer;
+    
 
     [SerializeField]
     float enragedSpeed;
@@ -22,7 +21,6 @@ public class explosiveMinionCtrl : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
-        playerLayer = LayerMask.GetMask("Player");
         myHP = GetComponent<m_Health>();
     }
 

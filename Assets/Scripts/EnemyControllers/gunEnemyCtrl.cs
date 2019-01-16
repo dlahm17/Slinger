@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class gunEnemyCtrl : MonoBehaviour {
     m_Health otherHp;
-    float damage;
+    float damage = 1f;
     m_Health myHP;
 
     public offlineWaveSpawning myofflineSpawner;

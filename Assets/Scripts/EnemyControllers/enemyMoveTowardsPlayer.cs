@@ -6,12 +6,12 @@ using UnityEngine.AI;
 public class enemyMoveTowardsPlayer : MonoBehaviour {
     List<GameObject> players;
     GameObject[] PlayerArray = new GameObject[25];
-    string currentMode = "findPlayer";
+    //string currentMode = "findPlayer";
     NavMeshAgent myAI;
     offlineWaveSpawning offWaveCtrl;
    public bool isOffline = false;
     GameObject waveCtrlObj;
-    Rigidbody myrb;
+    //Rigidbody myrb;
 
     public float checkTime;
     public float timeToCheckTarget;
@@ -26,7 +26,7 @@ public class enemyMoveTowardsPlayer : MonoBehaviour {
     GameObject target;
 	// Use this for initialization
 	void Start () {
-        myrb = GetComponent<Rigidbody>();
+        //myrb = GetComponent<Rigidbody>();
         waveCtrlObj = GameObject.Find("EnemySpawnCtrl");
         
             if (waveCtrlObj != null)

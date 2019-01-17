@@ -123,21 +123,23 @@ public class offlinePlayerShooting : MonoBehaviour {
 
         
 
-        setWeapon();
+        setWeapon((Weapon)eqManage.getWeapon());
     }
 
     public void updateWeapon(Equipment newItem, Equipment oldItem)
     {
-        Debug.Log("Setting weapon");
-        setWeapon();
+        if ((Weapon)newItem)
+        {
+            Debug.Log(newItem);
+        }
+        setWeapon((Weapon)newItem);
     }
 
-    void setWeapon()
+    void setWeapon(Weapon myEquip)
     {
-        Equipment myEquip = eqManage.getEquipment(2);
+        
         if(myEquip == null)
         {
-            Debug.Log("Equipment is null");
             return;
         }
         if (myEquip.equipSlot == EquipmentSlot.Weapon)
@@ -163,8 +165,8 @@ public class offlinePlayerShooting : MonoBehaviour {
         rightAmmoCount = wpn.maxAmmo;
         leftAmmoCount = wpn.maxAmmo;
 
-        gunShotAudio1 = wpn.myAudio;
-        gunShotAudio2 = wpn.myAudio;
+        gunShotAudio1.clip = wpn.myAudio;
+        gunShotAudio2.clip = wpn.myAudio;
 
         timeToReloadBullet = wpn.timeToReloadSingleShot;
         timeToReload = wpn.timeBetweenShots;
@@ -335,7 +337,7 @@ public class offlinePlayerShooting : MonoBehaviour {
                     //applies damage to object
                     if (hitHp != null)
                     {
-                        hitHp.takeDamage(damage, damageType.physical);
+                        hitHp.takeDamage(damage, myWeaponDamageType);
                     }
 
                 
@@ -375,7 +377,7 @@ public class offlinePlayerShooting : MonoBehaviour {
                 //applies damage to object
                 if (hitHp != null)
                 {
-                    hitHp.takeDamage(damage, damageType.physical);
+                    hitHp.takeDamage(damage, myWeaponDamageType);
                 }
             }
             updateUI();

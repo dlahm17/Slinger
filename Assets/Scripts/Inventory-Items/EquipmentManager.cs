@@ -31,14 +31,10 @@ public class EquipmentManager : MonoBehaviour {
 
     }
 
-    public Equipment getEquipment(int equipSlot)
+    public Equipment getWeapon()
     {
-        Debug.Log("Getting equipment");
-        if (currentEquipment != null)
-        {
-            return currentEquipment[equipSlot];
-        }
-        return null;
+        return currentEquipment[2];
+        
     }
 
     public void Equip(Equipment newItem)

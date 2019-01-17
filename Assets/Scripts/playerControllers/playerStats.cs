@@ -27,10 +27,10 @@ public class playerStats :  characterStats {
         {
             armor.removeModifier(oldItem.armorModifier);
             damage.removeModifier(oldItem.armorModifier);
-            magicArmor.removeModifier(newItem.mArmorModifier);
-            magicDamage.removeModifier(newItem.mDamageModifier);
-            stealth.removeModifier(newItem.stealthModifier);
-            speed.removeModifier(newItem.speedModifier);
+            magicArmor.removeModifier(oldItem.mArmorModifier);
+            magicDamage.removeModifier(oldItem.mDamageModifier);
+            stealth.removeModifier(oldItem.stealthModifier);
+            speed.removeModifier(oldItem.speedModifier);
         }
     }
 }

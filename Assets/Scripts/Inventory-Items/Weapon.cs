@@ -16,7 +16,7 @@ public class Weapon : Equipment
     //myMesh is the mesh used when the player uses the gun. (NOT IMPLEMENTED YET)
     public GameObject myMesh;
     //myAudio is the audio that plays when the gun is fired
-    public AudioSource myAudio;
+    public AudioClip myAudio;
 
 
     //Determine reloading values

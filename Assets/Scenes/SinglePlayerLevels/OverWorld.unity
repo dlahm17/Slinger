@@ -258,6 +258,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e75d4ec48f09547478223b3e378aa428, type: 3}
+--- !u!1 &1120685546 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1367400382813964321, guid: 39408d76fa5902d4fa35c045b2c76000,
+    type: 3}
+  m_PrefabInstance: {fileID: 6646775564194375075}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1275703781
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -438,6 +444,12 @@ MonoBehaviour:
   m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!120 &1988610403 stripped
+LineRenderer:
+  m_CorrespondingSourceObject: {fileID: 6742888669545325898, guid: 39408d76fa5902d4fa35c045b2c76000,
+    type: 3}
+  m_PrefabInstance: {fileID: 6646775564194375075}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6646775564194375075
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1317,6 +1329,16 @@ PrefabInstance:
       propertyPath: health.baseValue
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 6748895544042060514, guid: 39408d76fa5902d4fa35c045b2c76000,
+        type: 3}
+      propertyPath: myGunShotRenderer1
+      value: 
+      objectReference: {fileID: 1988610403}
+    - target: {fileID: 6748895544042060514, guid: 39408d76fa5902d4fa35c045b2c76000,
+        type: 3}
+      propertyPath: LeftAmmoCounter
+      value: 
+      objectReference: {fileID: 1120685546}
     m_RemovedComponents:
     - {fileID: 6749066805302960378, guid: 39408d76fa5902d4fa35c045b2c76000, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 39408d76fa5902d4fa35c045b2c76000, type: 3}

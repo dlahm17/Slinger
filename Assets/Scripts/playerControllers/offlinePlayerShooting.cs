@@ -328,7 +328,7 @@ public class offlinePlayerShooting : MonoBehaviour {
             }
                 if (Physics.Raycast(myRay, out hit, range))
                 {
-                    float damage = baseBulletDamage + playerstats.damage.GetValue() + ;
+                    float damage = baseBulletDamage + playerstats.damage.GetValue();
                     Vector3 distance = new Vector3(0, 0, Vector3.Distance(hit.collider.gameObject.transform.position, transform.position));
                     myGunShotRenderer1.SetPosition(1, distance);
                     m_Health hitHp = hit.collider.gameObject.GetComponent<m_Health>();

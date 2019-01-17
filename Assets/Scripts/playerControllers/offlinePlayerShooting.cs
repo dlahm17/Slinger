@@ -26,6 +26,9 @@ public class offlinePlayerShooting : MonoBehaviour {
     public LineRenderer myGunShotRenderer1;
     public LineRenderer myGunShotRenderer2;
 
+    //line renderer for shotgun blasts
+    public LineRenderer[] shotGunRenderer;
+
     //These particle systems are the muzzleflash 
     public ParticleSystem bulletSystem1;
     public ParticleSystem bulletSystem2;
@@ -62,7 +65,7 @@ public class offlinePlayerShooting : MonoBehaviour {
     Vector3 defVecRight;
     Vector3 defVecLeft;
 
-
+    public GameObject LeftAmmoCounter;
 
 
     bool isDualWeapon;
@@ -106,6 +109,7 @@ public class offlinePlayerShooting : MonoBehaviour {
 
         //set the renderers for the lines as false in order to make them invisible for now.
         myGunShotRenderer1.enabled = false;
+        
         myGunShotRenderer2.enabled = false;
 
         //The player has to be alive when start goes.
@@ -152,6 +156,7 @@ public class offlinePlayerShooting : MonoBehaviour {
         shotsInSpread = wpn.shotsInSpread;
         myWeaponType = wpn.myWeaponType;
         myWeaponDamageType = wpn.myType;
+        baseBulletDamage = wpn.damageModifier;
 
         maxRAmmoCount = wpn.maxAmmo;
         maxLAmmoCount = wpn.maxAmmo;
@@ -162,14 +167,29 @@ public class offlinePlayerShooting : MonoBehaviour {
         gunShotAudio2 = wpn.myAudio;
 
         timeToReloadBullet = wpn.timeToReloadSingleShot;
+        timeToReload = wpn.timeBetweenShots;
 
         maxRtxt.text = maxRAmmoCount.ToString();
         maxLtxt.text = maxLAmmoCount.ToString();
         updateUI();
 
+        if (!isDualWeapon)
+        {
+            LeftAmmoCounter.GetComponent<Image>().enabled = false;
+            Text[] myTxts = LeftAmmoCounter.GetComponentsInChildren<Text>();
+            foreach(Text txt in myTxts)
+            {
+                txt.enabled = false;
+            }
+        }
         if (isDualWeapon)
         {
-
+            LeftAmmoCounter.GetComponent<Image>().enabled = true;
+            Text[] myTxts = LeftAmmoCounter.GetComponentsInChildren<Text>();
+            foreach (Text txt in myTxts)
+            {
+                txt.enabled = true;
+            }
         }
 
     }
@@ -268,11 +288,11 @@ public class offlinePlayerShooting : MonoBehaviour {
         }
         if(rightAmmoCount > maxRAmmoCount)
         {
-            rightAmmoCount = 6;
+            rightAmmoCount = maxRAmmoCount;
         }
         if(leftAmmoCount > maxLAmmoCount)
         {
-            leftAmmoCount = 6;
+            leftAmmoCount = maxLAmmoCount;
         }
         rightHasAmmo = true;
         leftHasAmmo = true;
@@ -284,13 +304,18 @@ public class offlinePlayerShooting : MonoBehaviour {
 
     void Fire()
     {
-        RaycastHit hit;
+        
+        RaycastHit hit = new RaycastHit();
         
         bool canFire = true;
+        
         if (right && canFire && rightHasAmmo)
         {
             gunShotAudio1.PlayOneShot(gunShotAudio1.clip);
-            Ray myRay = new Ray(GunPos1.position, transform.forward * range);
+            Ray myRay = new Ray(transform.position, transform.forward);
+           
+            myRay = new Ray(GunPos1.position, transform.forward * range);
+            
             bulletSystem1.Play();
             canFire = false;
             rightAmmoCount--;
@@ -301,24 +326,29 @@ public class offlinePlayerShooting : MonoBehaviour {
             {
                 rightHasAmmo = false;
             }
-
-            if(Physics.Raycast(myRay, out hit, range))
-            {
-                float damage = baseBulletDamage + playerstats.damage.GetValue();
-                Vector3 distance = new Vector3(0,0,Vector3.Distance(hit.collider.gameObject.transform.position, transform.position));
-                myGunShotRenderer1.SetPosition(1, distance);
-                m_Health hitHp = hit.collider.gameObject.GetComponent<m_Health>();
-                //applies damage to object
-                if (hitHp != null)
+                if (Physics.Raycast(myRay, out hit, range))
                 {
-                    hitHp.takeDamage(damage, damageType.physical);
-                }
+                    float damage = baseBulletDamage + playerstats.damage.GetValue() + ;
+                    Vector3 distance = new Vector3(0, 0, Vector3.Distance(hit.collider.gameObject.transform.position, transform.position));
+                    myGunShotRenderer1.SetPosition(1, distance);
+                    m_Health hitHp = hit.collider.gameObject.GetComponent<m_Health>();
+                    //applies damage to object
+                    if (hitHp != null)
+                    {
+                        hitHp.takeDamage(damage, damageType.physical);
+                    }
 
+                
             }
             updateUI();
+            
 
 
         }
+
+
+
+
         if (!right && canFire && leftHasAmmo)
         {
         
@@ -350,6 +380,9 @@ public class offlinePlayerShooting : MonoBehaviour {
             }
             updateUI();
         }
+
+
+
         ReloadTime = Time.time + timeToReload;
         right = !right;
         StartCoroutine("endGunShotRender");

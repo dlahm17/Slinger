@@ -24,6 +24,8 @@ public class Weapon : Equipment
     public float timeToReloadSingleShot;
     //maxAmmo is the max amount of ammo in the gun
     public int maxAmmo;
+    //TimeBetween shots is fire rate of gun
+    public float timeBetweenShots;
 
     public bool isDualWeapon;
 

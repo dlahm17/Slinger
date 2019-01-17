@@ -310,24 +310,29 @@ public class offlinePlayerShooting : MonoBehaviour {
         RaycastHit hit = new RaycastHit();
         
         bool canFire = true;
-        
-        if (right && canFire && rightHasAmmo)
+        if(myWeaponType == weaponType.Shotgun)
         {
-            gunShotAudio1.PlayOneShot(gunShotAudio1.clip);
-            Ray myRay = new Ray(transform.position, transform.forward);
-           
-            myRay = new Ray(GunPos1.position, transform.forward * range);
-            
-            bulletSystem1.Play();
-            canFire = false;
-            rightAmmoCount--;
-            
-            myGunShotRenderer1.enabled = true;
-            //Debug.Log(rightAmmoCount);
-            if (rightAmmoCount <= 0)
+
+        }
+        if (myWeaponType == weaponType.dualRevolvers || myWeaponType == weaponType.Rifle)
+        {
+            if (right && canFire && rightHasAmmo)
             {
-                rightHasAmmo = false;
-            }
+                gunShotAudio1.PlayOneShot(gunShotAudio1.clip);
+                Ray myRay = new Ray(transform.position, transform.forward);
+
+                myRay = new Ray(GunPos1.position, transform.forward * range);
+
+                bulletSystem1.Play();
+                canFire = false;
+                rightAmmoCount--;
+
+                myGunShotRenderer1.enabled = true;
+                //Debug.Log(rightAmmoCount);
+                if (rightAmmoCount <= 0)
+                {
+                    rightHasAmmo = false;
+                }
                 if (Physics.Raycast(myRay, out hit, range))
                 {
                     float damage = baseBulletDamage + playerstats.damage.GetValue();
@@ -340,47 +345,48 @@ public class offlinePlayerShooting : MonoBehaviour {
                         hitHp.takeDamage(damage, myWeaponDamageType);
                     }
 
-                
-            }
-            updateUI();
-            
 
-
-        }
-
-
-
-
-        if (!right && canFire && leftHasAmmo)
-        {
-        
-            gunShotAudio2.PlayOneShot(gunShotAudio2.clip);
-            Ray myRay = new Ray(GunPos2.position, transform.forward * range);
-            bulletSystem2.Play();
-            canFire = false;
-            leftAmmoCount--;
-            
-            myGunShotRenderer2.enabled = true;
-            //Debug.Log(leftAmmoCount);
-            if (leftAmmoCount <= 0)
-            {
-                leftHasAmmo = false;
-            }
-
-            if (Physics.Raycast(myRay, out hit, range))
-            {
-                float damage = baseBulletDamage + playerstats.damage.GetValue();
-                Vector3 distance = new Vector3(0, 0, Vector3.Distance(hit.collider.gameObject.transform.position, transform.position));
-                myGunShotRenderer2.SetPosition(1, distance);
-
-                m_Health hitHp = hit.collider.gameObject.GetComponent<m_Health>();
-                //applies damage to object
-                if (hitHp != null)
-                {
-                    hitHp.takeDamage(damage, myWeaponDamageType);
                 }
+                updateUI();
+
+
+
             }
-            updateUI();
+
+
+
+
+            if (!right && canFire && leftHasAmmo)
+            {
+
+                gunShotAudio2.PlayOneShot(gunShotAudio2.clip);
+                Ray myRay = new Ray(GunPos2.position, transform.forward * range);
+                bulletSystem2.Play();
+                canFire = false;
+                leftAmmoCount--;
+
+                myGunShotRenderer2.enabled = true;
+                //Debug.Log(leftAmmoCount);
+                if (leftAmmoCount <= 0)
+                {
+                    leftHasAmmo = false;
+                }
+
+                if (Physics.Raycast(myRay, out hit, range))
+                {
+                    float damage = baseBulletDamage + playerstats.damage.GetValue();
+                    Vector3 distance = new Vector3(0, 0, Vector3.Distance(hit.collider.gameObject.transform.position, transform.position));
+                    myGunShotRenderer2.SetPosition(1, distance);
+
+                    m_Health hitHp = hit.collider.gameObject.GetComponent<m_Health>();
+                    //applies damage to object
+                    if (hitHp != null)
+                    {
+                        hitHp.takeDamage(damage, myWeaponDamageType);
+                    }
+                }
+                updateUI();
+            }
         }
 
 

@@ -8,7 +8,7 @@ public enum weaponType { dualRevolvers, Rifle, Shotgun}
 [SerializeField]
 public class Weapon : Equipment
 {
-    EquipmentSlot mySlot = EquipmentSlot.Weapon;
+    
     //weapon type determines spread, and weapon base.  it also determines player animations
     public weaponType myWeaponType;
     //damage type is the type of damage that the gun has an affinity for.  for example, poison type would deal some physical damage, but also deal poison damage and apply the status effect to the target.

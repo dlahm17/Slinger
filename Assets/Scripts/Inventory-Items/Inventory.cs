@@ -29,8 +29,11 @@ public class Inventory : MonoBehaviour {
     public float currentGold;
     public float currentExp;
 
+    [SerializeField]
     GameObject UIObj;
+    [SerializeField]
     Text goldTxt;
+    [SerializeField]
     Text expTxt;
 
     public void giveGold(int goldtoGive)

@@ -9,7 +9,7 @@ public enum EquipmentSlot { Head, Armor, Weapon, Amulet, Boots}
 [CreateAssetMenu(fileName = "New Equipment", menuName = "Inventory/Equipment")]
 public class Equipment : Item
 {
-    public EquipmentSlot equipSlot;
+    public  EquipmentSlot equipSlot;
    
 
     public int armorModifier = 0;

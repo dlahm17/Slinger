@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using Steamworks;
 
 public enum damageType { physical, poison, fire, electricity, ice, acid, magical, explosive}
 
@@ -25,7 +24,6 @@ public class m_Health : MonoBehaviour {
 
     public string myName;
     public Text myTxt;
-    
     
 
     
@@ -85,7 +83,8 @@ public class m_Health : MonoBehaviour {
     public virtual void takeDamage(float damage, damageType damageTyping)
     {
         Debug.Log("Taking Damage");
-        //Need to probably include an enum specifying the damage type
+        
+
         health -= damage;
 
         if(health <= 0 && amDed == false){

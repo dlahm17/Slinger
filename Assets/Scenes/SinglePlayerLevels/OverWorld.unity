@@ -464,6 +464,72 @@ Light:
     type: 3}
   m_PrefabInstance: {fileID: 6646775564194375075}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &559370998
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 273768545, guid: 4773a10a0011b514ebbc66e145b87545, type: 3}
+      propertyPath: m_Name
+      value: DoubleShotty
+      objectReference: {fileID: 0}
+    - target: {fileID: 273768550, guid: 4773a10a0011b514ebbc66e145b87545, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -4.49
+      objectReference: {fileID: 0}
+    - target: {fileID: 273768550, guid: 4773a10a0011b514ebbc66e145b87545, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 250.495
+      objectReference: {fileID: 0}
+    - target: {fileID: 273768550, guid: 4773a10a0011b514ebbc66e145b87545, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 55.926147
+      objectReference: {fileID: 0}
+    - target: {fileID: 273768550, guid: 4773a10a0011b514ebbc66e145b87545, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 273768550, guid: 4773a10a0011b514ebbc66e145b87545, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 273768550, guid: 4773a10a0011b514ebbc66e145b87545, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 273768550, guid: 4773a10a0011b514ebbc66e145b87545, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 273768550, guid: 4773a10a0011b514ebbc66e145b87545, type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 273768550, guid: 4773a10a0011b514ebbc66e145b87545, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 273768550, guid: 4773a10a0011b514ebbc66e145b87545, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 273768550, guid: 4773a10a0011b514ebbc66e145b87545, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 273768546, guid: 4773a10a0011b514ebbc66e145b87545, type: 3}
+      propertyPath: item
+      value: 
+      objectReference: {fileID: 11400000, guid: d6473635446b45349960f58c4b983cfa,
+        type: 2}
+    - target: {fileID: 273768546, guid: 4773a10a0011b514ebbc66e145b87545, type: 3}
+      propertyPath: nameToShow
+      value: Double Barrel Shotgun
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4773a10a0011b514ebbc66e145b87545, type: 3}
 --- !u!1001 &629495885
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1882,6 +1948,26 @@ PrefabInstance:
       propertyPath: LeftAmmoCounter
       value: 
       objectReference: {fileID: 1120685546}
+    - target: {fileID: 5082328602777560364, guid: 39408d76fa5902d4fa35c045b2c76000,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7795588005808834364, guid: 39408d76fa5902d4fa35c045b2c76000,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 7795588005808834364, guid: 39408d76fa5902d4fa35c045b2c76000,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.74
+      objectReference: {fileID: 0}
+    - target: {fileID: 2036125939648354193, guid: 39408d76fa5902d4fa35c045b2c76000,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.74
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6749066805302960378, guid: 39408d76fa5902d4fa35c045b2c76000, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 39408d76fa5902d4fa35c045b2c76000, type: 3}

@@ -127,6 +127,7 @@ public class offlinePlayerShooting : MonoBehaviour {
         int i = 0;
         while(i < 10)
         {
+            
             shotGunRenderer[i].enabled = false;
             i++;
         }
@@ -206,8 +207,12 @@ public class offlinePlayerShooting : MonoBehaviour {
         int i = 0;
         while(i < 10)
         {
+            //shotGunDir[i].RotateAround(gameObject.transform.position, Vector3.up, spread);
             shotGunDir[i].Rotate(new Vector3(0, (spread * i), 0));
+            shotGunRenderer[i].SetPosition(1, shotGunDir[i].forward * range);
+            //shotGunDir[i+1].RotateAround(gameObject.transform.position, Vector3.up, -spread);
             shotGunDir[i + 1].Rotate(new Vector3(0, (-spread * i), 0));
+            shotGunRenderer[i].SetPosition(1, shotGunDir[i].forward * range);
             i+=2;
         }
 
@@ -363,11 +368,13 @@ public class offlinePlayerShooting : MonoBehaviour {
                 {
                     Ray ray = new Ray(GunPos1.position, shotGunDir[i].forward * range);
                     shotGunRenderer[i].enabled = true;
-                    shotGunRenderer[i].SetPosition(1, shotGunDir[i].forward * range);
+                    Debug.DrawRay(GunPos1.position, shotGunDir[i].forward * range, Color.red, 2f);
+                    //shotGunRenderer[i].SetPosition(1, shotGunDir[i].forward * range);
                     if (Physics.Raycast(ray, out hit, range))
                     {
-                        Vector3 distance = new Vector3(shotGunDir[i].position.x, shotGunDir[i].position.y, Vector3.Distance(hit.collider.gameObject.transform.position, GunPos1.position));
-                        myGunShotRenderer1.SetPosition(1, distance);
+                        Debug.Log("Hit");
+                       // Vector3 distance = new Vector3(0,0, Vector3.Distance(hit.collider.gameObject.transform.position, GunPos1.position));
+                        //myGunShotRenderer1.SetPosition(1, distance);
                         m_Health hitHp = hit.collider.gameObject.GetComponent<m_Health>();
                         //applies damage to object
                         if (hitHp != null)
@@ -390,7 +397,7 @@ public class offlinePlayerShooting : MonoBehaviour {
         }
         if (myWeaponType == weaponType.dualRevolvers || myWeaponType == weaponType.Rifle)
         {
-            //single shot
+            Debug.Log("Single Shot");
             if (right && canFire && rightHasAmmo)
             {
                 gunShotAudio1.PlayOneShot(gunShotAudio1.clip);
@@ -477,14 +484,13 @@ public class offlinePlayerShooting : MonoBehaviour {
 
     IEnumerator endGunShotRender()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(5f);
         myGunShotRenderer2.SetPosition(1,defVecLeft);
         myGunShotRenderer1.SetPosition(1, defVecRight);
         
         int i = 0;
         while(i < shotsInSpread)
         {
-            shotGunRenderer[i].SetPosition(1, defVecRight);
             shotGunRenderer[i].enabled = false;
             i++;
         }

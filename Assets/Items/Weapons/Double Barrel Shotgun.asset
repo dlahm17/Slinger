@@ -33,4 +33,4 @@ MonoBehaviour:
   isSingleShot: 1
   isSpread: 1
   spread: 10
-  shotsInSpread: 6
+  shotsInSpread: 2

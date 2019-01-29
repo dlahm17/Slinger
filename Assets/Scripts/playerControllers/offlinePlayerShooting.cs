@@ -123,7 +123,7 @@ public class offlinePlayerShooting : MonoBehaviour {
         maxRtxt.text = maxRAmmoCount.ToString();
         maxLtxt.text = maxLAmmoCount.ToString();
         updateUI();
-
+        
         int i = 0;
         while(i < 10)
         {
@@ -208,11 +208,9 @@ public class offlinePlayerShooting : MonoBehaviour {
         while(i < 10)
         {
             //shotGunDir[i].RotateAround(gameObject.transform.position, Vector3.up, spread);
-            shotGunDir[i].Rotate(new Vector3(0, (spread * i), 0));
-            shotGunRenderer[i].SetPosition(1, shotGunDir[i].forward * range);
+            shotGunDir[i].Rotate(new Vector3(0, ((spread/2) * (i + 1)), 0));
             //shotGunDir[i+1].RotateAround(gameObject.transform.position, Vector3.up, -spread);
-            shotGunDir[i + 1].Rotate(new Vector3(0, (-spread * i), 0));
-            shotGunRenderer[i].SetPosition(1, shotGunDir[i].forward * range);
+            shotGunDir[i + 1].Rotate(new Vector3(0, ((-spread/2) * (i+1)), 0));
             i+=2;
         }
 
@@ -484,7 +482,7 @@ public class offlinePlayerShooting : MonoBehaviour {
 
     IEnumerator endGunShotRender()
     {
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(.05f);
         myGunShotRenderer2.SetPosition(1,defVecLeft);
         myGunShotRenderer1.SetPosition(1, defVecRight);
         

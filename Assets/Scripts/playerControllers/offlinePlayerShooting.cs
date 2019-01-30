@@ -175,6 +175,7 @@ public class offlinePlayerShooting : MonoBehaviour {
         maxLAmmoCount = wpn.maxAmmo;
         rightAmmoCount = wpn.maxAmmo;
         leftAmmoCount = wpn.maxAmmo;
+        
 
         gunShotAudio1.clip = wpn.myAudio;
         gunShotAudio2.clip = wpn.myAudio;
@@ -184,6 +185,7 @@ public class offlinePlayerShooting : MonoBehaviour {
 
         maxRtxt.text = maxRAmmoCount.ToString();
         maxLtxt.text = maxLAmmoCount.ToString();
+        reloadAllImmediately();
         updateUI();
 
         if (!isDualWeapon)

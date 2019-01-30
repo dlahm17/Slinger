@@ -5317,7 +5317,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
-  myofflineSpawner: {fileID: 0}
 --- !u!114 &1532632010306377
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -6,7 +6,6 @@ public class MinionCtrl : MonoBehaviour {
     m_Health otherHp;
     public float damage = 1f;
     m_Health myHP;
-    public offlineWaveSpawning myofflineSpawner;
 	// Use this for initialization
 	void Start () {
         myHP = GetComponent<m_Health>();

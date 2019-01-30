@@ -226,6 +226,8 @@ public class offlinePlayerShooting : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+        Debug.DrawRay(GunPos1.transform.position, shotDirR.forward * range, Color.red, 2f);
+        Debug.DrawRay(GunPos2.transform.position, shotDirL.forward * range, Color.red, 2f);
         if (Alive)
         {
             if (canFire)
@@ -401,7 +403,7 @@ public class offlinePlayerShooting : MonoBehaviour {
             if (right && canFire && rightHasAmmo)
             {
                 gunShotAudio1.PlayOneShot(gunShotAudio1.clip);
-                Ray myRay = new Ray(GunPos1.position, shotDirR.position * range);
+                Ray myRay = new Ray(GunPos1.position, shotDirR.forward * range);
 
                 bulletSystem1.Play();
                 canFire = false;
@@ -418,7 +420,7 @@ public class offlinePlayerShooting : MonoBehaviour {
                     float damage = baseBulletDamage + playerstats.damage.GetValue();
                     Vector3 distance = new Vector3(0, 0, Vector3.Distance(hit.collider.gameObject.transform.position, GunPos1.position));
                     myGunShotRenderer1.SetPosition(1, distance);
-                    m_Health hitHp = hit.collider.gameObject.GetComponent<m_Health>();
+                    m_Health hitHp = hit.collider.gameObject.GetComponent<enemyHealth>();
                     //applies damage to object
                     if (hitHp != null)
                     {
@@ -441,7 +443,7 @@ public class offlinePlayerShooting : MonoBehaviour {
                 {
 
                     gunShotAudio2.PlayOneShot(gunShotAudio2.clip);
-                    Ray myRay = new Ray(GunPos2.position, shotDirL.position * range);
+                    Ray myRay = new Ray(GunPos2.position, shotDirL.forward * range);
                     bulletSystem2.Play();
                     canFire = false;
                     leftAmmoCount--;

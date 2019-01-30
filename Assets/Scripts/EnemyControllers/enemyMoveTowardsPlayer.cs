@@ -8,8 +8,6 @@ public class enemyMoveTowardsPlayer : MonoBehaviour {
     GameObject[] PlayerArray = new GameObject[25];
     //string currentMode = "findPlayer";
     NavMeshAgent myAI;
-    offlineWaveSpawning offWaveCtrl;
-   public bool isOffline = false;
     GameObject waveCtrlObj;
     //Rigidbody myrb;
 
@@ -24,27 +22,19 @@ public class enemyMoveTowardsPlayer : MonoBehaviour {
     public float radiusToPlayer;
 
     GameObject target;
+
+    enemyHealth myHealth;
 	// Use this for initialization
 	void Start () {
         //myrb = GetComponent<Rigidbody>();
         waveCtrlObj = GameObject.Find("EnemySpawnCtrl");
-        
-            if (waveCtrlObj != null)
-            {
-                offWaveCtrl = waveCtrlObj.GetComponent<offlineWaveSpawning>();
-            }
-        
+
+        myHealth = GetComponent<enemyHealth>();
         
         players = new List<GameObject>();
         myAI = gameObject.GetComponent<NavMeshAgent>();
         baseSpeed = myAI.speed;
-        if (isOffline)
-        {
-            if (offWaveCtrl != null)
-            {
-                myAI.speed = offWaveCtrl.currentWave + baseSpeed++;
-            }
-        }
+        
        
 
 
@@ -89,15 +79,17 @@ public class enemyMoveTowardsPlayer : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         //time to check the target should decrease the closer the enemy is to the player, with it capping at a certain point to prevent bullshit
-       
-        if (Time.time > checkTime)
-        {
+        
+            if (Time.time > checkTime)
+            {
+            if (!myHealth.amDed)
+            {
+                myAI.SetDestination(target.transform.position);
+                checkTime = Time.time + timeToCheckTarget;
+            }
 
-            myAI.SetDestination(target.transform.position);
-            checkTime = Time.time + timeToCheckTarget;
+
         }
-            
-            
           
     }
 }

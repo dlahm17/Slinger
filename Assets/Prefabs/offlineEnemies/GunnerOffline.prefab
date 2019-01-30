@@ -4827,7 +4827,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6825b59c07f818c4095344b3e4429722, type: 2}
+  - {fileID: 2100000, guid: 37f32e693e1d4094e9e9a860424ca70c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5144,12 +5144,11 @@ GameObject:
   - component: {fileID: 65618315599941818}
   - component: {fileID: 23640822633435968}
   - component: {fileID: 54291289180908386}
-  - component: {fileID: 114991938191078034}
   - component: {fileID: 114819957951292708}
   - component: {fileID: 195814193422722606}
-  - component: {fileID: 108684426812391242}
   - component: {fileID: 114456238836582008}
   - component: {fileID: 114340067423782804}
+  - component: {fileID: 1532632010306377}
   m_Layer: 0
   m_Name: GunnerOffline
   m_TagString: Enemy
@@ -5166,7 +5165,7 @@ Transform:
   m_GameObject: {fileID: 1532632010306376}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -21.915627, y: -4.5826153e-18, z: 41.276527}
-  m_LocalScale: {x: 0.75, y: 1, z: 0.75}
+  m_LocalScale: {x: 2.06834, y: 2.7577865, z: 2.06834}
   m_Children:
   - {fileID: 4440861953488414}
   - {fileID: 224100398672010340}
@@ -5212,7 +5211,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6825b59c07f818c4095344b3e4429722, type: 2}
+  - {fileID: 2100000, guid: 37f32e693e1d4094e9e9a860424ca70c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5248,66 +5247,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
---- !u!114 &114991938191078034
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1532632010306376}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f23174148c7c4043ac43b258e246e9c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 1
-  amDed: 0
-  explosionYOffset: 1
-  destroyWithExplosion: 1
-  explosion: {fileID: 158864, guid: d034133f3af722246887d4a6c2cbf586, type: 3}
-  destroyWithAnimation: 0
-  myAnim: {fileID: 0}
-  animationTime: 0
-  destroyWithSound: 0
-  myAudio: {fileID: 0}
-  isEnemy: 1
-  isPlayer: 0
-  hpSlider: {fileID: 114552102276461394}
-  myMeshes:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  myName: Gunner
-  myTxt: {fileID: 114144621395453592}
-  expTxt: {fileID: 0}
-  goldTxt: {fileID: 0}
-  deadMaterial: {fileID: 0}
-  player: {fileID: 0}
-  isOnline: 0
-  CurrentExp: 0
-  CurrentGold: 0
 --- !u!114 &114819957951292708
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5320,7 +5259,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1f81fd2f4fd26543a070ba2a79fa636, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isOffline: 1
   checkTime: 0
   timeToCheckTarget: 0.1
   baseSpeed: 0
@@ -5348,44 +5286,6 @@ NavMeshAgent:
   m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!108 &108684426812391242
-Light:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1532632010306376}
-  m_Enabled: 1
-  serializedVersion: 8
-  m_Type: 2
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
-  m_Intensity: 1
-  m_Range: 10
-  m_SpotAngle: 30
-  m_CookieSize: 10
-  m_Shadows:
-    m_Type: 0
-    m_Resolution: -1
-    m_CustomResolution: -1
-    m_Strength: 1
-    m_Bias: 0.05
-    m_NormalBias: 0.4
-    m_NearPlane: 0.2
-  m_Cookie: {fileID: 0}
-  m_DrawHalo: 0
-  m_Flare: {fileID: 0}
-  m_RenderMode: 0
-  m_CullingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_Lightmapping: 4
-  m_LightShadowCasterMode: 0
-  m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 1
-  m_ColorTemperature: 6570
-  m_UseColorTemperature: 0
-  m_ShadowRadius: 0
-  m_ShadowAngle: 0
 --- !u!114 &114456238836582008
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5398,8 +5298,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d21998935fa94d54f9a22d6810e341ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mySpawner: {fileID: 0}
-  myofflineSpawner: {fileID: 0}
   range: 0.1
   playerLayer:
     serializedVersion: 2
@@ -5419,8 +5317,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
-  mySpawner: {fileID: 0}
   myofflineSpawner: {fileID: 0}
+--- !u!114 &1532632010306377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1532632010306376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36586cf9f40320e429fde561bbc3c611, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 5
+  amDed: 0
+  hpSlider: {fileID: 114552102276461394}
+  myName: Gunner(Debug)
+  myTxt: {fileID: 114144621395453592}
+  deathByExplosion: 0
+  Explosion: {fileID: 0}
+  deathByAudio: 0
+  deathAudio: {fileID: 0}
+  deathWithAnim: 0
+  myAnim: {fileID: 0}
+  timeForAnimation: 0
+  Armor: 5
+  magicalArmor: 5
 --- !u!1 &1546333081077748
 GameObject:
   m_ObjectHideFlags: 0
@@ -5621,7 +5544,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a686cbbefa52e0a429b16cc5ce54e573, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  life: 0.3
+  life: 0.2
   killAfterLife: 1
 --- !u!1 &1691139365457788
 GameObject:

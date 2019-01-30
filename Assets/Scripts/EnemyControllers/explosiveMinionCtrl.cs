@@ -8,7 +8,7 @@ public class explosiveMinionCtrl : MonoBehaviour {
     float damage = 1f;
     m_Health myHP;
 
-    public offlineWaveSpawning myofflineSpawner;
+
     
 
     [SerializeField]

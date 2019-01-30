@@ -6,8 +6,7 @@ public class gunEnemyCtrl : MonoBehaviour {
     m_Health otherHp;
     float damage = 1f;
     m_Health myHP;
-
-    public offlineWaveSpawning myofflineSpawner;
+    
     public float range;
     public LayerMask playerLayer;
 
@@ -32,14 +31,18 @@ public class gunEnemyCtrl : MonoBehaviour {
         Ray ray = new Ray(gunPos.position, transform.forward * range);
         if (Time.time > reloadTime)
         {
+            
             if(Physics.Raycast(ray, out hit, playerLayer))
             {
-                //Debug.Log(hit.collider.gameObject.name);
-                if (hit.collider.gameObject.tag.Equals("Player"))
+                if (!myHP.amDed)
                 {
-                    Debug.Log("Firing on player");
-                    shoot();
-                    reloadTime = Time.time + timeToReload;
+                    //Debug.Log(hit.collider.gameObject.name);
+                    if (hit.collider.gameObject.tag.Equals("Player"))
+                    {
+                        Debug.Log("Firing on player");
+                        shoot();
+                        reloadTime = Time.time + timeToReload;
+                    }
                 }
             }
         }

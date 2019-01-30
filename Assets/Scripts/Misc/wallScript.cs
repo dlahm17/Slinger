@@ -20,7 +20,7 @@ public class wallScript : MonoBehaviour {
     {
         if (other.tag.Equals("InvisTrigger"))
         {
-            //Debug.Log("We going invisible bois");
+            Debug.Log("We going invisible bois");
             myrender.material = invisMaterial;
         }
     }
@@ -28,6 +28,7 @@ public class wallScript : MonoBehaviour {
     {
         if (other.tag.Equals("InvisTrigger"))
         {
+            Debug.Log("Back to visible");
             myrender.material = regMaterial;
         }
     }

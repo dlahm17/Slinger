@@ -3,6 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EquipmentUI : MonoBehaviour {
+
+    #region singleton
+    public static EquipmentUI instance;
+    private void Awake()
+    {
+        if(instance != null)
+        {
+            Debug.LogWarning("More than one equipmentUI");
+            return;
+            
+        }
+        instance = this;
+    }
+    #endregion
     EquipmentManager Equipment;
     public Transform itemsParent;
 
@@ -23,7 +37,7 @@ public class EquipmentUI : MonoBehaviour {
 	}
 	
 
-    void UpdateUI(Equipment newItem, Equipment oldItem)
+    public void UpdateUI(Equipment newItem, Equipment oldItem)
     {
         if (newItem != null)
         {

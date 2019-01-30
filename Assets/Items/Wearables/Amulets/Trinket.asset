@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfb414ddc69c6a8469dd0d2ba762352f, type: 3}
+  m_Name: Trinket
+  m_EditorClassIdentifier: 
+  name: Trinket
+  Icon: {fileID: 21300000, guid: cca119e5c2751674195ecd7799a8c4e8, type: 3}
+  isDefault: 1
+  equipSlot: 3
+  armorModifier: 0
+  damageModifier: 0
+  mArmorModifier: 0
+  mDamageModifier: 0
+  stealthModifier: 1
+  speedModifier: 0

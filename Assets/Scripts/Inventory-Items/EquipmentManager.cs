@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EquipmentManager : MonoBehaviour {
+    public Equipment[] defaultEquipment = new Equipment[5];
     #region singleton
     public static EquipmentManager instance;
 
@@ -28,12 +29,31 @@ public class EquipmentManager : MonoBehaviour {
         int numSlots = System.Enum.GetNames(typeof(EquipmentSlot)).Length;
         currentEquipment = new Equipment[numSlots];
         inventory = Inventory.instance;
+        int i = 0;
+        while (i < currentEquipment.Length) {
+            if (currentEquipment[i] == null)
+            {
+                Debug.Log("Equipping default weapon");
+                Equip(defaultEquipment[i]);
+                Equipment oldItem = null;
+                EquipmentUI.instance.UpdateUI(defaultEquipment[i], oldItem);
+            }
+
+            Debug.Log("Moving to next equipment");
+            i++;
+        }
+        GameObject Player = GameObject.FindGameObjectWithTag("Player");
+        Player.GetComponent<offlinePlayerShooting>().setWeapon(currentEquipment[2] as Weapon);
 
     }
 
     public Equipment getWeapon()
     {
-        return currentEquipment[2];
+        if (currentEquipment[2] != null)
+        {
+            return currentEquipment[2];
+        }
+        return null;
         
     }
 

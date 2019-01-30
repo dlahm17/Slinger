@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 638d0a7692777fc40bd99914e2d1861b, type: 3}
+  m_Name: RustyRevolvers
+  m_EditorClassIdentifier: 
+  name: Rusty Revolvers
+  Icon: {fileID: 0}
+  isDefault: 1
+  equipSlot: 2
+  armorModifier: 0
+  damageModifier: 1
+  mArmorModifier: 0
+  mDamageModifier: 0
+  stealthModifier: 0
+  speedModifier: 0
+  myWeaponType: 0
+  myType: 0
+  myMesh: {fileID: 0}
+  myAudio: {fileID: 8300000, guid: fdbc18edd950bf74ba6ef63190b4362c, type: 3}
+  timeToReloadSingleShot: 0.1
+  maxAmmo: 5
+  timeBetweenShots: 0.2
+  isDualWeapon: 1
+  isSingleShot: 1
+  isSpread: 0
+  spread: 0
+  shotsInSpread: 0

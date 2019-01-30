@@ -16,6 +16,9 @@ public class Inventory : MonoBehaviour {
             return;
         }
         instance = this;
+
+
+        
     }
     #endregion
 
@@ -51,8 +54,7 @@ public class Inventory : MonoBehaviour {
     }
     public bool Add(Item item)
     {
-        if (!item.isDefault)
-        {
+        
             if(items.Count >= space)
             {
                 Debug.Log("Not Enough Room");
@@ -64,7 +66,7 @@ public class Inventory : MonoBehaviour {
             {
                 onItemChangedCallback.Invoke();
             }
-        }
+        
         return true;
     }
 

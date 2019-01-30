@@ -132,20 +132,19 @@ public class offlinePlayerShooting : MonoBehaviour {
             i++;
         }
         
-
-        setWeapon((Weapon)eqManage.getWeapon());
+        
     }
 
     public void updateWeapon(Equipment newItem, Equipment oldItem)
     {
-        if ((Weapon)newItem)
+        if (newItem as Weapon != null)
         {
             Debug.Log(newItem);
+            setWeapon((Weapon)newItem);
         }
-        setWeapon((Weapon)newItem);
     }
 
-    void setWeapon(Weapon myEquip)
+    public void setWeapon(Weapon myEquip)
     {
         
         if(myEquip == null)
@@ -216,18 +215,21 @@ public class offlinePlayerShooting : MonoBehaviour {
             i+=2;
         }
 
+        /*
         Debug.Log(wpn.name);
         Debug.Log(shotsInSpread);
         Debug.Log(spread);
-
+        */
     }
 
 
     // Update is called once per frame
     void Update()
     {
+        /*
         Debug.DrawRay(GunPos1.transform.position, shotDirR.forward * range, Color.red, 2f);
         Debug.DrawRay(GunPos2.transform.position, shotDirL.forward * range, Color.red, 2f);
+        */
         if (Alive)
         {
             if (canFire)

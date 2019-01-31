@@ -401,7 +401,7 @@ public class offlinePlayerShooting : MonoBehaviour {
         }
         if (myWeaponType == weaponType.dualRevolvers || myWeaponType == weaponType.Rifle)
         {
-            Debug.Log("Single Shot");
+            //Debug.Log("Single Shot");
             if (right && canFire && rightHasAmmo)
             {
                 gunShotAudio1.PlayOneShot(gunShotAudio1.clip);

@@ -33,13 +33,13 @@ public class EquipmentManager : MonoBehaviour {
         while (i < currentEquipment.Length) {
             if (currentEquipment[i] == null)
             {
-                Debug.Log("Equipping default weapon");
+              //  Debug.Log("Equipping default weapon");
                 Equip(defaultEquipment[i]);
                 Equipment oldItem = null;
                 EquipmentUI.instance.UpdateUI(defaultEquipment[i], oldItem);
             }
 
-            Debug.Log("Moving to next equipment");
+          //  Debug.Log("Moving to next equipment");
             i++;
         }
         GameObject Player = GameObject.FindGameObjectWithTag("Player");

@@ -35,11 +35,15 @@ public class DialogueController : MonoBehaviour
     public void ActivateDialogue(Dialogue dialogueToSpeak, NPCDialogueNode activeNode)
     {
         currentlyActiveNode = activeNode;
-        dialogueActive = true;
         speakerText.text = dialogueToSpeak.dialogueString;
         speakerImage.sprite = dialogueToSpeak.speakerFace;
+        StartCoroutine("waitFrameForActivation");
     }
-
+    IEnumerator waitFrameForActivation()
+    {
+        yield return new WaitForEndOfFrame();
+        dialogueActive = true;
+    }
     //Deactivate Dialogue is called from the NPC dialogue node once the dialogue is finished
     public void DeactivateDialogue()
     {
@@ -61,6 +65,7 @@ public class DialogueController : MonoBehaviour
         {
             DialogueGameObject.SetActive(true);
         }
+        
         if(dialogueActive && DialogueGameObject.activeInHierarchy && Input.GetButtonDown("Interact"))
         {
             if(currentlyActiveNode != null)
@@ -68,5 +73,6 @@ public class DialogueController : MonoBehaviour
                 currentlyActiveNode.activateDialogue();
             }
         }
+        
     }
 }

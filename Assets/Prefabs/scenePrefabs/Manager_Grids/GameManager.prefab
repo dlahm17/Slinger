@@ -3391,6 +3391,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f43b6399c36139540bef8468f3860272, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defaultEquipment:
+  - {fileID: 11400000, guid: 91bceba6fbad1904987a5eccdf2fa3d0, type: 2}
+  - {fileID: 11400000, guid: 2b509cfb40dfda443a6c83336b0a59bb, type: 2}
+  - {fileID: 11400000, guid: 2807351c9da9e5b48a6b6507ce0046f1, type: 2}
+  - {fileID: 11400000, guid: 58ad55fde282e5548bdfe8c565638520, type: 2}
+  - {fileID: 11400000, guid: e34a1b08ed2252e45b65f4c61aafe714, type: 2}
 --- !u!114 &2781890348260220354
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5672,12 +5678,23 @@ PrefabInstance:
       propertyPath: LeftAmmoCounter
       value: 
       objectReference: {fileID: 1367400382813964321}
+    - target: {fileID: 114727066807874692, guid: 6e8270eb2bcdbbc43b1fb6339241fcef,
+        type: 3}
+      propertyPath: hpSlider
+      value: 
+      objectReference: {fileID: 4224546552834687340}
+    - target: {fileID: 114727066807874692, guid: 6e8270eb2bcdbbc43b1fb6339241fcef,
+        type: 3}
+      propertyPath: myTxt
+      value: 
+      objectReference: {fileID: 1116649809545408358}
     - target: {fileID: 114816303614425312, guid: 6e8270eb2bcdbbc43b1fb6339241fcef,
         type: 3}
       propertyPath: myAnim
       value: 
       objectReference: {fileID: 160278673}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3310303448088254959, guid: 6e8270eb2bcdbbc43b1fb6339241fcef, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 6e8270eb2bcdbbc43b1fb6339241fcef, type: 3}
 --- !u!1 &6645726658718151584 stripped
 GameObject:

@@ -13,7 +13,7 @@ public class NPCDialogueNode : InteractablePickup
     int i = 0;
 
     //These variables set the distance the player can move from the speaker before the dialogue just ends.
-    public float maxDistFromPlayer = 5f;
+    public float maxDistFromPlayer = 7.5f;
     GameObject player;
 
 
@@ -21,6 +21,7 @@ public class NPCDialogueNode : InteractablePickup
     public void Start()
     {
         //This gets the variables for the dialogue controller and player along with setting the node properly.  Note that the NPC behaviour should control what node is active on the npc's dialogue tree.
+        Debug.Log("Initializing node");
         dialogueCtrl = DialogueController.instance;
         i = 0;
         player = GameObject.FindGameObjectWithTag("Player");
@@ -28,9 +29,9 @@ public class NPCDialogueNode : InteractablePickup
     //interact activates the dialogue so long as the dialogue isn't active.
     public override void Interact()
     {
-        base.Interact();
         if (!active)
         {
+            active = true;
             activateDialogue();
         }
     }
@@ -50,9 +51,9 @@ public class NPCDialogueNode : InteractablePickup
     //Activate both activates the initial dialogue and it also swaps to  the further dialogue items in the tree.  If there's no more items, the dialogue ends.
     public void activateDialogue()
     {
-        active = true;
         if(myDialogue[i] == null)
         {
+            Debug.Log("Dialogue null, resetting");
             dialogueCtrl.DeactivateDialogue();
             active = false;
             i = 0;
@@ -60,6 +61,7 @@ public class NPCDialogueNode : InteractablePickup
         }
         if (myDialogue[i] != null)
         {
+            Debug.Log("Sending Dialogue Upwards");
             dialogueCtrl.ActivateDialogue(myDialogue[i], this);
             i++;
         }

@@ -48,8 +48,8 @@ public class Inventory : MonoBehaviour {
 
         if (goldTxt != null && expTxt != null)
         {
-            goldTxt.text = currentGold.ToString();
-            expTxt.text = currentExp.ToString();
+            goldTxt.text = "G: " + currentGold.ToString();
+            expTxt.text = "EXP: " + currentExp.ToString();
         }
     }
     public bool Add(Item item)

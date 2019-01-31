@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 132eb6d1b4c6ddf47b7f89eeb3222cf0, type: 3}
+  m_Name: GuardDialogue1_2
+  m_EditorClassIdentifier: 
+  name: GuardDialogue1
+  speakerFace: {fileID: 0}
+  dialogueString: I don't see why we need to, these walls are massive.

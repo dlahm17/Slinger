@@ -24024,17 +24024,12 @@ PrefabInstance:
     - target: {fileID: 108540704926905592, guid: d72582681bbc4af4592e134e1b3096e6,
         type: 3}
       propertyPath: m_Intensity
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 108540704926905592, guid: d72582681bbc4af4592e134e1b3096e6,
         type: 3}
       propertyPath: m_Range
       value: 28.239845
-      objectReference: {fileID: 0}
-    - target: {fileID: 108540704926905592, guid: d72582681bbc4af4592e134e1b3096e6,
-        type: 3}
-      propertyPath: m_Shadows.m_Type
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 108540704926905592, guid: d72582681bbc4af4592e134e1b3096e6,
         type: 3}
@@ -24987,7 +24982,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 198522370675329334, guid: 01df4dad5e3315d4994c5f493c284a39,
         type: 3}
-      propertyPath: LightsModule.enabled
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 198522370675329334, guid: 01df4dad5e3315d4994c5f493c284a39,
+        type: 3}
+      propertyPath: InitialModule.startLifetime.minScalar
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 198522370675329334, guid: 01df4dad5e3315d4994c5f493c284a39,
+        type: 3}
+      propertyPath: ExternalForcesModule.enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 198522370675329334, guid: 01df4dad5e3315d4994c5f493c284a39,
@@ -25000,21 +25005,6 @@ PrefabInstance:
       propertyPath: LightsModule.light
       value: 
       objectReference: {fileID: 3862600903097434620}
-    - target: {fileID: 198522370675329334, guid: 01df4dad5e3315d4994c5f493c284a39,
-        type: 3}
-      propertyPath: InitialModule.startLifetime.minScalar
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 198522370675329334, guid: 01df4dad5e3315d4994c5f493c284a39,
-        type: 3}
-      propertyPath: InitialModule.startLifetime.scalar
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 198522370675329334, guid: 01df4dad5e3315d4994c5f493c284a39,
-        type: 3}
-      propertyPath: ExternalForcesModule.enabled
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 01df4dad5e3315d4994c5f493c284a39, type: 3}
 --- !u!4 &3861152374357680350 stripped

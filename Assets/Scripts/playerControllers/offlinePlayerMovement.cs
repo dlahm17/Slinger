@@ -32,7 +32,7 @@ public class offlinePlayerMovement : MonoBehaviour
     float dashMultiplier = 2f;
     bool currentlyDashing = false;
     //mylight will be a light that is held by the player eventually, this would most likely be a lantern that affects stealth skills.  With BaseIntensity being the base intensity of the lantern itself.
-    Light mylight;
+    public Light mylight;
     public float baseintensity = 5;
 
     //mycam and thiscam are the camera and the cam follow script that we use in Start to set the camera's target and offset
@@ -43,6 +43,13 @@ public class offlinePlayerMovement : MonoBehaviour
     bool climbing = false;
     public float climbingSpeed = 2f;
 
+    //checks if the player is grounded, and if so then gravity is changed to be effective.
+    public Transform groundCheck;
+    bool grounded;
+    public float groundCheckRadius = 1f;
+    public LayerMask floor;
+    public float fallSpeed = 1f;
+    float currentFallSpeed;
     // Use this for initialization
     void Start()
     {
@@ -56,7 +63,6 @@ public class offlinePlayerMovement : MonoBehaviour
         Alive = true;
         floormask = LayerMask.GetMask("Floor");
         playerRigidbody = GetComponent<Rigidbody>();
-        mylight = GetComponent<Light>();
         Camera[] Cameras = GameObject.FindObjectsOfType<Camera>();
         foreach (Camera Cam in Cameras)
         {
@@ -81,6 +87,7 @@ public class offlinePlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         if (Input.GetButtonDown("8"))
         {
             Debug.Log("took damage");
@@ -98,17 +105,28 @@ public class offlinePlayerMovement : MonoBehaviour
                 transform.Translate((Vector3.down * Time.deltaTime) * climbingSpeed);
             }
         }
-            if (!animUp)
-            {
+        //Anim up is false if the menu isn't open.
+        if (!animUp)
+        {
             if (!climbing)
             {
+                //Check if the player is grounded, if he isn't, then use gravity, elsewise don't.
+                grounded = Physics.CheckSphere(groundCheck.position, groundCheckRadius, floor);
+                if (grounded)
+                {
+                    currentFallSpeed = 0;
+                }
+                if (!grounded)
+                {
+                    currentFallSpeed = fallSpeed;
+                }
                 float MovX;
                 float movZ;
                 MovX = Input.GetAxisRaw("Horizontal");
                 movZ = Input.GetAxisRaw("Vertical");
                 if (currentlyDashing == false)
                 {
-                    moveMe(MovX, movZ);
+                    moveMe(MovX, movZ, currentFallSpeed);
                     //mylight.intensity = (Mathf.Abs(MovX) + Mathf.Abs(movZ)) * baseintensity;
                 }
                 if (!Alive && myCollider.enabled)
@@ -126,41 +144,57 @@ public class offlinePlayerMovement : MonoBehaviour
                     dashReload = Time.time + timetoReloadDash;
                 }
             }
-            }
-            if (animUp)
-            {
-                moveMe(0, 0);
-            }
+        }
+        if (animUp)
+        {
+        moveMe(0, 0, currentFallSpeed);
+        }
+        //pull up the inventory screen if tab is pressed, we could also have it be I for inventory
             if (Input.GetButtonDown("Tab"))
             {
                 InventoryControl();
 
             }
+            //Interact will always be the spacebar
             if (Input.GetButtonDown("Interact"))
             {
                 Interact();
             }
+            //lightchange will be the F key
+        if (Input.GetButtonDown("LightChange"))
+        {
+            swapLight();
+        }
         
     }
-
+    //swap Light turns the light on and off upon button pressing.
+    void swapLight()
+    {
+        mylight.enabled = !mylight.enabled;
+    }
+    //Interact will call the interactable function if you're over an interactable object.
     void Interact()
     {
+        //sends out a ray from the camera, and sends it to the mouse position
         Ray ray = myCam.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
 
         if(Physics.Raycast(ray, out hit, camRayLength))
         {
+            //If you hit something, check to see if it's interactable
             InteractablePickup interactable = hit.collider.GetComponent<InteractablePickup>();
             if(interactable != null)
             {
                 if (interactable.isInRadius)
                 {
+                    //If it's interactable and you're within the radius of the object, call the interaction funciton on it.
                     interactable.Interact();
                 }
             }
         }
     }
 
+    //inventory control controls whether the inventory screen is active or not.
     void InventoryControl()
     {
         
@@ -181,15 +215,18 @@ public class offlinePlayerMovement : MonoBehaviour
             }
         
     }
+    //Dash controls the dashing ability on the player.
     void Dash(float movX, float movZ)
     {
+        //set the dashing bools for both the controller and the animator true.
         currentlyDashing = true;
         myAnim.SetBool("Dashing", true);
-        //Debug.Log("Dashing");
+        //reload all ammo in the guns.
         myShooting.reloadAllImmediately();
-        //mylight.intensity = baseintensity * (Mathf.Abs(movX) + Mathf.Abs(movZ)) * dashMultiplier;
+        //then apply physics to show the dash.
         Vector3 mov = new Vector3(movX * dashMultiplier, 0, movZ * dashMultiplier);
         playerRigidbody.velocity = ((mov * speed) * Time.deltaTime);
+        //We then call the endDash Coroutine, which waits, then resets everything.
         StartCoroutine("EndDash");
     }
     IEnumerator EndDash()
@@ -199,11 +236,11 @@ public class offlinePlayerMovement : MonoBehaviour
         playerRigidbody.velocity = Vector3.zero;
         currentlyDashing = false;
     }
-
-    void moveMe(float movX, float movZ)
+    //Move me takes information from the axes, and then applies them to both the animator and the player controller.
+    void moveMe(float movX, float movZ, float fallSpeed)
     {
 
-        Vector3 movement = new Vector3(movX, 0, movZ);
+        Vector3 movement = new Vector3(movX, fallSpeed, movZ);
         movement = (movement.normalized * speed) * Time.smoothDeltaTime;
         playerRigidbody.velocity = movement;
         if(movX != 0 || movZ != 0)
@@ -216,6 +253,7 @@ public class offlinePlayerMovement : MonoBehaviour
         }
         if (!animUp)
         {
+            //It also controls the rotation of the player in relation of where the mouse is.
             Ray camRay = myCam.ScreenPointToRay(Input.mousePosition);
 
             RaycastHit floorHit;
@@ -241,7 +279,7 @@ public class offlinePlayerMovement : MonoBehaviour
     {
         thisCam.getNewGrid(grid);
     }
-
+    //Start and Stop climbing effect how the player gets on ladders
     public void StartClimbing()
     {
         climbing = true;

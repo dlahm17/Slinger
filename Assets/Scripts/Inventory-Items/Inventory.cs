@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class Inventory : MonoBehaviour {
 
+    //There's only one inventory in any scene
     #region singleton
     public static Inventory instance;
 
@@ -21,23 +22,30 @@ public class Inventory : MonoBehaviour {
         
     }
     #endregion
-
+    //Allow other scripts to add their own methods to whenever an item is changed (for example, equipment manager, stats, etc.)
     public delegate void OnItemChanged();
     public OnItemChanged onItemChangedCallback;
 
+    //space is how many items that the player to hold.
     public int space = 20;
 
     public List<Item> items = new List<Item>();
 
-    public float currentGold;
-    public float currentExp;
+    //Current gold and experience handles the gold and experience the the player currently owns.s
+    [SerializeField]
+    float currentGold;
+    [SerializeField]
+    float currentExp;
 
+    //These fields are for showing the UI, the gold, and the experience.
     [SerializeField]
     GameObject UIObj;
     [SerializeField]
     Text goldTxt;
     [SerializeField]
     Text expTxt;
+
+    public List<Key> keys = new List<Key>();
 
     public void giveGold(int goldtoGive)
     {
@@ -76,6 +84,29 @@ public class Inventory : MonoBehaviour {
         if (onItemChangedCallback != null)
         {
             onItemChangedCallback.Invoke();
+        }
+    }
+
+    public void addKey(Key keyToAdd)
+    {
+        if (keys.Contains(keyToAdd)){
+            Debug.LogError("Key already obtained, fuck off");
+        }
+        else
+        {
+            keys.Add(keyToAdd);
+        }
+    }
+
+    public bool queryKey(Key checkingKey)
+    {
+        if (keys.Contains(checkingKey))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
         }
     }
 }

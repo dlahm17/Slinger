@@ -48,7 +48,7 @@ public class offlinePlayerMovement : MonoBehaviour
     bool grounded;
     public float groundCheckRadius = 1f;
     public LayerMask floor;
-    public float fallSpeed = 1f;
+    public float fallSpeed = 5f;
     float currentFallSpeed;
     // Use this for initialization
     void Start()

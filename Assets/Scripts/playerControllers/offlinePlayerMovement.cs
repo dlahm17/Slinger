@@ -50,6 +50,8 @@ public class offlinePlayerMovement : MonoBehaviour
     public LayerMask floor;
     public float fallSpeed = 5f;
     float currentFallSpeed;
+
+    public LayerMask interactableLayer;
     // Use this for initialization
     void Start()
     {
@@ -179,7 +181,7 @@ public class offlinePlayerMovement : MonoBehaviour
         Ray ray = myCam.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
 
-        if(Physics.Raycast(ray, out hit, camRayLength))
+        if(Physics.Raycast(ray, out hit, camRayLength, interactableLayer,  QueryTriggerInteraction.Ignore))
         {
             //If you hit something, check to see if it's interactable
             InteractablePickup interactable = hit.collider.GetComponent<InteractablePickup>();
@@ -258,7 +260,7 @@ public class offlinePlayerMovement : MonoBehaviour
 
             RaycastHit floorHit;
 
-            if (Physics.Raycast(camRay, out floorHit, camRayLength, floormask))
+            if (Physics.Raycast(camRay, out floorHit, camRayLength, floormask, QueryTriggerInteraction.Ignore ))
             {
                 // Create a vector from the player to the point on the floor the raycast from the mouse hit.
                 Vector3 playerToMouse = floorHit.point - transform.position;

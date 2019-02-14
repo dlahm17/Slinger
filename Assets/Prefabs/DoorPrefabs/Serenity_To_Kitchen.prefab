@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 880806252571751903}
   - component: {fileID: 4782749096042900786}
   - component: {fileID: 3570983912483643537}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: roof_square_top_01 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -88,7 +88,7 @@ GameObject:
   - component: {fileID: 5115440897410516860}
   - component: {fileID: 3287686878816349732}
   - component: {fileID: 813558080261911537}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Block_1x4x1_Ridged_Patterned
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -165,7 +165,7 @@ GameObject:
   - component: {fileID: 2412521307707677442}
   - component: {fileID: 4369960585279746478}
   - component: {fileID: 2808017219322915102}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Block_1x4x1_Damaged_Heavy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -242,7 +242,7 @@ GameObject:
   - component: {fileID: 7284213277882168558}
   - component: {fileID: 1434579116607026689}
   - component: {fileID: 5117004226088694513}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Block_1x4x1_Ridged_Patterned (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -319,7 +319,7 @@ GameObject:
   - component: {fileID: 708022490996468370}
   - component: {fileID: 4310225347034673046}
   - component: {fileID: 5014429537115383618}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: roof_square_top_01 (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -396,7 +396,7 @@ GameObject:
   - component: {fileID: 7993561072386749540}
   - component: {fileID: 3183375827259572034}
   - component: {fileID: 4756430287497728917}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Block_1x4x1_Ridged_Patterned (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -473,7 +473,7 @@ GameObject:
   - component: {fileID: 898474314363369280}
   - component: {fileID: 8282449254948616799}
   - component: {fileID: 4859501745263763150}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -552,7 +552,7 @@ GameObject:
   - component: {fileID: 4877325008645349371}
   - component: {fileID: 2823448442939514575}
   - component: {fileID: 8498828348192583320}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Block_1x4x1_Ridged_Patterned (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -629,7 +629,7 @@ GameObject:
   - component: {fileID: 3213980450552089621}
   - component: {fileID: 5920364498491630997}
   - component: {fileID: 2871307899825232408}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Block_1x4x1_Ridged_Patterned (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -704,7 +704,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5914614539993348660}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: PlayerStartTrans
   m_TagString: Untagged
   m_Icon: {fileID: 7422848464349959988, guid: 0000000000000000d000000000000000, type: 0}
@@ -736,7 +736,7 @@ GameObject:
   - component: {fileID: 5948250974182619237}
   - component: {fileID: 7797518106593651274}
   - component: {fileID: 1763326709562068662}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: roof_square_top_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -815,7 +815,7 @@ GameObject:
   - component: {fileID: 7294879379055627297}
   - component: {fileID: 1853262352815510657}
   - component: {fileID: 8529855041994650846}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Door
   m_TagString: Door
   m_Icon: {fileID: 0}
@@ -926,7 +926,7 @@ GameObject:
   - component: {fileID: 4267977927982326261}
   - component: {fileID: 2784583176265045698}
   - component: {fileID: 5810477415191208452}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: roof_square_top_01 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1003,7 +1003,7 @@ GameObject:
   - component: {fileID: 624967554200296930}
   - component: {fileID: 5327143023835517398}
   - component: {fileID: 8721684855236643620}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Block_1x4x1_Damaged_Heavy (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1081,7 +1081,7 @@ GameObject:
   - component: {fileID: 8444255802449015945}
   - component: {fileID: 6893594334376464671}
   - component: {fileID: 238089893451437283}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1179,7 +1179,7 @@ GameObject:
   - component: {fileID: 4300043971046181090}
   - component: {fileID: 7415991987804248410}
   - component: {fileID: 567255995961333715}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Serenity_To_Kitchen
   m_TagString: Untagged
   m_Icon: {fileID: 0}

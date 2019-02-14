@@ -6,30 +6,48 @@ public class wallScript : MonoBehaviour {
     public Material invisMaterial;
     private Material regMaterial;
 
-    Renderer myrender;
+    MeshRenderer myrender;
    
     public bool isInvis = false;
 
     private void Start()
     {
-        myrender = GetComponent<Renderer>();
-        regMaterial = myrender.material;
+        myrender = GetComponent<MeshRenderer>();
+        regMaterial = myrender.materials[0];
+    }
+    private void Update()
+    {
+        if (isInvis)
+        {
+            if(myrender.material != invisMaterial)
+            {
+                myrender.materials[0] = invisMaterial;
+            }
+        }
+        if (!isInvis)
+        {
+            if(myrender.material != regMaterial)
+            {
+                myrender.materials[0] = regMaterial;
+            }
+        }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag.Equals("InvisTrigger"))
+        Debug.Log("Trigger Collision");
+        if(other.tag.Equals("InvisTrigger"))
         {
             Debug.Log("We going invisible bois");
-            myrender.material = invisMaterial;
+            isInvis = true;
         }
     }
     private void OnTriggerExit(Collider other)
     {
-        if (other.tag.Equals("InvisTrigger"))
+        if(other.tag.Equals("InvisTrigger"))
         {
             Debug.Log("Back to visible");
-            myrender.material = regMaterial;
+            isInvis = false;
         }
     }
 

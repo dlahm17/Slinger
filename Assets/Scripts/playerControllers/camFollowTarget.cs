@@ -6,7 +6,6 @@ public class camFollowTarget : MonoBehaviour {
     public Transform target;
     public Vector3 offset;
     public float rayLength;
-    public LayerMask wallMask;
 
     GameObject hitWall;
     wallScript myWall;
@@ -33,7 +32,7 @@ public class camFollowTarget : MonoBehaviour {
     
     public void resetPosition()
     {
-
+        Debug.Log("Resetting Camera Position");
         transform.position = target.position - offset;
     }
 

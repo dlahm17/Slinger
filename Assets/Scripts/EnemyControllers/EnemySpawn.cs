@@ -9,11 +9,14 @@ public class EnemySpawn : MonoBehaviour {
     /// </summary>
     public GameObject EnemyPrefab;
     GameObject currentEnemy;
+
+    bool hasSpawned = false;
+        
     public void Deactivate()
     {
-        if(currentEnemy == null)
+        if (currentEnemy == null && hasSpawned == false)
         {
-
+            hasSpawned = true;
             currentEnemy = Instantiate(EnemyPrefab, transform.position, Quaternion.Euler(0, 0, 0));
             currentEnemy.transform.position = transform.position;
             currentEnemy.SetActive(false);
@@ -21,7 +24,6 @@ public class EnemySpawn : MonoBehaviour {
         }
         if (currentEnemy != null)
         {
-            currentEnemy.transform.position = transform.position;
             currentEnemy.SetActive(false);
             return;
         }
@@ -32,7 +34,7 @@ public class EnemySpawn : MonoBehaviour {
         {
             currentEnemy.SetActive(true);
         }
-        if(currentEnemy == null)
+        if(currentEnemy == null && hasSpawned == false)
         {
             Deactivate();
             Activate();

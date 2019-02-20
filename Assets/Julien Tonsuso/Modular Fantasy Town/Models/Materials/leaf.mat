@@ -5,7 +5,8 @@ Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_Name: leaf
   m_Shader: {fileID: 4800000, guid: b21dd9ef5428e47d88f72f8f830c7e26, type: 3}
   m_ShaderKeywords: 
@@ -88,7 +89,7 @@ Material:
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _TimeOffset: 0.25
-    - _TranslucencyStrength: 0.5
+    - _TranslucencyStrength: 0.594
     - _TumbleFrequency: 1
     - _TumbleStrength: 0.1
     - _UVSec: 0

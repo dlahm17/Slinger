@@ -113,7 +113,7 @@ public class offlinePlayerMovement : MonoBehaviour
             if (!climbing)
             {
                 //Check if the player is grounded, if he isn't, then use gravity, elsewise don't.
-                grounded = Physics.CheckSphere(groundCheck.position, groundCheckRadius, floor);
+                grounded = Physics.CheckSphere(groundCheck.position, groundCheckRadius);
                 if (grounded)
                 {
                     currentFallSpeed = 0;

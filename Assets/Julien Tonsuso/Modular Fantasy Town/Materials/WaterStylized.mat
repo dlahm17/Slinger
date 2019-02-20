@@ -5,7 +5,8 @@ Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_Name: WaterStylized
   m_Shader: {fileID: 4800000, guid: c4258c8a7cdb282459face4966f11973, type: 3}
   m_ShaderKeywords: 
@@ -124,9 +125,9 @@ Material:
     - _Float2: 0.56
     - _Float4: 0.94
     - _Float5: 0
-    - _FoamDepth: 0.7
+    - _FoamDepth: -1.02
     - _FoamDist: 0.135
-    - _FoamFalloff: -4
+    - _FoamFalloff: -6.14
     - _FoamSmoothness: 0
     - _FoamSpecular: 0
     - _FresnelP: 4.38
@@ -147,14 +148,14 @@ Material:
     - _Pattern: 0
     - _PatternAlpha: 0.078
     - _PatternSp: 0
-    - _PatternSpeed: 0.017
+    - _PatternSpeed: 0.15
     - _Patterndarkalpha: 0.034
     - _S: 0
-    - _Smoothness: 0.919
+    - _Smoothness: 0.819
     - _SmoothnessTextureChannel: 0
     - _Specular: 1
     - _SpecularHighlights: 1
-    - _Speed: 3.4
+    - _Speed: 1.59
     - _SrcBlend: 1
     - _TessMax: 25
     - _TessMin: 10
@@ -166,7 +167,7 @@ Material:
     - _TransShadow: 0.9
     - _Translucency: 1
     - _UVSec: 0
-    - _WaterDepth: 1.39
+    - _WaterDepth: 6.84
     - _WaterFalloff: -6.36
     - _WaterSmoothness: 0
     - _WaterSpecular: 0

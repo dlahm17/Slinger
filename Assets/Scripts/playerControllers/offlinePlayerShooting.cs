@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-public enum specialAbility {Absorb, Dynamite, Icicle }
+public enum specialAbility {Absorb, Knife, Reflect, Dynamite, Icicle, Stealth, Tank}
 
 
 public class offlinePlayerShooting : MonoBehaviour {
@@ -82,6 +82,12 @@ public class offlinePlayerShooting : MonoBehaviour {
     damageType myWeaponDamageType;
     EquipmentManager eqManage;
     float timeToReloadBullet = .2f;
+
+    List<specialAbility> mySpAbilities = new List<specialAbility>();
+    int currentSpAbility = 0;
+    public Image spAbiImg;
+    List<Sprite> spAbiImageSprite = new List<Sprite>();
+   
 
     private void Start()
     {
@@ -258,6 +264,38 @@ public class offlinePlayerShooting : MonoBehaviour {
 
     void specialAbility(specialAbility myabi)
     {
+
+    }
+    void specialAbilityUp()
+    {
+        currentSpAbility++;
+        if(currentSpAbility > mySpAbilities.Count)
+        {
+            currentSpAbility = 0;
+        }
+        updateSpUI();
+    }
+    void specialAbilityDown()
+    {
+        currentSpAbility--;
+        if(currentSpAbility < 0)
+        {
+            currentSpAbility = mySpAbilities.Count;
+        }
+        updateSpUI();
+    }
+    public void addSpAbility(SpecialAbilityObject abiToAdd)
+    {
+        if (mySpAbilities.Contains(abiToAdd.myAbility))
+        {
+            return;
+        }
+        mySpAbilities.Add(abiToAdd.myAbility);
+        spAbiImageSprite.Add(abiToAdd.AbilityImage);
+    }
+    void updateSpUI()
+    {
+        spAbiImg.sprite = spAbiImageSprite[currentSpAbility];
 
     }
 

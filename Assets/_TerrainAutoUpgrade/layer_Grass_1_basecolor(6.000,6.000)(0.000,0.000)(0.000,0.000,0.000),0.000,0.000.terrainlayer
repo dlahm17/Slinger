@@ -8,7 +8,7 @@ TerrainLayer:
   m_PrefabAsset: {fileID: 0}
   m_Name: layer_Grass_1_basecolor(6.000,6.000)(0.000,0.000)(0.000,0.000,0.000),0.000,0.000
   m_DiffuseTexture: {fileID: 2800000, guid: b41e3c4114992b84ab896b6e1bd174c7, type: 3}
-  m_NormalMapTexture: {fileID: 0}
+  m_NormalMapTexture: {fileID: 2800000, guid: c52edf9c6b0237048a610edadcd16b20, type: 3}
   m_MaskMapTexture: {fileID: 0}
   m_TileSize: {x: 6, y: 6}
   m_TileOffset: {x: 0, y: 0}

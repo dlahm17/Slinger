@@ -19,7 +19,10 @@ public class InteractableLadder : InteractablePickup
     void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        pMove = player.GetComponent<offlinePlayerMovement>();
+        if (player != null)
+        {
+            pMove = player.GetComponent<offlinePlayerMovement>();
+        }
     }
     public override void Interact()
     {

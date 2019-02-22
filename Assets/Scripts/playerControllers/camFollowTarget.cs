@@ -5,6 +5,7 @@ using UnityEngine;
 public class camFollowTarget : MonoBehaviour {
     public Transform target;
     public Vector3 offset;
+    Vector3 baseOffset;
     public float rayLength;
 
     GameObject hitWall;
@@ -28,6 +29,7 @@ public class camFollowTarget : MonoBehaviour {
     {
         Vector3 targetPosition = target.position - offset;
         transform.position = targetPosition;
+        baseOffset = offset;
     }
     
     public void resetPosition()
@@ -36,9 +38,18 @@ public class camFollowTarget : MonoBehaviour {
         transform.position = target.position - offset;
     }
 
-    public void getNewGrid(EnemyGridController newGrid)
+    public void getNewGrid(EnemyGridController newGrid, Vector3 offsetChange)
     {
         currentGrid = newGrid;
+        if(offsetChange != new Vector3(0, 0, 0))
+        {
+            offset = offsetChange;
+        }
+        if(offsetChange == new Vector3(0, 0, 0))
+        {
+            offset = baseOffset;
+        }
+
         //float RadX = newGrid.radiusX;
         //float RadZ = newGrid.radiusZ;
 

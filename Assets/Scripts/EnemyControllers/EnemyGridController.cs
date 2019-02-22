@@ -25,6 +25,8 @@ public class EnemyGridController : MonoBehaviour {
     public Transform bufZ;
     public Transform minBufX;
     public Transform minBufZ;
+
+    public Vector3 offset;
     /// <summary>
     /// EnemyGridController is an individual grid that activates enemies within its radius
     /// It should also contain all the information to make transitions smooth for the player

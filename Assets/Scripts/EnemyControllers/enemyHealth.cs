@@ -59,7 +59,10 @@ public class enemyHealth : m_Health
         }
         if (deathWithAnim)
         {
-            myAnim.SetBool("Dead", true);
+            if (myAnim != null)
+            {
+                myAnim.SetBool("Dead", true);
+            }
         }
         StartCoroutine("waitForAnimFinish");
 

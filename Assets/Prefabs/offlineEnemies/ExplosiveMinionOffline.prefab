@@ -10008,7 +10008,7 @@ Transform:
   m_GameObject: {fileID: 1662543834698550}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2, y: 1, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 2, z: 1}
   m_Children:
   - {fileID: 224108799784241024}
   - {fileID: 4495695310655828}
@@ -10053,7 +10053,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6825b59c07f818c4095344b3e4429722, type: 2}
+  - {fileID: 2100000, guid: c459d20a3af8fc149a118101b255b41e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -10103,21 +10103,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 2
   amDed: 0
-  explosionYOffset: 1
-  destroyWithExplosion: 1
-  explosion: {fileID: 148706, guid: 90b520ccc4d731b4b8691244b097b4da, type: 3}
-  destroyWithAnimation: 0
-  myAnim: {fileID: 0}
-  animationTime: 0
-  destroyWithSound: 0
-  myAudio: {fileID: 0}
-  isEnemy: 1
-  isPlayer: 0
   hpSlider: {fileID: 114590673663372782}
   myName: Bomber
   myTxt: {fileID: 114406302259505116}
-  player: {fileID: 0}
-  CurrentExp: 0
 --- !u!114 &114993731311471722
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10130,7 +10118,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1f81fd2f4fd26543a070ba2a79fa636, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isOffline: 1
   checkTime: 0
   timeToCheckTarget: 0.1
   baseSpeed: 0
@@ -10208,8 +10195,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11be2817547ffd14bbe7186b3aeaedaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mySpawner: {fileID: 0}
-  myofflineSpawner: {fileID: 0}
   enragedSpeed: 25
   explosionToDamagePlayer: {fileID: 148706, guid: 90b520ccc4d731b4b8691244b097b4da,
     type: 3}

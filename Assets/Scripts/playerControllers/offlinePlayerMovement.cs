@@ -86,6 +86,11 @@ public class offlinePlayerMovement : MonoBehaviour
     {
         return;
     }
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawSphere(groundCheck.position, groundCheckRadius);
+    }
     // Update is called once per frame
     void Update()
     {
@@ -113,7 +118,8 @@ public class offlinePlayerMovement : MonoBehaviour
             if (!climbing)
             {
                 //Check if the player is grounded, if he isn't, then use gravity, elsewise don't.
-                grounded = Physics.CheckSphere(groundCheck.position, groundCheckRadius);
+                grounded = Physics.CheckSphere(groundCheck.position, groundCheckRadius,floormask);
+                Debug.Log(grounded);
                 if (grounded)
                 {
                     currentFallSpeed = 0;

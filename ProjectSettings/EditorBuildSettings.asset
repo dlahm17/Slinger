@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SinglePlayerLevels/Kitchen.unity
     guid: eb19efb16c6d8e6409b2d3ed994090e9
+  - enabled: 1
+    path: Assets/Scenes/SinglePlayerLevels/CastlePerimeter.unity
+    guid: a95b1607e46576243a39882fde08bcb1
   m_configObjects: {}

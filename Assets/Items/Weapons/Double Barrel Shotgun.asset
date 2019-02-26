@@ -17,7 +17,7 @@ MonoBehaviour:
   isDefault: 0
   equipSlot: 2
   armorModifier: 0
-  damageModifier: 10
+  damageModifier: 3
   mArmorModifier: 0
   mDamageModifier: 0
   stealthModifier: 0
@@ -26,11 +26,11 @@ MonoBehaviour:
   myType: 0
   myMesh: {fileID: 0}
   myAudio: {fileID: 8300000, guid: 91894d9ecd924e74e88f152130c329e7, type: 3}
-  timeToReloadSingleShot: 1
+  timeToReloadSingleShot: 3
   maxAmmo: 2
   timeBetweenShots: 0.1
   isDualWeapon: 0
   isSingleShot: 1
   isSpread: 1
-  spread: 10
-  shotsInSpread: 2
+  spread: 0.8
+  shotsInSpread: 10

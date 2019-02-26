@@ -30,6 +30,7 @@ public class offlinePlayerShooting : MonoBehaviour {
     public LineRenderer[] shotGunRenderer = new LineRenderer[10];
     public Transform shotDirR;
     public Transform[] shotGunDir = new Transform[10];
+    public Transform[] baseShotGunDir = new Transform[10];
 
     public Transform shotDirL;
 
@@ -214,6 +215,17 @@ public class offlinePlayerShooting : MonoBehaviour {
         int i = 0;
         while(i < 10)
         {
+            Debug.Log("Resetting Rotation");
+            //shotGunDir[i].RotateAround(gameObject.transform.position, Vector3.up, spread);
+            shotGunDir[i].rotation = baseShotGunDir[i].rotation;
+            //shotGunDir[i+1].RotateAround(gameObject.transform.position, Vector3.up, -spread);
+            shotGunDir[i + 1].rotation = baseShotGunDir[i].rotation;
+            i += 2;
+        }
+        i = 0;
+        while(i < 10)
+        {
+            Debug.Log("Setting rotation");
             //shotGunDir[i].RotateAround(gameObject.transform.position, Vector3.up, spread);
             shotGunDir[i].Rotate(new Vector3(0, ((spread/2) * (i + 1)), 0));
             //shotGunDir[i+1].RotateAround(gameObject.transform.position, Vector3.up, -spread);

@@ -248,7 +248,7 @@ public class offlinePlayerMovement : MonoBehaviour
     void moveMe(float movX, float movZ, float fallSpeed)
     {
 
-        Vector3 movement = new Vector3(movX, fallSpeed, movZ);
+        Vector3 movement = new Vector3(movX, fallSpeed,movZ);
         movement = (movement.normalized * speed) * Time.smoothDeltaTime;
         playerRigidbody.velocity = movement;
         if(movX != 0 || movZ != 0)

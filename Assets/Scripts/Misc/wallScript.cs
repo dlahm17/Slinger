@@ -9,7 +9,7 @@ public class wallScript : MonoBehaviour {
     MeshRenderer myrender;
    
     public bool isInvis = false;
-
+    /*
     private void Start()
     {
         myrender = GetComponent<MeshRenderer>();
@@ -32,6 +32,7 @@ public class wallScript : MonoBehaviour {
             }
         }
     }
+    */
 
     private void OnTriggerEnter(Collider other)
     {

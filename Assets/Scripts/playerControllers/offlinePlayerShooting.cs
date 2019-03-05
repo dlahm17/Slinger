@@ -88,10 +88,24 @@ public class offlinePlayerShooting : MonoBehaviour {
     int currentSpAbility = 0;
     public Image spAbiImg;
     List<Sprite> spAbiImageSprite = new List<Sprite>();
-   
 
+    public specialAbility sp1;
+    public Sprite sp1Img;
+    public specialAbility sp2;
+    public Sprite sp2Img;
+
+    public Slider spAbiReload;
+
+    float timeUntilUseAbility = 1f;
+    float reloadAbilityTime = 1f;
+
+    public GameObject magicKnife;
+
+
+    public Animator myAnim;
     private void Start()
     {
+        
         eqManage = EquipmentManager.instance;
         eqManage.onEquipmentChanged += updateWeapon;
 
@@ -138,15 +152,21 @@ public class offlinePlayerShooting : MonoBehaviour {
             shotGunRenderer[i].enabled = false;
             i++;
         }
-        
-        
+
+
+        //add special ability, note to replace this later by a system that'll automatically have certain ones already collected loaded.
+        mySpAbilities.Add(sp1);
+        spAbiImageSprite.Add(sp1Img);
+        mySpAbilities.Add(sp2);
+        spAbiImageSprite.Add(sp2Img);
+        updateSpUI();
     }
 
     public void updateWeapon(Equipment newItem, Equipment oldItem)
     {
         if (newItem as Weapon != null)
         {
-            Debug.Log(newItem);
+            //Debug.Log(newItem);
             setWeapon((Weapon)newItem);
         }
     }
@@ -215,7 +235,6 @@ public class offlinePlayerShooting : MonoBehaviour {
         int i = 0;
         while(i < 10)
         {
-            Debug.Log("Resetting Rotation");
             //shotGunDir[i].RotateAround(gameObject.transform.position, Vector3.up, spread);
             shotGunDir[i].rotation = baseShotGunDir[i].rotation;
             //shotGunDir[i+1].RotateAround(gameObject.transform.position, Vector3.up, -spread);
@@ -225,7 +244,7 @@ public class offlinePlayerShooting : MonoBehaviour {
         i = 0;
         while(i < 10)
         {
-            Debug.Log("Setting rotation");
+
             //shotGunDir[i].RotateAround(gameObject.transform.position, Vector3.up, spread);
             shotGunDir[i].Rotate(new Vector3(0, ((spread/2) * (i + 1)), 0));
             //shotGunDir[i+1].RotateAround(gameObject.transform.position, Vector3.up, -spread);
@@ -264,6 +283,23 @@ public class offlinePlayerShooting : MonoBehaviour {
                 {
                     hasntCanceled = true;
                 }
+                if(Input.GetAxis("Mouse ScrollWheel") != 0)
+                {
+                    if(Input.GetAxis("Mouse ScrollWheel") > 0.2f)
+                    {
+                        specialAbilityUp();
+                        return;
+                    }
+                    if(Input.GetAxis("Mouse ScrollWheel") < 0.2f)
+                    {
+                        specialAbilityDown();
+                        return;
+                    }
+                }
+                if (Input.GetButton("SpecialAbility") && Time.time > timeUntilUseAbility)
+                {
+                    specialAbility(mySpAbilities[currentSpAbility]);
+                }
             }
         }
     }
@@ -273,10 +309,75 @@ public class offlinePlayerShooting : MonoBehaviour {
         curRtxt.text = rightAmmoCount.ToString();
         curLtxt.text = leftAmmoCount.ToString();
     }
+    #region ability Ending coroutines
+    IEnumerator endKnife()
+    {
+        yield return new WaitForSeconds(reloadAbilityTime);
+        myAnim.SetBool("Knife", false);
+        canFire = true;
+        magicKnife.SetActive(false);
+
+    }
+    IEnumerator endAbsorb()
+    {
+        yield return new WaitForSeconds(reloadAbilityTime);
+        myAnim.SetBool("Absorb", false);
+        canFire = true;
+    }
+    #endregion
 
     void specialAbility(specialAbility myabi)
     {
-
+        if(myabi == global::specialAbility.Absorb)
+        {
+            Debug.Log("Absorbing");
+            myAnim.SetBool("Absorb", true);
+            reloadAbilityTime = 1f;
+            canFire = false;
+            StartCoroutine("endAbsorb");
+        }
+        if (myabi == global::specialAbility.Dynamite)
+        {
+            Debug.Log("kaboom");
+            reloadAbilityTime = 1f;
+        }
+        if (myabi == global::specialAbility.Icicle)
+        {
+            Debug.Log("Icy");
+            reloadAbilityTime = 1f;
+        }
+        if (myabi == global::specialAbility.Knife)
+        {
+            Debug.Log("Shank");
+            canFire = false;
+            myAnim.SetBool("Knife", true);
+            magicKnife.SetActive(true);
+            reloadAbilityTime = 2f;
+            StartCoroutine("endKnife");
+        }
+        if (myabi == global::specialAbility.Reflect)
+        {
+            Debug.Log("Reflecting");
+            reloadAbilityTime = 1f;
+        }
+        if (myabi == global::specialAbility.Stealth)
+        {
+            Debug.Log("Stealthing");
+            reloadAbilityTime = 1f;
+        }
+        if (myabi == global::specialAbility.Tank)
+        {
+            Debug.Log("Tank Time");
+            reloadAbilityTime = 1f;
+        }
+        
+        timeUntilUseAbility = Time.time + reloadAbilityTime;
+        SpecialAbilityReloadUIUpdate();
+    }
+    void SpecialAbilityReloadUIUpdate()
+    {
+        spAbiReload.maxValue = timeUntilUseAbility;
+        spAbiReload.minValue = Time.time;
     }
     void specialAbilityUp()
     {
@@ -285,6 +386,7 @@ public class offlinePlayerShooting : MonoBehaviour {
         {
             currentSpAbility = 0;
         }
+        Debug.Log(mySpAbilities[currentSpAbility]);
         updateSpUI();
     }
     void specialAbilityDown()
@@ -292,8 +394,9 @@ public class offlinePlayerShooting : MonoBehaviour {
         currentSpAbility--;
         if(currentSpAbility < 0)
         {
-            currentSpAbility = mySpAbilities.Count;
+            currentSpAbility = mySpAbilities.Count - 1;
         }
+        Debug.Log(mySpAbilities[currentSpAbility]);
         updateSpUI();
     }
     public void addSpAbility(SpecialAbilityObject abiToAdd)
@@ -307,6 +410,7 @@ public class offlinePlayerShooting : MonoBehaviour {
     }
     void updateSpUI()
     {
+        Debug.Log("Updating sp UI");
         spAbiImg.sprite = spAbiImageSprite[currentSpAbility];
 
     }

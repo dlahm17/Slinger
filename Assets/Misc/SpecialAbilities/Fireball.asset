@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab0cd4f1a7aab0749933a571e50c72c4, type: 3}
+  m_Name: Fireball
+  m_EditorClassIdentifier: 
+  myAbility: 3
+  AbilityImage: {fileID: 21300000, guid: bd24d0b96cd6be4469c5f48564ffb7ab, type: 3}

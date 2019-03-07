@@ -8,12 +8,15 @@ public class NPCBehaviour : MonoBehaviour
     NavMeshAgent myMovement;
     GameObject NavMeshLocations;
 
+    Transform[] meshLocations;
+
 
 
     private void Start()
     {
         myMovement = GetComponent<NavMeshAgent>();
         NavMeshLocations = GameObject.Find("NavMeshHelper");
+        meshLocations = NavMeshLocations.GetComponentsInChildren<Transform>();
 
     }
 

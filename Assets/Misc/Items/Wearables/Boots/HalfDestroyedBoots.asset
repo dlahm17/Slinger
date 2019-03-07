@@ -16,9 +16,9 @@ MonoBehaviour:
   Icon: {fileID: 0}
   isDefault: 1
   equipSlot: 4
-  armorModifier: 1
+  armorModifier: 0
   damageModifier: 0
   mArmorModifier: 0
   mDamageModifier: 0
   stealthModifier: 0
-  speedModifier: 1
+  speedModifier: 0

@@ -20,5 +20,5 @@ MonoBehaviour:
   damageModifier: 0
   mArmorModifier: 0
   mDamageModifier: 0
-  stealthModifier: 1
+  stealthModifier: 0
   speedModifier: 0

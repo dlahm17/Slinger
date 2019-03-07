@@ -24,9 +24,8 @@ public class m_Health : MonoBehaviour {
 
     public string myName;
     public Text myTxt;
-    
 
-    
+
     
     public virtual void Start()
     {
@@ -51,7 +50,7 @@ public class m_Health : MonoBehaviour {
     //Update is only used to smoothly show the healthbar going down
     private void Update()
     {
-    
+        
         if (hpSlider.value > health)
         {
             if (health > 0)
@@ -78,11 +77,12 @@ public class m_Health : MonoBehaviour {
             health = maxhp;
         }
     }
+    
 
 
     public virtual void takeDamage(float damage, damageType damageTyping)
     {
-        Debug.Log("Taking Damage");
+        //Debug.Log("Taking Damage");
         
 
         health -= damage;

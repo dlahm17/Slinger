@@ -1,0 +1,111 @@
+fileFormatVersion: 2
+guid: 5412455daa63f054a8cf19437102bdce
+timeCreated: 1455572938
+licenseType: Store
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: Broken_Wall_2A
+    100002: Broken_Wall_2A2
+    100004: Broken_Wall_2A3
+    100006: Broken_Wall_2A4
+    100008: Broken_Wall_2B
+    100010: Broken_Wall_2B2
+    100012: //RootNode
+    400000: Broken_Wall_2A
+    400002: Broken_Wall_2A2
+    400004: Broken_Wall_2A3
+    400006: Broken_Wall_2A4
+    400008: Broken_Wall_2B
+    400010: Broken_Wall_2B2
+    400012: //RootNode
+    2300000: Broken_Wall_2A
+    2300002: Broken_Wall_2A2
+    2300004: Broken_Wall_2A3
+    2300006: Broken_Wall_2A4
+    2300008: Broken_Wall_2B
+    2300010: Broken_Wall_2B2
+    3300000: Broken_Wall_2A
+    3300002: Broken_Wall_2A2
+    3300004: Broken_Wall_2A3
+    3300006: Broken_Wall_2A4
+    3300008: Broken_Wall_2B
+    3300010: Broken_Wall_2B2
+    4300000: Broken_Wall_2B2
+    4300002: Broken_Wall_2B
+    4300004: Broken_Wall_2A4
+    4300006: Broken_Wall_2A
+    4300008: Broken_Wall_2A2
+    4300010: Broken_Wall_2A3
+    6400000: Broken_Wall_2A
+    6400002: Broken_Wall_2A2
+    6400004: Broken_Wall_2A3
+    6400006: Broken_Wall_2A4
+    6400008: Broken_Wall_2B
+    6400010: Broken_Wall_2B2
+    7400000: Default Take
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 1
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -8,7 +8,6 @@ public class enemyMoveTowardsPlayer : MonoBehaviour {
     GameObject[] PlayerArray = new GameObject[25];
     //string currentMode = "findPlayer";
     NavMeshAgent myAI;
-    GameObject waveCtrlObj;
     //Rigidbody myrb;
 
     public float checkTime;
@@ -27,7 +26,6 @@ public class enemyMoveTowardsPlayer : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         //myrb = GetComponent<Rigidbody>();
-        waveCtrlObj = GameObject.Find("EnemySpawnCtrl");
 
         myHealth = GetComponent<enemyHealth>();
         

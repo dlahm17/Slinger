@@ -16,7 +16,8 @@ public class offlinePlayerMovement : MonoBehaviour
     //player rigidbody is the physics object we are controlling to affect the player's movement.
     Rigidbody playerRigidbody;
     //speed is an averaged speed that uses time.deltatime to be as smooth as possible
-    public float speed;
+    float baseSpeed = 350;
+    float speed;
     //collider is used to 
     Collider myCollider;
 
@@ -51,10 +52,16 @@ public class offlinePlayerMovement : MonoBehaviour
     public float fallSpeed = 5f;
     float currentFallSpeed;
 
+    public bool canMove = true;
+
     public LayerMask interactableLayer;
+    playerStats myStats;
+    
     // Use this for initialization
     void Start()
     {
+        myStats = GetComponent<playerStats>();
+        speed = baseSpeed + (myStats.speed.GetValue() / 10);
         myCam = Camera.main;
         if(InventoryScreen != null)
         {
@@ -91,6 +98,12 @@ public class offlinePlayerMovement : MonoBehaviour
         Gizmos.color = Color.yellow;
         Gizmos.DrawSphere(groundCheck.position, groundCheckRadius);
     }
+    public void setSpeed()
+    {
+        speed = baseSpeed + (myStats.speed.GetValue()/10);
+        Debug.Log(speed);
+        return;
+    }
     // Update is called once per frame
     void Update()
     {
@@ -117,39 +130,42 @@ public class offlinePlayerMovement : MonoBehaviour
         {
             if (!climbing)
             {
-                //Check if the player is grounded, if he isn't, then use gravity, elsewise don't.
-                grounded = Physics.CheckSphere(groundCheck.position, groundCheckRadius,floormask);
+                if (canMove)
+                {
+                    //Check if the player is grounded, if he isn't, then use gravity, elsewise don't.
+                    grounded = Physics.CheckSphere(groundCheck.position, groundCheckRadius, floormask);
 
-                if (grounded)
-                {
-                    currentFallSpeed = 0;
-                }
-                if (!grounded)
-                {
-                    currentFallSpeed = fallSpeed;
-                }
-                float MovX;
-                float movZ;
-                MovX = Input.GetAxisRaw("Horizontal");
-                movZ = Input.GetAxisRaw("Vertical");
-                if (currentlyDashing == false)
-                {
-                    moveMe(MovX, movZ, currentFallSpeed);
-                    //mylight.intensity = (Mathf.Abs(MovX) + Mathf.Abs(movZ)) * baseintensity;
-                }
-                if (!Alive && myCollider.enabled)
-                {
-                    myCollider.enabled = false;
-                }
-                if (Alive && !myCollider.enabled)
-                {
-                    myCollider.enabled = true;
-                }
+                    if (grounded)
+                    {
+                        currentFallSpeed = 0;
+                    }
+                    if (!grounded)
+                    {
+                        currentFallSpeed = fallSpeed;
+                    }
+                    float MovX;
+                    float movZ;
+                    MovX = Input.GetAxisRaw("Horizontal");
+                    movZ = Input.GetAxisRaw("Vertical");
+                    if (currentlyDashing == false)
+                    {
+                        moveMe(MovX, movZ, currentFallSpeed);
+                        //mylight.intensity = (Mathf.Abs(MovX) + Mathf.Abs(movZ)) * baseintensity;
+                    }
+                    if (!Alive && myCollider.enabled)
+                    {
+                        myCollider.enabled = false;
+                    }
+                    if (Alive && !myCollider.enabled)
+                    {
+                        myCollider.enabled = true;
+                    }
 
-                if (Input.GetAxis("Fire2") > .5f && Time.time > dashReload)
-                {
-                    Dash(MovX, movZ);
-                    dashReload = Time.time + timetoReloadDash;
+                    if (Input.GetAxis("Fire2") > .5f && Time.time > dashReload)
+                    {
+                        Dash(MovX, movZ);
+                        dashReload = Time.time + timetoReloadDash;
+                    }
                 }
             }
         }

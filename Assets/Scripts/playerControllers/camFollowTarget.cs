@@ -31,6 +31,11 @@ public class camFollowTarget : MonoBehaviour {
         transform.position = targetPosition;
         baseOffset = offset;
     }
+
+    public EnemyGridController getCurrentGrid()
+    {
+        return currentGrid;
+    }
     
     public void resetPosition()
     {
@@ -71,7 +76,7 @@ public class camFollowTarget : MonoBehaviour {
         if (target != null)
         {
             Vector3 targetPosition = target.position - offset;
-            normalizedspeed = movementSpeed * Time.smoothDeltaTime;
+            normalizedspeed = movementSpeed * Time.deltaTime;
             transform.position = Vector3.MoveTowards(transform.position, targetPosition, normalizedspeed);
             if (clamped)
             {

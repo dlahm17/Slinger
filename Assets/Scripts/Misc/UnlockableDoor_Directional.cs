@@ -10,8 +10,8 @@ public class UnlockableDoor_Directional : InteractablePickup
     public GameObject player;
 
     //These show confirmation or negative answers to opening.
-    NPCDialogueNode positiveNode;
-    NPCDialogueNode negativeNode;
+    public NPCDialogueNode positiveNode;
+    public NPCDialogueNode negativeNode;
     public AudioSource negativeAudio;
 
     private void Start()

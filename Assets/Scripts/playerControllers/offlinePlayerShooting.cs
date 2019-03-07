@@ -74,8 +74,6 @@ public class offlinePlayerShooting : MonoBehaviour {
 
 
     bool isDualWeapon = true;
-    bool isSingleShot;
-    bool isSpread;
 
     float spread;
     int shotsInSpread;
@@ -189,8 +187,6 @@ public class offlinePlayerShooting : MonoBehaviour {
     {
         right = true;
         isDualWeapon = wpn.isDualWeapon;
-        isSingleShot = wpn.isSingleShot;
-        isSpread = wpn.isSpread;
         spread = wpn.spread;
         shotsInSpread = wpn.shotsInSpread;
         myWeaponType = wpn.myWeaponType;
@@ -410,7 +406,6 @@ public class offlinePlayerShooting : MonoBehaviour {
     }
     void updateSpUI()
     {
-        Debug.Log("Updating sp UI");
         spAbiImg.sprite = spAbiImageSprite[currentSpAbility];
 
     }
@@ -508,7 +503,6 @@ public class offlinePlayerShooting : MonoBehaviour {
                 myGunShotRenderer1.enabled = true;
                 
                 //always have one shot go straight
-                Ray[] myRays = new Ray[shotsInSpread];
                 float damage = baseBulletDamage + playerstats.damage.GetValue();
                 if (Physics.Raycast(centerRay, out hit, range))
                 {

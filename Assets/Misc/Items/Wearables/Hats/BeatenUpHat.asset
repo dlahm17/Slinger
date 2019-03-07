@@ -16,7 +16,7 @@ MonoBehaviour:
   Icon: {fileID: 0}
   isDefault: 1
   equipSlot: 0
-  armorModifier: 1
+  armorModifier: 0
   damageModifier: 0
   mArmorModifier: 0
   mDamageModifier: 0

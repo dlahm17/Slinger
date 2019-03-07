@@ -5,8 +5,10 @@ using UnityEngine;
 public class playerStats :  characterStats {
 
     EquipmentManager statManage;
+    offlinePlayerMovement playMove;
 	// Use this for initialization
 	void Start () {
+        playMove = GetComponent<offlinePlayerMovement>();
         statManage = EquipmentManager.instance;
         statManage.onEquipmentChanged += OnEquipmentChanged;
 	}
@@ -22,6 +24,7 @@ public class playerStats :  characterStats {
             magicDamage.addModifier(newItem.mDamageModifier);
             stealth.addModifier(newItem.stealthModifier);
             speed.addModifier(newItem.speedModifier);
+            playMove.setSpeed();
         }
         if(oldItem != null)
         {
@@ -31,6 +34,7 @@ public class playerStats :  characterStats {
             magicDamage.removeModifier(oldItem.mDamageModifier);
             stealth.removeModifier(oldItem.stealthModifier);
             speed.removeModifier(oldItem.speedModifier);
+            playMove.setSpeed();
         }
     }
 }

@@ -677,7 +677,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 364924473}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.466, z: 0}
+  m_LocalPosition: {x: 0, y: -0.651, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6642966295271131620}
@@ -5704,7 +5704,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 98.4, y: -8.4212}
+  m_AnchoredPosition: {x: 98.3999, y: -8.421143}
   m_SizeDelta: {x: -196.7, y: -75.458}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6646775564693564666
@@ -8014,8 +8014,7 @@ PrefabInstance:
       propertyPath: interactableLayer.m_Bits
       value: 4096
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 114727066807874692, guid: 6e8270eb2bcdbbc43b1fb6339241fcef, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6e8270eb2bcdbbc43b1fb6339241fcef, type: 3}
 --- !u!1 &1367400382813964321 stripped
 GameObject:

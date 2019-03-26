@@ -4753,7 +4753,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
-  bulletDamage: 2
+  bulletDamage: 6
   origin: {fileID: 0}
 --- !u!65 &65079508216637362
 BoxCollider:

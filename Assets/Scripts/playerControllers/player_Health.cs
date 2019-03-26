@@ -28,6 +28,11 @@ public class player_Health : m_Health
     float timeToTakeDmg = .2f;
     float reloadTimeToTakeDmg = .2f;
 
+    public bool canTakeDamage = true;
+    public bool isDashing = false;
+    float bufferDamageTaking = .1f;
+    float reloadBuffer = .1f;
+
     // Start is called before the first frame update
     public override void Start()
     {
@@ -52,6 +57,13 @@ public class player_Health : m_Health
 
     private void FixedUpdate()
     {
+        if (!canTakeDamage)
+        {
+            if(Time.time > bufferDamageTaking)
+            {
+                canTakeDamage = true;
+            }
+        }
         if (fireActive)
         {
             if (Time.time > timeToTakeDmg)
@@ -107,114 +119,120 @@ public class player_Health : m_Health
     public override void takeDamage(float damage, damageType damageTyping)
     {
         Debug.Log("Taking Damage to Player");
-        float damageToTake = damage;
-        if (damageTyping == damageType.fire)
+        if (isDashing == false)
         {
-            damageToTake -= playerstats.armor.GetValue();
-            if (damageToTake < 0)
+            if (canTakeDamage)
             {
-                damageToTake = 0;
-            }
-            if (!fireActive)
-            {
-                timeForfire = Time.time + damageToTake;
-                storedDamage = damageToTake / 2;
-                fireSlider.maxValue = timeForfire;
-                fireSlider.minValue = Time.time;
-                OBJfireSlider.SetActive(true);
-                fireActive = true;
+                float damageToTake = damage;
+                if (damageTyping == damageType.fire)
+                {
+                    damageToTake -= playerstats.armor.GetValue();
+                    if (damageToTake < 0)
+                    {
+                        damageToTake = 0;
+                    }
+                    if (!fireActive)
+                    {
+                        timeForfire = Time.time + damageToTake;
+                        storedDamage = damageToTake / 2;
+                        fireSlider.maxValue = timeForfire;
+                        fireSlider.minValue = Time.time;
+                        OBJfireSlider.SetActive(true);
+                        fireActive = true;
+                    }
+                }
+                if (damageTyping == damageType.acid)
+                {
+                    damageToTake -= playerstats.magicArmor.GetValue();
+                    if (damageToTake < 0)
+                    {
+                        damageToTake = 0;
+                    }
+                    if (!acidActive)
+                    {
+                        timeForAcid = Time.time + damageToTake;
+                        storedDamage = damageToTake / 2;
+                        acidSlider.maxValue = timeForAcid;
+                        acidSlider.minValue = Time.time;
+                        OBJacidSlider.SetActive(true);
+                        acidActive = true;
+                    }
+                }
+                if (damageTyping == damageType.electricity)
+                {
+                    damageToTake -= playerstats.magicArmor.GetValue();
+                    if (damageToTake < 0)
+                    {
+                        damageToTake = 0;
+                    }
+                }
+                if (damageTyping == damageType.explosive)
+                {
+                    damageToTake -= playerstats.armor.GetValue();
+                    if (damageToTake < 0)
+                    {
+                        damageToTake = 0;
+                    }
+                }
+                if (damageTyping == damageType.ice)
+                {
+                    damageToTake -= playerstats.armor.GetValue();
+                    if (damageToTake < 0)
+                    {
+                        damageToTake = 0;
+                    }
+                }
+                if (damageTyping == damageType.magical)
+                {
+                    damageToTake -= playerstats.magicArmor.GetValue();
+                    if (damageToTake < 0)
+                    {
+                        damageToTake = 0;
+                    }
+                }
+                if (damageTyping == damageType.physical)
+                {
+                    damageToTake -= playerstats.armor.GetValue();
+                    if (damageToTake < 0)
+                    {
+                        damageToTake = 0;
+                    }
+
+                }
+                if (damageTyping == damageType.poison)
+                {
+                    damageToTake -= playerstats.magicArmor.GetValue();
+                    if (damageToTake < 0)
+                    {
+                        damageToTake = 0;
+                    }
+                    if (!poison)
+                    {
+                        timeForPoison = Time.time + damageToTake;
+                        storedDamage = damageToTake / 2;
+                        poisonSlider.maxValue = timeForPoison;
+                        poisonSlider.minValue = Time.time;
+                        OBJpoisonSlider.SetActive(true);
+                        poison = true;
+                    }
+                }
+
+
+
+
+
+
+
+                health -= damageToTake;
+
+
+                if (health <= 0)
+                {
+                    death();
+                }
+                bufferDamageTaking = Time.time + reloadBuffer;
             }
         }
-        if (damageTyping == damageType.acid)
-        {
-            damageToTake -= playerstats.magicArmor.GetValue();
-            if (damageToTake < 0)
-            {
-                damageToTake = 0;
-            }
-            if (!acidActive)
-            {
-                timeForAcid = Time.time + damageToTake;
-                storedDamage = damageToTake / 2;
-                acidSlider.maxValue = timeForAcid;
-                acidSlider.minValue = Time.time;
-                OBJacidSlider.SetActive(true);
-                acidActive = true;
-            }
-        }
-        if (damageTyping == damageType.electricity)
-        {
-            damageToTake -= playerstats.magicArmor.GetValue();
-            if (damageToTake < 0)
-            {
-                damageToTake = 0;
-            }
-        }
-        if (damageTyping == damageType.explosive)
-        {
-            damageToTake -= playerstats.armor.GetValue();
-            if (damageToTake < 0)
-            {
-                damageToTake = 0;
-            }
-        }
-        if (damageTyping == damageType.ice)
-        {
-            damageToTake -= playerstats.armor.GetValue();
-            if (damageToTake < 0)
-            {
-                damageToTake = 0;
-            }
-        }
-        if (damageTyping == damageType.magical)
-        {
-            damageToTake -= playerstats.magicArmor.GetValue();
-            if (damageToTake < 0)
-            {
-                damageToTake = 0;
-            }
-        }
-        if (damageTyping == damageType.physical)
-        {
-            damageToTake-= playerstats.armor.GetValue();
-            if (damageToTake < 0)
-            {
-                damageToTake = 0;
-            }
-
-        }
-        if (damageTyping == damageType.poison)
-        {
-            damageToTake -= playerstats.magicArmor.GetValue();
-            if (damageToTake < 0)
-            {
-                damageToTake = 0;
-            }
-            if (!poison)
-            {
-                timeForPoison = Time.time + damageToTake;
-                storedDamage = damageToTake / 2;
-                poisonSlider.maxValue = timeForPoison;
-                poisonSlider.minValue = Time.time;
-                OBJpoisonSlider.SetActive(true);
-                poison = true;
-            }
-        }
-
-
-
-
-
-
-
-        health -= damageToTake;
-
-
-        if(health <= 0)
-        {
-            death();
-        }
-
     }
     public override void death()
     {

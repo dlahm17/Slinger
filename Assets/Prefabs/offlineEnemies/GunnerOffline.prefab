@@ -525,7 +525,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 126
+  m_Constraints: 116
   m_CollisionDetection: 0
 --- !u!114 &114819957951292708
 MonoBehaviour:
@@ -621,6 +621,8 @@ MonoBehaviour:
   deathWithAnim: 1
   myAnim: {fileID: 0}
   timeForAnimation: 2
+  ExpToGive: 5
+  goldToDrop: {fileID: 0}
   Armor: 2
   magicalArmor: 2
 --- !u!1 &1546333081077748

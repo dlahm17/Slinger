@@ -51,6 +51,10 @@ public class Inventory : MonoBehaviour {
     {
         currentGold += goldtoGive;
     }
+    public void giveExp(int expToGive)
+    {
+        currentExp += expToGive;
+    }
     private void Update()
     {
 

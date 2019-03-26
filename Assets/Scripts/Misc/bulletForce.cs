@@ -18,14 +18,7 @@ public class bulletForce : MonoBehaviour {
     private void OnCollisionEnter(Collision other)
     {
 
-        otherHp = other.gameObject.GetComponent<m_Health>();
-        if (otherHp != null)
-        {
-            if (other.gameObject != origin)
-            {
-                otherHp.takeDamage(bulletDamage, damageType.physical);
-            }
-        }
+       
         if (other.gameObject.tag.Equals("Cover") || other.gameObject.tag.Equals("Floor"))
         {
 
@@ -33,6 +26,28 @@ public class bulletForce : MonoBehaviour {
         }
         if(other.gameObject.tag.Equals("Player") || other.gameObject.tag.Equals("Enemy"))
         {
+            if (other.gameObject.tag.Equals("Player"))
+            {
+                otherHp = other.gameObject.GetComponent<player_Health>();
+                if (otherHp != null)
+                {
+                    if (other.gameObject != origin)
+                    {
+                        otherHp.takeDamage(bulletDamage, damageType.physical);
+                    }
+                }
+            }
+            if (other.gameObject.tag.Equals("Enemy"))
+            {
+                otherHp = other.gameObject.GetComponent<enemyHealth>();
+                if (otherHp != null)
+                {
+                    if (other.gameObject != origin)
+                    {
+                        otherHp.takeDamage(bulletDamage, damageType.physical);
+                    }
+                }
+            }
             if (other.gameObject != origin)
             {
                 Destroy(gameObject);

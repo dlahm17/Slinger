@@ -15,6 +15,9 @@ public class enemyHealth : m_Health
     public Animator myAnim;
     public float timeForAnimation = 0f;
 
+    public int ExpToGive = 5;
+
+    public GameObject goldToDrop;
 
     public float Armor = 5f;
     public float magicalArmor = 5f;
@@ -44,6 +47,10 @@ public class enemyHealth : m_Health
             health = 0;
         }
 
+    }
+    public bool isDead()
+    {
+        return amDed;
     }
     public override void death()
     {

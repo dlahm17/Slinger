@@ -10,7 +10,7 @@ public class MinionCtrl : MonoBehaviour {
 	void Start () {
         myHP = GetComponent<m_Health>();
 	}
-
+    /*
     private void OnCollisionEnter(Collision other)
     {
 
@@ -20,14 +20,6 @@ public class MinionCtrl : MonoBehaviour {
                 otherHp.takeDamage(damage, damageType.physical);
             
         }
-        if (other.gameObject.tag.Equals("Player"))
-        {
-            otherHp.takeDamage(damage, damageType.physical);
-            if (myHP != null)
-            {
-                myHP.takeDamage(damage, damageType.physical);
-            }
-            
-        }
     }
+    */
 }

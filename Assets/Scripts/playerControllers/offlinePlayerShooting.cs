@@ -6,6 +6,9 @@ public enum specialAbility {Absorb, Knife, Reflect, Dynamite, Icicle, Stealth, T
 
 
 public class offlinePlayerShooting : MonoBehaviour {
+
+    public float dynamiteThrowForceForward = 50f;
+    public float dynamiteThrowForceUpward = 50f;
     //These positions are where the bullets come from.
     public Transform GunPos1;
     public Transform GunPos2;
@@ -13,7 +16,8 @@ public class offlinePlayerShooting : MonoBehaviour {
     //These base stats can be increased by leveling up or using certain weapons.
     public float timeToReload;
     public float ReloadTime;
-
+    offlinePlayerMovement myMovement;
+    player_Health myHealth;
 
     public float baseBulletDamage;
 
@@ -39,7 +43,7 @@ public class offlinePlayerShooting : MonoBehaviour {
     public ParticleSystem bulletSystem2;
     
 
-    public float range = 10f;
+    public float range = 30f;
 
     bool rightHasAmmo = true;
     bool leftHasAmmo = true;
@@ -101,6 +105,15 @@ public class offlinePlayerShooting : MonoBehaviour {
 
 
     public Animator myAnim;
+
+    bool AbsorbActive = false;
+    public GameObject absorbChecker;
+    GameObject enemyToAbsorb;
+
+    bool absorbConnected = false;
+
+    public GameObject dynamite;
+    public GameObject icicle;
     private void Start()
     {
         
@@ -158,6 +171,9 @@ public class offlinePlayerShooting : MonoBehaviour {
         mySpAbilities.Add(sp2);
         spAbiImageSprite.Add(sp2Img);
         updateSpUI();
+        myMovement = GetComponent<offlinePlayerMovement>();
+        myHealth = GetComponent<player_Health>();
+
     }
 
     public void updateWeapon(Equipment newItem, Equipment oldItem)
@@ -255,7 +271,10 @@ public class offlinePlayerShooting : MonoBehaviour {
         */
     }
 
-
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawSphere(absorbChecker.transform.position, .1f);
+    }
     // Update is called once per frame
     void Update()
     {
@@ -298,6 +317,32 @@ public class offlinePlayerShooting : MonoBehaviour {
                 }
             }
         }
+        if (AbsorbActive)
+        {
+            if (absorbConnected == false)
+            {
+                absorbConnected = Physics.CheckSphere(absorbChecker.transform.position, .1f);
+
+                Debug.Log("absorbConnected is: " + absorbConnected);
+                if (absorbConnected == true)
+                {
+                    if(enemyToAbsorb == null) {
+                    RaycastHit hit;
+                    Debug.DrawRay(absorbChecker.transform.position, absorbChecker.transform.forward, Color.red, 2f);
+                    Ray newRay = new Ray(absorbChecker.transform.position, absorbChecker.transform.forward);
+                        if (Physics.Raycast(newRay, out hit, 2f))
+                        {
+                            if (hit.collider.tag == "Enemy")
+                            {
+                                Debug.Log("Collided with enemy");
+                                enemyToAbsorb = hit.collider.gameObject;
+                            }
+                        }
+                        Debug.Log("enemy To Absorb is: " + enemyToAbsorb);
+                    }
+                }
+            }
+        }
     }
 
     public void updateUI()
@@ -308,6 +353,7 @@ public class offlinePlayerShooting : MonoBehaviour {
     #region ability Ending coroutines
     IEnumerator endKnife()
     {
+        myMovement.startAbsorbDash(1);
         yield return new WaitForSeconds(reloadAbilityTime);
         myAnim.SetBool("Knife", false);
         canFire = true;
@@ -316,9 +362,85 @@ public class offlinePlayerShooting : MonoBehaviour {
     }
     IEnumerator endAbsorb()
     {
+        enemyToAbsorb = null;
+        absorbConnected = false;
+        myMovement.startAbsorbDash(1.5f);
+        myHealth.isDashing = true;
         yield return new WaitForSeconds(reloadAbilityTime);
-        myAnim.SetBool("Absorb", false);
+        AbsorbActive = true;
+        yield return new WaitForSeconds(.2f);
+
+        if (absorbConnected == false)
+        {
+            canFire = true;
+            myAnim.SetBool("Absorb", false);
+            AbsorbActive = false;
+        }
+        if (absorbConnected)
+        {
+            AbsorbConnected();
+        }
+    }
+    void AbsorbConnected()
+    {
+        StartCoroutine("endAbsorbConnected");
+    }
+    IEnumerator endAbsorbConnected()
+    {
+        yield return new WaitForSeconds(.5f);
+        if (enemyToAbsorb != null)
+        {
+            bool kill;
+            enemyToAbsorb.GetComponent<enemyHealth>().takeDamage(10, damageType.magical);
+            kill = enemyToAbsorb.GetComponent<enemyHealth>().isDead();
+            if (kill)
+            {
+                Inventory.instance.giveExp(enemyToAbsorb.GetComponent<enemyHealth>().ExpToGive);
+            }
+        }
         canFire = true;
+        myAnim.SetBool("Absorb", false);
+        AbsorbActive = false;
+    }
+    IEnumerator endDynamite()
+    {
+        canFire = false;
+        throwDynamite();
+        yield return new WaitForSeconds(reloadAbilityTime);
+        canFire = true;
+    }
+    void throwDynamite()
+    {
+        GameObject thrower;
+        thrower = Instantiate(dynamite, absorbChecker.transform.position, Quaternion.Euler(0, 0, 0));
+        Rigidbody throwRB;
+        throwRB = thrower.GetComponent<Rigidbody>();
+        throwRB.AddForce(transform.forward * dynamiteThrowForceForward);
+        throwRB.AddForce(transform.up * dynamiteThrowForceUpward);
+    }
+    IEnumerator endIcicle()
+    {
+        canFire = false;
+        Instantiate(icicle, absorbChecker.transform.position, Quaternion.Euler(0, 0, 0));
+        icicle.transform.rotation = gameObject.transform.rotation;
+        yield return new WaitForSeconds(reloadAbilityTime);
+        canFire = true;
+
+    }
+    IEnumerator endReflect()
+    {
+        yield return new WaitForSeconds(reloadAbilityTime);
+
+    }
+    IEnumerator endStealth()
+    {
+        yield return new WaitForSeconds(reloadAbilityTime);
+
+    }
+    IEnumerator endTank()
+    {
+        yield return new WaitForSeconds(reloadAbilityTime);
+
     }
     #endregion
 
@@ -335,6 +457,7 @@ public class offlinePlayerShooting : MonoBehaviour {
         if (myabi == global::specialAbility.Dynamite)
         {
             Debug.Log("kaboom");
+            StartCoroutine("endDynamite");
             reloadAbilityTime = 1f;
         }
         if (myabi == global::specialAbility.Icicle)

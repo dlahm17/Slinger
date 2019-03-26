@@ -24,6 +24,7 @@ public class offlinePlayerMovement : MonoBehaviour
     public bool Alive;
     
     offlinePlayerShooting myShooting;
+    player_Health myHealth;
 
     public Animator myAnim;
     //dash reload and timetoreload dash are the two modifiers that make the dash usable and balanced.  They result in the dash not being used constantly
@@ -47,7 +48,7 @@ public class offlinePlayerMovement : MonoBehaviour
     //checks if the player is grounded, and if so then gravity is changed to be effective.
     public Transform groundCheck;
     bool grounded;
-    public float groundCheckRadius = 1f;
+    public float groundCheckRadius = .5f;
     public LayerMask floor;
     public float fallSpeed = 5f;
     float currentFallSpeed;
@@ -60,6 +61,7 @@ public class offlinePlayerMovement : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        myHealth = GetComponent<player_Health>();
         myStats = GetComponent<playerStats>();
         speed = baseSpeed + (myStats.speed.GetValue() / 10);
         myCam = Camera.main;
@@ -101,8 +103,13 @@ public class offlinePlayerMovement : MonoBehaviour
     public void setSpeed()
     {
         speed = baseSpeed + (myStats.speed.GetValue()/10);
-        Debug.Log(speed);
+        //Debug.Log(speed);
         return;
+    }
+    public void startAbsorbDash(float amt)
+    {
+        
+        absorbDash(amt);
     }
     // Update is called once per frame
     void Update()
@@ -134,7 +141,7 @@ public class offlinePlayerMovement : MonoBehaviour
                 {
                     //Check if the player is grounded, if he isn't, then use gravity, elsewise don't.
                     grounded = Physics.CheckSphere(groundCheck.position, groundCheckRadius, floormask);
-                    Debug.Log(grounded);
+                    //Debug.Log(grounded);
 
                     if (grounded)
                     {
@@ -241,11 +248,23 @@ public class offlinePlayerMovement : MonoBehaviour
         
     }
     //Dash controls the dashing ability on the player.
+    void absorbDash(float dashMult)
+    {
+        currentlyDashing = true;
+        //then apply physics to show the dash.
+        Vector3 mov = transform.forward * (dashMultiplier * dashMult);
+        playerRigidbody.velocity = ((mov * speed) * Time.deltaTime);
+        //We then call the endDash Coroutine, which waits, then resets everything.
+        StartCoroutine("EndDash");
+    }
     void Dash(float movX, float movZ)
     {
         //set the dashing bools for both the controller and the animator true.
         currentlyDashing = true;
         myAnim.SetBool("Dashing", true);
+        
+        //set the player as undamageable during the dash
+        myHealth.isDashing = true;
         //reload all ammo in the guns.
         myShooting.reloadAllImmediately();
         //then apply physics to show the dash.
@@ -256,7 +275,8 @@ public class offlinePlayerMovement : MonoBehaviour
     }
     IEnumerator EndDash()
     {
-        yield return new WaitForSeconds(.25f);
+        yield return new WaitForSeconds(.1f);
+        myHealth.isDashing = false;
         myAnim.SetBool("Dashing", false);
         playerRigidbody.velocity = Vector3.zero;
         currentlyDashing = false;

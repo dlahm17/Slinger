@@ -47,23 +47,7 @@ public class gunEnemyCtrl : MonoBehaviour {
             }
         }
     }
-
-    private void OnCollisionEnter(Collision other)
-    {
-
-        otherHp = other.gameObject.GetComponent<m_Health>();
-        if (otherHp != null)
-        {
-            otherHp.takeDamage(damage, damageType.physical);
-
-        }
-        if (other.gameObject.tag.Equals("Player"))
-        {
-            otherHp.takeDamage(damage, damageType.physical);
-            myHP.takeDamage(damage, damageType.physical);
-
-        }
-    }
+    
 
     void shoot()
     {

@@ -1,0 +1,73 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: WaterFlowBasic
+  m_Shader: {fileID: 4800000, guid: ef1ebc5120034be4aa9af8be3c044694, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 5
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _DiffuseMap:
+        m_Texture: {fileID: 2800000, guid: 625431f7b67055845896e98f8c9d4aca, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DiffuseSide:
+        m_Texture: {fileID: 2800000, guid: d2233f0af4a6afc4db1b77caa890a5ca, type: 3}
+        m_Scale: {x: 2, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DiffuseUp:
+        m_Texture: {fileID: 2800000, guid: d2233f0af4a6afc4db1b77caa890a5ca, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NormalMap:
+        m_Texture: {fileID: 2800000, guid: 36a8f9b5fcf33754387087ece5a99804, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NormalSide:
+        m_Texture: {fileID: 2800000, guid: 36a8f9b5fcf33754387087ece5a99804, type: 3}
+        m_Scale: {x: 3, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NormalUp:
+        m_Texture: {fileID: 2800000, guid: 47777d6a7a69f354e9f612c8a0599821, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _node_158:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _1stVelocity: 1.89
+    - _2ndUVs: 2
+    - _2ndVelocity: 6
+    - _Cutoff: 0.5
+    - _FresnelPower: 0.39
+    - _FresnelRim: -0.31
+    - _Gloss: 0.383
+    - _OpacityPower: 1.74
+    - _RefractionPower: 0.005
+    - _TopDownMask: 0.885
+    - _UpMoveFresnel: 7.06
+    - _UpMoveRange: -1.03
+    - _UpVelocity: 0.2
+    - _UpmoveMix: 0.5
+    - _Velocity: 1
+    - _node_64: 2.26
+    m_Colors:
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _RimColor: {r: 0.3771626, g: 0.43192935, b: 0.4705882, a: 0.6117647}
+    - _node_134: {r: 0, g: 1, b: 0, a: 0}

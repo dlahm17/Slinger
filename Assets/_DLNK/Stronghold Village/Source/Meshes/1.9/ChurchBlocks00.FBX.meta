@@ -1,0 +1,354 @@
+fileFormatVersion: 2
+guid: b0474bc9d4359694e859a63810f3e8a0
+timeCreated: 1535043753
+licenseType: Store
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Box028
+    100002: Box029
+    100004: //RootNode
+    100006: ChurchWallEntrance00
+    100008: Line002
+    100010: RoofThatched_5x5x007
+    100012: RoofThatched_5x5x008
+    100014: Box029 1
+    100016: Box032
+    100018: Box033
+    100020: Box034
+    100022: ChurchWallWindow00
+    100024: Line003
+    100026: RoofThatched_5x5x009
+    100028: RoofThatched_5x5x010
+    100030: Box035
+    100032: Box036
+    100034: Box037
+    100036: Line004
+    100038: Object002
+    100040: Object003
+    100042: RoofThatched_5x5x011
+    100044: RoofThatched_5x5x012
+    100046: ChurchWallButtress00
+    100048: ChurchWallCorner00
+    100050: ChurchPinaccle00
+    100052: ChurchPinaccle001
+    100054: Box038
+    100056: Box039
+    100058: Box040
+    100060: Box041
+    100062: ChurchWall_10x12x3
+    100064: ChurchWallCornerSmall00
+    100066: ChurchWallWindowSmall00
+    100068: Plane001
+    100070: Plane002
+    100072: Box042
+    100074: Box043
+    100076: ChurchWallCornice00
+    100078: ChurchWallCornice01
+    100080: Line005
+    100082: Line006
+    100084: Line007
+    100086: Box044
+    100088: ChurchWallCornice002
+    100090: Line008
+    100092: Line009
+    100094: Box045
+    100096: ChurchWallCeilingVault00
+    100098: Box046
+    100100: ChurchWallCeilingVault001
+    100102: Box047
+    100104: Box048
+    100106: ChurchButressDeco00
+    100108: ChurchButressPillar00
+    100110: Box049
+    100112: ChurchButressDeco001
+    100114: Box050
+    100116: ChurchWallCeilingVault002
+    100118: ChurchWallEntrance001
+    400000: Box028
+    400002: Box029
+    400004: //RootNode
+    400006: ChurchWallEntrance00
+    400008: Line002
+    400010: RoofThatched_5x5x007
+    400012: RoofThatched_5x5x008
+    400014: Box029 1
+    400016: Box032
+    400018: Box033
+    400020: Box034
+    400022: ChurchWallWindow00
+    400024: Line003
+    400026: RoofThatched_5x5x009
+    400028: RoofThatched_5x5x010
+    400030: Box035
+    400032: Box036
+    400034: Box037
+    400036: Line004
+    400038: Object002
+    400040: Object003
+    400042: RoofThatched_5x5x011
+    400044: RoofThatched_5x5x012
+    400046: ChurchWallButtress00
+    400048: ChurchWallCorner00
+    400050: ChurchPinaccle00
+    400052: ChurchPinaccle001
+    400054: Box038
+    400056: Box039
+    400058: Box040
+    400060: Box041
+    400062: ChurchWall_10x12x3
+    400064: ChurchWallCornerSmall00
+    400066: ChurchWallWindowSmall00
+    400068: Plane001
+    400070: Plane002
+    400072: Box042
+    400074: Box043
+    400076: ChurchWallCornice00
+    400078: ChurchWallCornice01
+    400080: Line005
+    400082: Line006
+    400084: Line007
+    400086: Box044
+    400088: ChurchWallCornice002
+    400090: Line008
+    400092: Line009
+    400094: Box045
+    400096: ChurchWallCeilingVault00
+    400098: Box046
+    400100: ChurchWallCeilingVault001
+    400102: Box047
+    400104: Box048
+    400106: ChurchButressDeco00
+    400108: ChurchButressPillar00
+    400110: Box049
+    400112: ChurchButressDeco001
+    400114: Box050
+    400116: ChurchWallCeilingVault002
+    400118: ChurchWallEntrance001
+    2100000: No Name
+    2100002: 'Material #59'
+    2100004: 'Material #58'
+    2100006: 'Material #55'
+    2100008: 'Material #56'
+    2100010: 'Material #101'
+    2100012: 'Material #57'
+    2100014: 'Material #102'
+    2100016: 'Material #103'
+    2100018: 'Material #104'
+    2300000: Box028
+    2300002: Box029
+    2300004: Line002
+    2300006: Box029 1
+    2300008: Box032
+    2300010: Box033
+    2300012: Box034
+    2300014: Line003
+    2300016: Box035
+    2300018: Box036
+    2300020: Box037
+    2300022: Line004
+    2300024: Object002
+    2300026: Object003
+    2300028: Box038
+    2300030: Box039
+    2300032: Box040
+    2300034: Box041
+    2300036: Plane001
+    2300038: Plane002
+    2300040: Box042
+    2300042: Box043
+    2300044: Line005
+    2300046: Line006
+    2300048: Line007
+    2300050: Box044
+    2300052: Line008
+    2300054: Line009
+    2300056: Box045
+    2300058: Box046
+    2300060: Box047
+    2300062: Box048
+    2300064: Box049
+    2300066: Box050
+    3300000: Box028
+    3300002: Box029
+    3300004: Line002
+    3300006: Box029 1
+    3300008: Box032
+    3300010: Box033
+    3300012: Box034
+    3300014: Line003
+    3300016: Box035
+    3300018: Box036
+    3300020: Box037
+    3300022: Line004
+    3300024: Object002
+    3300026: Object003
+    3300028: Box038
+    3300030: Box039
+    3300032: Box040
+    3300034: Box041
+    3300036: Plane001
+    3300038: Plane002
+    3300040: Box042
+    3300042: Box043
+    3300044: Line005
+    3300046: Line006
+    3300048: Line007
+    3300050: Box044
+    3300052: Line008
+    3300054: Line009
+    3300056: Box045
+    3300058: Box046
+    3300060: Box047
+    3300062: Box048
+    3300064: Box049
+    3300066: Box050
+    4300000: Line002
+    4300002: Box029
+    4300004: Box028
+    4300006: Box029
+    4300008: Line003
+    4300010: Box032
+    4300012: Box033
+    4300014: Box034
+    4300016: Box037
+    4300018: Line004
+    4300020: Object003
+    4300022: Object002
+    4300024: Box035
+    4300026: Box036
+    4300028: Box038
+    4300030: Plane002
+    4300032: Plane001
+    4300034: Box039
+    4300036: Box040
+    4300038: Box041
+    4300040: Line005
+    4300042: Box042
+    4300044: Box043
+    4300046: Line006
+    4300048: Line007
+    4300050: Box044
+    4300052: Line008
+    4300054: Line009
+    4300056: Box045
+    4300058: Box046
+    4300060: Box047
+    4300062: Box048
+    4300064: Box049
+    4300066: Box050
+    6400000: Box028
+    6400002: Box029
+    6400004: Line002
+    6400006: Box029 1
+    6400008: Box032
+    6400010: Box033
+    6400012: Box034
+    6400014: Line003
+    6400016: Box035
+    6400018: Box036
+    6400020: Box037
+    6400022: Line004
+    6400024: Object002
+    6400026: Object003
+    6400028: Box038
+    6400030: Box039
+    6400032: Box040
+    6400034: Box041
+    6400036: Plane001
+    6400038: Plane002
+    6400040: Box042
+    6400042: Box043
+    6400044: Line005
+    6400046: Line006
+    6400048: Line007
+    6400050: Box044
+    6400052: Line008
+    6400054: Line009
+    6400056: Box045
+    6400058: Box046
+    6400060: Box047
+    6400062: Box048
+    6400064: Box049
+    6400066: Box050
+    9500000: //RootNode
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 10
+    meshCompression: 0
+    addColliders: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 0
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

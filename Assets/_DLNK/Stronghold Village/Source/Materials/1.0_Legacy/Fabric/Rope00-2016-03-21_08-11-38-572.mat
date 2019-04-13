@@ -4,10 +4,11 @@
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_Name: Rope00-2016-03-21_08-11-38-572
-  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
+  m_Shader: {fileID: 4800000, guid: 422843b7d640e3d4bb1c922eebabd8b5, type: 3}
   m_ShaderKeywords: _NORMALMAP
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -75,8 +76,12 @@ Material:
     - _BumpScale: 1
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
+    - _Diffuse: 1
     - _DstBlend: 0
     - _EmissionScaleUI: 0
+    - _FadeDiffuse: 0
+    - _FadeShadow: 0
+    - _FadeSpecular: 0
     - _Gloss: 0
     - _GlossMapScale: 1
     - _Glossiness: 0.5
@@ -86,16 +91,19 @@ Material:
     - _Mode: 0
     - _NormalSmooth: 0.5
     - _OcclusionStrength: 1
+    - _Outline: 0.3
     - _Parallax: 0.02
     - _RimLevel: 2
     - _RimPower: 1
     - _SceneCustomAmbient: 0
     - _Shininess: 0.5
     - _SmoothnessTextureChannel: 0
+    - _Specular: 1
     - _SpecularHighlights: 1
     - _SpecularLevel: 1
     - _SpecularPower: 2
     - _SrcBlend: 1
+    - _TexAlpha: 1
     - _TexturePower: 1
     - _TransFresnel: 0
     - _TransPower: 1.07
@@ -105,7 +113,11 @@ Material:
     - _AmbientColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _Color: {r: 0.5882353, g: 0.5882353, b: 0.5882353, a: 1}
     - _ColorTint: {r: 0.33088237, g: 0.27762574, b: 0.16300823, a: 1}
+    - _DiffuseColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _EmissionColorUI: {r: 1, g: 1, b: 1, a: 1}
+    - _OutlineColor: {r: 0, g: 0, b: 0, a: 0}
     - _RimColor: {r: 0.8088235, g: 0.4638841, b: 0.4638841, a: 1}
+    - _ShadowColor: {r: 0.25, g: 0.25, b: 0.25, a: 1}
+    - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}
     - _TransColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}

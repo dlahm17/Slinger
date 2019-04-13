@@ -4,15 +4,16 @@
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_Name: Ornate Border
-  m_Shader: {fileID: 4800000, guid: a48cd7e3d30f7df46b06316aa7fd1b5d, type: 3}
+  m_Shader: {fileID: 4800000, guid: 422843b7d640e3d4bb1c922eebabd8b5, type: 3}
   m_ShaderKeywords: _NORMALMAP _PARALLAXMAP _USEGLOSSMAP_ON
   m_LightmapFlags: 5
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 2000
+  m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
   m_SavedProperties:
@@ -85,8 +86,12 @@ Material:
     - _Depth: 0.03
     - _DepthDirection: 0.96428573
     - _DetailNormalMapScale: 1
+    - _Diffuse: 1
     - _DstBlend: 0
     - _EmissionScaleUI: 0
+    - _FadeDiffuse: 0
+    - _FadeShadow: 0
+    - _FadeSpecular: 0
     - _Gloss: 0.2
     - _Glossiness: 0.3
     - _HgtMapSmooth: 5
@@ -96,9 +101,12 @@ Material:
     - _OcclusionStrenght: 1
     - _OcclusionStrength: 1
     - _OclussionPower: 2.44
+    - _Outline: 0.3
     - _Parallax: 0.0381
+    - _Specular: 1
     - _SpecularLevel: 1
     - _SrcBlend: 1
+    - _TexAlpha: 1
     - _UVMasterTiling: 1
     - _UVSec: 0
     - _UseGlossMap: 1
@@ -106,6 +114,9 @@ Material:
     m_Colors:
     - _Color: {r: 0.588, g: 0.588, b: 0.588, a: 1}
     - _ColorTint: {r: 1, g: 1, b: 1, a: 1}
+    - _DiffuseColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _EmissionColorUI: {r: 1, g: 1, b: 1, a: 1}
+    - _OutlineColor: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowColor: {r: 0.25, g: 0.25, b: 0.25, a: 1}
     - _SpecularColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}

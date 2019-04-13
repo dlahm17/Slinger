@@ -4,12 +4,13 @@
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_Name: GlassDark00
-  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
+  m_Shader: {fileID: 4800000, guid: 422843b7d640e3d4bb1c922eebabd8b5, type: 3}
   m_ShaderKeywords: _NORMALMAP
-  m_LightmapFlags: 5
+  m_LightmapFlags: 1
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -75,23 +76,34 @@ Material:
     - _BumpScale: 1
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
+    - _Diffuse: 1
     - _DstBlend: 0
     - _EmissionScaleUI: 0
+    - _FadeDiffuse: 0
+    - _FadeShadow: 0
+    - _FadeSpecular: 0
     - _Gloss: 0.39285713
+    - _GlossMapScale: 1
     - _Glossiness: 0.23
+    - _GlossyReflections: 1
     - _MainTiling: 1
     - _Metallic: 1
     - _Mode: 0
     - _NormalSmooth: 0
     - _OcclusionStrength: 1
+    - _Outline: 0.3
     - _Parallax: 0.02
     - _RimLevel: 1.46
     - _RimPower: 1
     - _SceneCustomAmbient: 0
     - _Shininess: 0.51
+    - _SmoothnessTextureChannel: 0
+    - _Specular: 0.891
+    - _SpecularHighlights: 1
     - _SpecularLevel: 2.3
     - _SpecularPower: 1.57
     - _SrcBlend: 1
+    - _TexAlpha: 1
     - _TexturePower: 1
     - _TransFresnel: 0.28
     - _TransPower: 2.37
@@ -101,7 +113,11 @@ Material:
     - _AmbientColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _Color: {r: 0.07374998, g: 0.22794709, b: 0.07374998, a: 1}
     - _ColorTint: {r: 0.073196806, g: 0.102941155, b: 0.044658296, a: 1}
+    - _DiffuseColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 0}
     - _EmissionColorUI: {r: 1, g: 1, b: 1, a: 1}
+    - _OutlineColor: {r: 0, g: 0, b: 0, a: 0}
     - _RimColor: {r: 0.435673, g: 0.78676474, b: 0.1504109, a: 1}
+    - _ShadowColor: {r: 0.25, g: 0.25, b: 0.25, a: 1}
+    - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}
     - _TransColor: {r: 0.34742647, g: 0.9264706, b: 0.47122207, a: 1}

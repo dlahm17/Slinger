@@ -4,10 +4,11 @@
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_Name: Floor07
-  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
+  m_Shader: {fileID: 4800000, guid: 422843b7d640e3d4bb1c922eebabd8b5, type: 3}
   m_ShaderKeywords: _CUSTOMDETAILNORMAL_ON _CUSTOMDETAILTEX_ON _CUSTOMSPECDETAIL_ON
     _DETAILCOLOR_ON _NORMALDETAIL_ON _NORMALMAP _PARALLAXMAP _SPECDETAIL_ON _SPECULARIBL_ON
     _USEDETAILMASK_ON
@@ -72,10 +73,16 @@ Material:
     - _DetailMix: 0.5
     - _DetailNormalMapScale: 1
     - _DetailTiling: 4
+    - _Diffuse: 1
     - _Diffusepower: 1
     - _DstBlend: 0
     - _EmissionScaleUI: 0
+    - _FadeDiffuse: 0
+    - _FadeShadow: 0
+    - _FadeSpecular: 0
+    - _GlossMapScale: 1
     - _Glossiness: 0.17
+    - _GlossyReflections: 1
     - _IBLPower: 4
     - _LightWrap: 0
     - _LightWrapPower: 2
@@ -84,22 +91,31 @@ Material:
     - _Mode: 0
     - _NormalDetail: 1
     - _OcclusionStrength: 1
+    - _Outline: 0.3
     - _Parallax: 0.08
     - _Quality: 3
     - _RimFresnel: 0.74
     - _RimPower: 2.71
     - _Shininess: 0.12
+    - _SmoothnessTextureChannel: 0
     - _SpecDetail: 1
+    - _Specular: 1
+    - _SpecularHighlights: 1
     - _SpecularIBL: 1
     - _SpecularPower: 1.72
     - _SrcBlend: 1
+    - _TexAlpha: 1
     - _UVSec: 0
     - _UseDetailMask: 1
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _DiffuseColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 0}
     - _EmissionColorUI: {r: 1, g: 1, b: 1, a: 1}
     - _LightWrapColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+    - _OutlineColor: {r: 0, g: 0, b: 0, a: 0}
     - _RimLightColor: {r: 0.5147059, g: 0.5147059, b: 0.5147059, a: 1}
+    - _ShadowColor: {r: 0.25, g: 0.25, b: 0.25, a: 1}
     - _SpecColor: {r: 1, g: 1, b: 1, a: 1}
+    - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}

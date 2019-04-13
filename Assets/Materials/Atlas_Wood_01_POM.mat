@@ -5,10 +5,11 @@ Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_Name: Atlas_Wood_01_POM
-  m_Shader: {fileID: 4800000, guid: 5aee3908d6fc5d647b56474239e43e9b, type: 3}
-  m_ShaderKeywords: 
+  m_Shader: {fileID: 4800000, guid: 422843b7d640e3d4bb1c922eebabd8b5, type: 3}
+  m_ShaderKeywords: _EMISSION _METALLICGLOSSMAP _NORMALMAP
   m_LightmapFlags: 1
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -24,6 +25,26 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
         m_Texture: {fileID: 2800000, guid: 23f95b5b029e69f4189622eeb0ecc6f8, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Cavity:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailAlbedoMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailMask:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailMetalness:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailNormalMap:
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _EmissionMap:
@@ -66,6 +87,14 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _OcclusionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ParallaxMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _Roughness:
         m_Texture: {fileID: -483071582, guid: d005e54ac1326f244a4b6da7b2a21521, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -78,6 +107,42 @@ Material:
         m_Texture: {fileID: 2800000, guid: 03bfb407f5ca36749a704dbff6bb9c7a, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _Texture_01:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture_01Height:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture_01MetalSmooth:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture_01Normal:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture_02:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture_02Height:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture_02MetalSmooth:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture_02Normal:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TranslucencyMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _texcoord:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -86,14 +151,35 @@ Material:
     - _AOstrength: 0.386
     - _Bias: 0.61
     - _BumpScale: 0.5
+    - _CavityMult: 1
     - _CurvFix: 0.485
     - _CurvatureU: 0
     - _CurvatureV: 0
+    - _Cutoff: 0.5
+    - _DetailGloss: 0
+    - _DetailMaskMult: 0
+    - _DetailMetal: 0
+    - _DetailNormalMapScale: 1
+    - _Diffuse: 1
+    - _DstBlend: 0
+    - _EmissionLM: 0
+    - _FadeDiffuse: 0
+    - _FadeShadow: 0
+    - _FadeSpecular: 0
     - _Float0: 0.308
+    - _GlossMapScale: 1
     - _Glossiness: 0.5
+    - _GlossyReflections: 1
+    - _HgtMapSmooth: 0
     - _Metallic: 0
     - _MetallicScale: 0.5
+    - _Mode: 0
     - _NormalScale: 0.5
+    - _NormalSmooth: 0
+    - _OcclusionStrenght: 1
+    - _OcclusionStrength: 1
+    - _Outline: 0.3
+    - _Parallax: 0
     - _ParallaxScale: 0.017
     - _ParallaxSwitch: 0
     - _Ref: -0.03
@@ -101,14 +187,41 @@ Material:
     - _RoughScale: 1
     - _Scale: 0.017
     - _ScatteringPower: 0.1
+    - _SmoothnessTextureChannel: 0
+    - _Specular: 1
+    - _SpecularHighlights: 1
+    - _SrcBlend: 1
+    - _TexAlpha: 1
+    - _Texture_01HeightOffset: 1
+    - _Texture_01Metallic: 0
+    - _Texture_01NormalScale: 0
+    - _Texture_01Smoothness: 0.5
+    - _Texture_02ColorOffset: 1
+    - _Texture_02ColorScale: 1
+    - _Texture_02HeightOffset: 1
+    - _Texture_02HeightScale: 1
+    - _Texture_02Metallic: 0
+    - _Texture_02NormalScale: 0
+    - _Texture_02Smoothness: 0.5
+    - _TransMult: 0
     - _Translucency: 0
     - _TranslucencyViewDependency: 0
+    - _UVMasterTiling: 1
+    - _UVSec: 0
+    - _UVSecondaryTiling: 2
+    - _ZWrite: 1
     - __dirty: 0
     m_Colors:
+    - _CavityColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Color0: {r: 0, g: 0, b: 0, a: 0}
     - _Color1: {r: 1, g: 0, b: 0, a: 0}
+    - _Curvature: {r: 0, g: 0, b: 0, a: 0}
+    - _DiffuseColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _Emi: {r: 0, g: 0, b: 0, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 0}
     - _EmissiveColor: {r: 0, g: 0, b: 0, a: 0}
+    - _OutlineColor: {r: 0, g: 0, b: 0, a: 0}
     - _SSSColor: {r: 1, g: 1, b: 1, a: 1}
+    - _ShadowColor: {r: 0.25, g: 0.25, b: 0.25, a: 1}
+    - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}

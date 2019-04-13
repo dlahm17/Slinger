@@ -5,9 +5,10 @@ Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_Name: Atlas_01_POM_Night
-  m_Shader: {fileID: 4800000, guid: 5aee3908d6fc5d647b56474239e43e9b, type: 3}
+  m_Shader: {fileID: 4800000, guid: 422843b7d640e3d4bb1c922eebabd8b5, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 1
   m_EnableInstancingVariants: 0
@@ -93,10 +94,16 @@ Material:
     - _CurvFix: 1
     - _CurvatureU: 0
     - _CurvatureV: 0
+    - _Diffuse: 1
+    - _FadeDiffuse: 0
+    - _FadeShadow: 0
+    - _FadeSpecular: 0
     - _Float0: 0.308
     - _Glossiness: 1
     - _Metallic: 0
+    - _MetallicScale: 0.5
     - _NormalScale: 0.5
+    - _Outline: 0.3
     - _ParallaxScale: 0.014
     - _ParallaxSwitch: 0
     - _Ref: -0.03
@@ -105,6 +112,8 @@ Material:
     - _RoughnessStrength: 1
     - _Scale: 0.017
     - _ScatteringPower: 0.1
+    - _Specular: 1
+    - _TexAlpha: 1
     - _ToggleSwitch0: 0
     - _Translucency: 0
     - _TranslucencyViewDependency: 0
@@ -113,7 +122,11 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Color0: {r: 0, g: 0, b: 0, a: 0}
     - _Color1: {r: 1, g: 0, b: 0, a: 0}
+    - _DiffuseColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _Emi: {r: 0, g: 0, b: 0, a: 0}
     - _EmissionColor: {r: 1, g: 0.8962474, b: 0.31617644, a: 1}
     - _EmissiveColor: {r: 1, g: 0.8962474, b: 0.31617644, a: 1}
+    - _OutlineColor: {r: 0, g: 0, b: 0, a: 0}
     - _SSSColor: {r: 1, g: 1, b: 1, a: 1}
+    - _ShadowColor: {r: 0.25, g: 0.25, b: 0.25, a: 1}
+    - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}

@@ -4,10 +4,11 @@
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_Name: PlasterWhite00
-  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
+  m_Shader: {fileID: 4800000, guid: 422843b7d640e3d4bb1c922eebabd8b5, type: 3}
   m_ShaderKeywords: _DETAILSPEC_ON _DETAIL_MULX2 _METALLICGLOSSMAP _NORMALMAP _USEGLOSSMAP_ON
     _USETINT_ON
   m_LightmapFlags: 5
@@ -108,21 +109,32 @@ Material:
     - _DetailNormalMapScale: 0.5
     - _DetailSpec: 0.1219685
     - _DetailTiling: 2
+    - _Diffuse: 1
     - _DstBlend: 0
     - _EmissionScaleUI: 0
+    - _FadeDiffuse: 0
+    - _FadeShadow: 0
+    - _FadeSpecular: 0
     - _Gloss: 0.26785713
+    - _GlossMapScale: 1
     - _Glossiness: 0.25
+    - _GlossyReflections: 1
     - _MainTiling: 1
     - _Metallic: 0
     - _Mode: 0
     - _NormalSmooth: 0.75
     - _OcclusionStrength: 0.73
     - _OclussionPower: 0
+    - _Outline: 0.3
     - _Parallax: 0.08
     - _Shininess: 0.2
+    - _SmoothnessTextureChannel: 0
+    - _Specular: 1
+    - _SpecularHighlights: 1
     - _SpecularLevel: 0.11
     - _SpecularPower: 0.5
     - _SrcBlend: 1
+    - _TexAlpha: 1
     - _UVSec: 0
     - _UseGlossMap: 1
     - _UseTint: 0.1736454
@@ -130,6 +142,9 @@ Material:
     m_Colors:
     - _Color: {r: 0.5294118, g: 0.5294118, b: 0.5294118, a: 1}
     - _ColorTint: {r: 0.8161765, g: 0.82217777, b: 0.82217777, a: 1}
+    - _DiffuseColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 0}
     - _EmissionColorUI: {r: 1, g: 1, b: 1, a: 1}
+    - _OutlineColor: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowColor: {r: 0.25, g: 0.25, b: 0.25, a: 1}
     - _SpecularColor: {r: 0.9117647, g: 0.9069562, b: 0.8983564, a: 1}

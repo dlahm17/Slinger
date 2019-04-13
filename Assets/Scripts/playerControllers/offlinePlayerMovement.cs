@@ -129,7 +129,7 @@ public class offlinePlayerMovement : MonoBehaviour
             }
             if(Input.GetAxisRaw("Vertical") < 0)
             {
-                transform.Translate((Vector3.down * Time.deltaTime) * climbingSpeed);
+                transform.Translate((Vector3.down * Time.deltaTime) * (climbingSpeed * 2));
             }
         }
         //Anim up is false if the menu isn't open.

@@ -4,10 +4,11 @@
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_Name: FloorsRegular00
-  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
+  m_Shader: {fileID: 4800000, guid: 422843b7d640e3d4bb1c922eebabd8b5, type: 3}
   m_ShaderKeywords: _AFFECTAO_ON _NORMALMAP _PARALLAXMAP _PARALLAXON_ON _RIMAO_ON
     _SPECULARAO_ON _USEGLOSSMAP_ON _USESPECULARMAP_ON
   m_LightmapFlags: 5
@@ -108,11 +109,17 @@ Material:
     - _DepthDirection: 1
     - _DetailNormalMapScale: 1
     - _DetailPower: 0.5
+    - _Diffuse: 1
     - _DifusePower: 1
     - _DstBlend: 0
     - _EmissionScaleUI: 0
+    - _FadeDiffuse: 0
+    - _FadeShadow: 0
+    - _FadeSpecular: 0
     - _Gloss: 0.625
+    - _GlossMapScale: 1
     - _Glossiness: 0.06
+    - _GlossyReflections: 1
     - _HeightPower: 0.05
     - _MasterTile: 1
     - _Metallic: 0.01
@@ -122,15 +129,20 @@ Material:
     - _OclussionFade: 1.6259404
     - _OclussionIntensity: 0.5714286
     - _OclussionPower: 0.96
+    - _Outline: 0.3
     - _Parallax: 0.02
     - _ParallaxOn: 1
     - _RimAO: 1
     - _RimFresnel: 3
     - _RimOn: 0
     - _RimPower: 0.5
+    - _SmoothnessTextureChannel: 0
+    - _Specular: 1
     - _SpecularAO: 1
+    - _SpecularHighlights: 1
     - _SpecularLevel: 0.95
     - _SrcBlend: 1
+    - _TexAlpha: 1
     - _UVSec: 0
     - _UseDetailAlpha: 0
     - _UseGlossMap: 1
@@ -140,8 +152,11 @@ Material:
     m_Colors:
     - _Color: {r: 0.588, g: 0.588, b: 0.588, a: 1}
     - _ColorTint: {r: 0.8161765, g: 0.8161765, b: 0.8161765, a: 1}
+    - _DiffuseColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 0}
     - _EmissionColorUI: {r: 1, g: 1, b: 1, a: 1}
+    - _OutlineColor: {r: 0, g: 0, b: 0, a: 0}
     - _RimColor: {r: 0.5220588, g: 0.5220588, b: 0.5220588, a: 1}
+    - _ShadowColor: {r: 0.25, g: 0.25, b: 0.25, a: 1}
     - _SpecularColor: {r: 0.64705884, g: 0.5941654, b: 0.4995675, a: 1}
     - _SpecularTint: {r: 0.9403174, g: 0.9411765, b: 0.8788927, a: 1}

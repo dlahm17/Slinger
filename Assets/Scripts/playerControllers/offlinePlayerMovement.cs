@@ -57,10 +57,11 @@ public class offlinePlayerMovement : MonoBehaviour
 
     public LayerMask interactableLayer;
     playerStats myStats;
-    
+    devConsole myconsole;
     // Use this for initialization
     void Start()
     {
+        myconsole = devConsole.instance;
         myHealth = GetComponent<player_Health>();
         myStats = GetComponent<playerStats>();
         speed = baseSpeed + (myStats.speed.GetValue() / 10);
@@ -114,74 +115,81 @@ public class offlinePlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        if (Input.GetButtonDown("8"))
+        if (Input.GetButtonDown("Console"))
         {
-            Debug.Log("took damage");
-            player_Health myhp = GetComponent<player_Health>();
-            myhp.takeDamage(1, damageType.physical);
+            myconsole.onCommand();
+
         }
-        if (climbing)
+
+        if (PlayerPrefs.GetFloat("devConsoleUp") == 0)
         {
-            if(Input.GetAxisRaw("Vertical") > 0)
+            if (Input.GetButtonDown("8"))
             {
-                transform.Translate((Vector3.up * Time.deltaTime) * climbingSpeed);
+                Debug.Log("took damage");
+                player_Health myhp = GetComponent<player_Health>();
+                myhp.takeDamage(1, damageType.physical);
             }
-            if(Input.GetAxisRaw("Vertical") < 0)
+            if (climbing)
             {
-                transform.Translate((Vector3.down * Time.deltaTime) * (climbingSpeed * 2));
-            }
-        }
-        //Anim up is false if the menu isn't open.
-        if (!animUp)
-        {
-            if (!climbing)
-            {
-                if (canMove)
+                if (Input.GetAxisRaw("Vertical") > 0)
                 {
-                    //Check if the player is grounded, if he isn't, then use gravity, elsewise don't.
-                    grounded = Physics.CheckSphere(groundCheck.position, groundCheckRadius, floormask);
-                    //Debug.Log(grounded);
+                    transform.Translate((Vector3.up * Time.deltaTime) * climbingSpeed);
+                }
+                if (Input.GetAxisRaw("Vertical") < 0)
+                {
+                    transform.Translate((Vector3.down * Time.deltaTime) * (climbingSpeed * 2));
+                }
+            }
+            //Anim up is false if the menu isn't open.
+            if (!animUp)
+            {
+                if (!climbing)
+                {
+                    if (canMove)
+                    {
+                        //Check if the player is grounded, if he isn't, then use gravity, elsewise don't.
+                        grounded = Physics.CheckSphere(groundCheck.position, groundCheckRadius, floormask);
+                        //Debug.Log(grounded);
 
-                    if (grounded)
-                    {
-                        currentFallSpeed = 0;
-                    }
-                    if (!grounded)
-                    {
-                        currentFallSpeed = fallSpeed;
-                    }
-                    float MovX;
-                    float movZ;
-                    MovX = Input.GetAxisRaw("Horizontal");
-                    movZ = Input.GetAxisRaw("Vertical");
-                    if (currentlyDashing == false)
-                    {
-                        moveMe(MovX, movZ, currentFallSpeed);
-                        //mylight.intensity = (Mathf.Abs(MovX) + Mathf.Abs(movZ)) * baseintensity;
-                    }
-                    if (!Alive && myCollider.enabled)
-                    {
-                        myCollider.enabled = false;
-                    }
-                    if (Alive && !myCollider.enabled)
-                    {
-                        myCollider.enabled = true;
-                    }
+                        if (grounded)
+                        {
+                            currentFallSpeed = 0;
+                        }
+                        if (!grounded)
+                        {
+                            currentFallSpeed = fallSpeed;
+                        }
+                        float MovX;
+                        float movZ;
+                        MovX = Input.GetAxisRaw("Horizontal");
+                        movZ = Input.GetAxisRaw("Vertical");
+                        if (currentlyDashing == false)
+                        {
+                            moveMe(MovX, movZ, currentFallSpeed);
 
-                    if (Input.GetAxis("Fire2") > .5f && Time.time > dashReload)
-                    {
-                        Dash(MovX, movZ);
-                        dashReload = Time.time + timetoReloadDash;
+                        }
+                        if (!Alive && myCollider.enabled)
+                        {
+                            myCollider.enabled = false;
+                        }
+                        if (Alive && !myCollider.enabled)
+                        {
+                            myCollider.enabled = true;
+                        }
+
+                        if (Input.GetAxis("Fire2") > .5f && Time.time > dashReload)
+                        {
+                            Dash(MovX, movZ);
+                            dashReload = Time.time + timetoReloadDash;
+                        }
                     }
                 }
             }
-        }
-        if (animUp)
-        {
-        moveMe(0, 0, currentFallSpeed);
-        }
-        //pull up the inventory screen if tab is pressed, we could also have it be I for inventory
+            if (animUp)
+            {
+                moveMe(0, 0, currentFallSpeed);
+            }
+            //pull up the inventory screen if tab is pressed, we could also have it be I for inventory
             if (Input.GetButtonDown("Tab"))
             {
                 InventoryControl();
@@ -193,11 +201,11 @@ public class offlinePlayerMovement : MonoBehaviour
                 Interact();
             }
             //lightchange will be the F key
-        if (Input.GetButtonDown("LightChange"))
-        {
-            swapLight();
+            if (Input.GetButtonDown("LightChange"))
+            {
+                swapLight();
+            }
         }
-        
     }
     //swap Light turns the light on and off upon button pressing.
     void swapLight()
@@ -229,10 +237,10 @@ public class offlinePlayerMovement : MonoBehaviour
     //inventory control controls whether the inventory screen is active or not.
     void InventoryControl()
     {
-        
             if (animUp)
             {
                 InventoryScreen.SetActive(false);
+            PlayerPrefs.SetFloat("InventoryUp", 0);
                 myShooting.canFire = true;
                 animUp = false;
                 return;
@@ -240,7 +248,8 @@ public class offlinePlayerMovement : MonoBehaviour
             if (!animUp)
             {
                 InventoryScreen.SetActive(true);
-                myShooting.canFire = false;
+            PlayerPrefs.SetFloat("InventoryUp", 1);
+            myShooting.canFire = false;
                 
                 animUp = true;
                 return;
@@ -281,12 +290,26 @@ public class offlinePlayerMovement : MonoBehaviour
         playerRigidbody.velocity = Vector3.zero;
         currentlyDashing = false;
     }
+    
     //Move me takes information from the axes, and then applies them to both the animator and the player controller.
     void moveMe(float movX, float movZ, float fallSpeed)
     {
 
         Vector3 movement = new Vector3(movX, fallSpeed,movZ);
-        movement = (movement.normalized * speed) * Time.smoothDeltaTime;
+        float myspd = speed;
+        if(Input.GetAxis("Sprint") > .1f)
+        {
+            myspd = speed * 1.5f;
+            if (movX != 0 && movZ != 0) {
+                myShooting.canFire = false;
+            }
+        }
+        if(Input.GetAxis("Sprint") < .1f)
+        {
+            myspd = speed;
+            myShooting.canFire = true;
+        }
+        movement = (movement.normalized * myspd) * Time.smoothDeltaTime;
         playerRigidbody.velocity = movement;
         if(movX != 0 || movZ != 0)
         {

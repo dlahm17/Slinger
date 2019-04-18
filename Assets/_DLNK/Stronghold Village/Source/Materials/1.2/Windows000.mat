@@ -4,18 +4,18 @@
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_Name: Windows000
-  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: _ALPHAPREMULTIPLY_ON _AOON_ON _DETAIL_MULX2 _NORMALMAP _PARALLAXMAP
-    _PARALLAXON_ON
-  m_LightmapFlags: 5
+  m_Shader: {fileID: 4800000, guid: 422843b7d640e3d4bb1c922eebabd8b5, type: 3}
+  m_ShaderKeywords: _ALPHAPREMULTIPLY_ON _AOON_ON _DETAIL_MULX2 _EMISSION _NORMALMAP
+    _PARALLAXMAP _PARALLAXON_ON
+  m_LightmapFlags: 1
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 3000
-  stringTagMap:
-    RenderType: Transparent
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
@@ -90,27 +90,42 @@ Material:
     - _Cutoff: 0.5
     - _Depth: 0.05
     - _DetailNormalMapScale: 1
+    - _Diffuse: 1
     - _DstBlend: 10
+    - _FadeDiffuse: 0
+    - _FadeShadow: 0
+    - _FadeSpecular: 0
     - _Gloss: 0.39285713
+    - _GlossMapScale: 1
     - _Glossiness: 0.51
+    - _GlossyReflections: 1
     - _MasterTile: 1
     - _Metallic: 0.77
     - _Mode: 3
     - _OcclusionStrength: 1
     - _OclussionMip: 0
     - _OclussionPower: 0.5
+    - _Outline: 0.3
     - _Parallax: 0.02
     - _ParallaxOn: 1
     - _RefIntensity: 1
     - _RimPower: 0.68
+    - _SmoothnessTextureChannel: 0
     - _SpecIntensity: 4.47
+    - _Specular: 1
+    - _SpecularHighlights: 1
     - _SrcBlend: 1
+    - _TexAlpha: 1
     - _UVSec: 0
     - _ZWrite: 0
     m_Colors:
     - _Color: {r: 0.588, g: 0.588, b: 0.588, a: 1}
     - _ColorOclussion: {r: 0, g: 0, b: 0, a: 1}
+    - _DiffuseColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _DiffuseTint: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _OutlineColor: {r: 0, g: 0, b: 0, a: 0}
     - _RefColor: {r: 1, g: 1, b: 1, a: 1}
+    - _ShadowColor: {r: 0.25, g: 0.25, b: 0.25, a: 1}
     - _SpecColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+    - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}

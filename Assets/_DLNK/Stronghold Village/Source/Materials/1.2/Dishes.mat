@@ -4,10 +4,11 @@
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_Name: Dishes
-  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
+  m_Shader: {fileID: 4800000, guid: 422843b7d640e3d4bb1c922eebabd8b5, type: 3}
   m_ShaderKeywords: _NORMALMAP
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -93,10 +94,14 @@ Material:
     - _DetailNormalMapScale: 1
     - _DetailSpec: 0
     - _DetailTiling: 3
+    - _Diffuse: 1
     - _DiffuseRim: -0.83
     - _DifuseIntensityIBL: 1
     - _DstBlend: 0
     - _EmissionScaleUI: 0
+    - _FadeDiffuse: 0
+    - _FadeShadow: 0
+    - _FadeSpecular: 0
     - _Fresnel: 1
     - _Gloss: 0.36
     - _GlossMapScale: 0.752
@@ -106,23 +111,29 @@ Material:
     - _Metallic: 0.68
     - _Mode: 0
     - _OcclusionStrength: 1
+    - _Outline: 0.3
     - _Parallax: 0.02
     - _ReflectionLevel: 0.2
     - _Shininess: 0.62648505
     - _SmoothDiffuseIBL: 0
     - _SmoothnessTextureChannel: 0
+    - _Specular: 1
     - _SpecularHighlights: 1
     - _SpecularIntensityIBL: 1
     - _SpecularLevel: 1.06
     - _SpecularPower: 0.2
     - _SrcBlend: 1
+    - _TexAlpha: 1
     - _UVSec: 0
     - _UseTint: 0
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _ColorTint: {r: 0.6323529, g: 0.6323529, b: 0.6323529, a: 1}
+    - _DiffuseColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _EmissionColorUI: {r: 1, g: 1, b: 1, a: 1}
+    - _OutlineColor: {r: 0, g: 0, b: 0, a: 0}
     - _ReflectionColor: {r: 0.6838235, g: 0.6838235, b: 0.6838235, a: 1}
+    - _ShadowColor: {r: 0.25, g: 0.25, b: 0.25, a: 1}
     - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}

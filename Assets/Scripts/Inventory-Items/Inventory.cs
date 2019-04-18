@@ -11,7 +11,7 @@ public class Inventory : MonoBehaviour {
 
     private void Awake()
     {
-        if(instance != null)
+        if (instance != null)
         {
             Debug.LogWarning("More than one instance of Inventory found!");
             return;
@@ -19,7 +19,7 @@ public class Inventory : MonoBehaviour {
         instance = this;
 
 
-        
+
     }
     #endregion
     //Allow other scripts to add their own methods to whenever an item is changed (for example, equipment manager, stats, etc.)
@@ -50,10 +50,37 @@ public class Inventory : MonoBehaviour {
     public void giveGold(int goldtoGive)
     {
         currentGold += goldtoGive;
+        if(currentGold < 0)
+        {
+            currentGold = 0;
+        }
+    }
+    public float checkGold()
+    {
+        Debug.Log("checking gold");
+        return currentGold;
+    }
+    public void resetGold()
+    {
+        currentGold = 0;
+        return;
     }
     public void giveExp(int expToGive)
     {
         currentExp += expToGive;
+        if(currentExp < 0)
+        {
+            currentExp = 0;
+        }
+    }
+    public float checkExp()
+    {
+        return currentExp;
+    }
+    public void resetExp()
+    {
+        currentExp = 0;
+        return;
     }
     private void Update()
     {
@@ -85,6 +112,15 @@ public class Inventory : MonoBehaviour {
     public void Remove(Item item)
     {
         items.Remove(item);
+        if (onItemChangedCallback != null)
+        {
+            onItemChangedCallback.Invoke();
+        }
+    }
+    public void RemoveAll()
+    {
+        Debug.Log("Removing all items from inventory");
+        items.Clear();
         if (onItemChangedCallback != null)
         {
             onItemChangedCallback.Invoke();

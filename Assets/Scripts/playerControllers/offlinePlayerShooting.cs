@@ -278,67 +278,74 @@ public class offlinePlayerShooting : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        /*
-        Debug.DrawRay(GunPos1.transform.position, shotDirR.forward * range, Color.red, 2f);
-        Debug.DrawRay(GunPos2.transform.position, shotDirL.forward * range, Color.red, 2f);
-        */
-        if (Alive)
+        if (PlayerPrefs.GetFloat("devConsoleUp") == 0)
         {
-            if (canFire)
+            if (PlayerPrefs.GetFloat("InventoryUp") == 0)
             {
-                if (Input.GetAxis("Fire1") > 0 && Time.time > ReloadTime)
+                /*
+                Debug.DrawRay(GunPos1.transform.position, shotDirR.forward * range, Color.red, 2f);
+                Debug.DrawRay(GunPos2.transform.position, shotDirL.forward * range, Color.red, 2f);
+                */
+                if (Alive)
                 {
-                    Fire();
-                }
-                if (Input.GetAxis("Reload") > 0 && !isCurrentlyReloading)
-                {
-                    Reload();
-                }
-                if (Input.GetAxisRaw("Fire1") > 0 && !hasntCanceled)
-                {
-                    hasntCanceled = true;
-                }
-                if(Input.GetAxis("Mouse ScrollWheel") != 0)
-                {
-                    if(Input.GetAxis("Mouse ScrollWheel") > 0.2f)
+                    if (canFire)
                     {
-                        specialAbilityUp();
-                        return;
-                    }
-                    if(Input.GetAxis("Mouse ScrollWheel") < 0.2f)
-                    {
-                        specialAbilityDown();
-                        return;
-                    }
-                }
-                if (Input.GetButton("SpecialAbility") && Time.time > timeUntilUseAbility)
-                {
-                    specialAbility(mySpAbilities[currentSpAbility]);
-                }
-            }
-        }
-        if (AbsorbActive)
-        {
-            if (absorbConnected == false)
-            {
-                absorbConnected = Physics.CheckSphere(absorbChecker.transform.position, .1f);
-
-                Debug.Log("absorbConnected is: " + absorbConnected);
-                if (absorbConnected == true)
-                {
-                    if(enemyToAbsorb == null) {
-                    RaycastHit hit;
-                    Debug.DrawRay(absorbChecker.transform.position, absorbChecker.transform.forward, Color.red, 2f);
-                    Ray newRay = new Ray(absorbChecker.transform.position, absorbChecker.transform.forward);
-                        if (Physics.Raycast(newRay, out hit, 2f))
+                        if (Input.GetAxis("Fire1") > 0 && Time.time > ReloadTime)
                         {
-                            if (hit.collider.tag == "Enemy")
+                            Fire();
+                        }
+                        if (Input.GetAxis("Reload") > 0 && !isCurrentlyReloading)
+                        {
+                            Reload();
+                        }
+                        if (Input.GetAxisRaw("Fire1") > 0 && !hasntCanceled)
+                        {
+                            hasntCanceled = true;
+                        }
+                        if (Input.GetAxis("Mouse ScrollWheel") != 0)
+                        {
+                            if (Input.GetAxis("Mouse ScrollWheel") > 0.2f)
                             {
-                                Debug.Log("Collided with enemy");
-                                enemyToAbsorb = hit.collider.gameObject;
+                                specialAbilityUp();
+                                return;
+                            }
+                            if (Input.GetAxis("Mouse ScrollWheel") < 0.2f)
+                            {
+                                specialAbilityDown();
+                                return;
                             }
                         }
-                        Debug.Log("enemy To Absorb is: " + enemyToAbsorb);
+                        if (Input.GetButton("SpecialAbility") && Time.time > timeUntilUseAbility)
+                        {
+                            specialAbility(mySpAbilities[currentSpAbility]);
+                        }
+                    }
+                }
+                if (AbsorbActive)
+                {
+                    if (absorbConnected == false)
+                    {
+                        absorbConnected = Physics.CheckSphere(absorbChecker.transform.position, .1f);
+
+                        Debug.Log("absorbConnected is: " + absorbConnected);
+                        if (absorbConnected == true)
+                        {
+                            if (enemyToAbsorb == null)
+                            {
+                                RaycastHit hit;
+                                Debug.DrawRay(absorbChecker.transform.position, absorbChecker.transform.forward, Color.red, 2f);
+                                Ray newRay = new Ray(absorbChecker.transform.position, absorbChecker.transform.forward);
+                                if (Physics.Raycast(newRay, out hit, 2f))
+                                {
+                                    if (hit.collider.tag == "Enemy")
+                                    {
+                                        Debug.Log("Collided with enemy");
+                                        enemyToAbsorb = hit.collider.gameObject;
+                                    }
+                                }
+                                Debug.Log("enemy To Absorb is: " + enemyToAbsorb);
+                            }
+                        }
                     }
                 }
             }
@@ -443,7 +450,7 @@ public class offlinePlayerShooting : MonoBehaviour {
 
     }
     #endregion
-
+    #region abilityFunctionality
     void specialAbility(specialAbility myabi)
     {
         if(myabi == global::specialAbility.Absorb)
@@ -532,6 +539,7 @@ public class offlinePlayerShooting : MonoBehaviour {
         spAbiImg.sprite = spAbiImageSprite[currentSpAbility];
 
     }
+    #endregion
 
     void Reload()
     {
@@ -608,155 +616,160 @@ public class offlinePlayerShooting : MonoBehaviour {
 
     void Fire()
     {
-        
-        RaycastHit hit = new RaycastHit();
-        
-        bool canFire = true;
-        if(myWeaponType == weaponType.Shotgun)
+        if (PlayerPrefs.GetFloat("devConsoleUp") == 0)
         {
-            if(canFire && rightHasAmmo)
+            if (PlayerPrefs.GetFloat("InventoryUp") == 0)
             {
-                Debug.Log("Shotgun Blast");
-                gunShotAudio1.PlayOneShot(gunShotAudio1.clip);
-                bulletSystem1.Play();
-                canFire = false;
-                rightAmmoCount--;
 
-                Ray centerRay = new Ray(GunPos1.position, shotDirR.position * range);
-                myGunShotRenderer1.enabled = true;
-                
-                //always have one shot go straight
-                float damage = baseBulletDamage + playerstats.damage.GetValue();
-                if (Physics.Raycast(centerRay, out hit, range))
+                RaycastHit hit = new RaycastHit();
+
+                bool canFire = true;
+                if (myWeaponType == weaponType.Shotgun)
                 {
-                    Vector3 distance = new Vector3(0, 0, Vector3.Distance(hit.collider.gameObject.transform.position, GunPos1.position));
-                    myGunShotRenderer1.SetPosition(1, distance);
-                    m_Health hitHp = hit.collider.gameObject.GetComponent<m_Health>();
-                    //applies damage to object
-                    if (hitHp != null)
+                    if (canFire && rightHasAmmo)
                     {
-                        hitHp.takeDamage(damage, myWeaponDamageType);
-                    }
-                }
-                //include multiple hits real soon
-                for(int i = 0; i < shotsInSpread; i++)
-                {
-                    Ray ray = new Ray(GunPos1.position, shotGunDir[i].forward * range);
-                    shotGunRenderer[i].enabled = true;
-                    Debug.DrawRay(GunPos1.position, shotGunDir[i].forward * range, Color.red, 2f);
-                    //shotGunRenderer[i].SetPosition(1, shotGunDir[i].forward * range);
-                    if (Physics.Raycast(ray, out hit, range))
-                    {
-                        Debug.Log("Hit");
-                       // Vector3 distance = new Vector3(0,0, Vector3.Distance(hit.collider.gameObject.transform.position, GunPos1.position));
-                        //myGunShotRenderer1.SetPosition(1, distance);
-                        m_Health hitHp = hit.collider.gameObject.GetComponent<m_Health>();
-                        //applies damage to object
-                        if (hitHp != null)
-                        {
-                            hitHp.takeDamage(damage, myWeaponDamageType);
-                        }
-                    }
-                }
+                        Debug.Log("Shotgun Blast");
+                        gunShotAudio1.PlayOneShot(gunShotAudio1.clip);
+                        bulletSystem1.Play();
+                        canFire = false;
+                        rightAmmoCount--;
 
-                
+                        Ray centerRay = new Ray(GunPos1.position, shotDirR.position * range);
+                        myGunShotRenderer1.enabled = true;
 
-                if (rightAmmoCount <= 0)
-                {
-                    rightHasAmmo = false;
-                }
-                updateUI();
-            }
-
-            
-        }
-        if (myWeaponType == weaponType.dualRevolvers || myWeaponType == weaponType.Rifle)
-        {
-            //Debug.Log("Single Shot");
-            if (right && canFire && rightHasAmmo)
-            {
-                gunShotAudio1.PlayOneShot(gunShotAudio1.clip);
-                Ray myRay = new Ray(GunPos1.position, shotDirR.forward * range);
-
-                bulletSystem1.Play();
-                canFire = false;
-                rightAmmoCount--;
-
-                myGunShotRenderer1.enabled = true;
-                //Debug.Log(rightAmmoCount);
-                if (rightAmmoCount <= 0)
-                {
-                    rightHasAmmo = false;
-                }
-                if (Physics.Raycast(myRay, out hit, range))
-                {
-                    float damage = baseBulletDamage + playerstats.damage.GetValue();
-                    Vector3 distance = new Vector3(0, 0, Vector3.Distance(hit.collider.gameObject.transform.position, GunPos1.position));
-                    myGunShotRenderer1.SetPosition(1, distance);
-                    m_Health hitHp = hit.collider.gameObject.GetComponent<enemyHealth>();
-                    //applies damage to object
-                    if (hitHp != null)
-                    {
-                        hitHp.takeDamage(damage, myWeaponDamageType);
-                    }
-
-
-                }
-                updateUI();
-
-
-
-            }
-
-
-
-            if (isDualWeapon)
-            {
-                if (!right && canFire && leftHasAmmo)
-                {
-
-                    gunShotAudio2.PlayOneShot(gunShotAudio2.clip);
-                    Ray myRay = new Ray(GunPos2.position, shotDirL.forward * range);
-                    bulletSystem2.Play();
-                    canFire = false;
-                    leftAmmoCount--;
-
-                    myGunShotRenderer2.enabled = true;
-                    //Debug.Log(leftAmmoCount);
-                    if (leftAmmoCount <= 0)
-                    {
-                        leftHasAmmo = false;
-                    }
-
-                    if (Physics.Raycast(myRay, out hit, range))
-                    {
+                        //always have one shot go straight
                         float damage = baseBulletDamage + playerstats.damage.GetValue();
-                        Vector3 distance = new Vector3(0, 0, Vector3.Distance(hit.collider.gameObject.transform.position, GunPos2.position));
-                        myGunShotRenderer2.SetPosition(1, distance);
-
-                        m_Health hitHp = hit.collider.gameObject.GetComponent<m_Health>();
-                        //applies damage to object
-                        if (hitHp != null)
+                        if (Physics.Raycast(centerRay, out hit, range))
                         {
-                            hitHp.takeDamage(damage, myWeaponDamageType);
+                            Vector3 distance = new Vector3(0, 0, Vector3.Distance(hit.collider.gameObject.transform.position, GunPos1.position));
+                            myGunShotRenderer1.SetPosition(1, distance);
+                            enemyHealth hitHp = hit.collider.gameObject.GetComponent<enemyHealth>();
+                            //applies damage to object
+                            if (hitHp != null)
+                            {
+                                hitHp.takeDamage(damage, myWeaponDamageType);
+                            }
+                        }
+                        //include multiple hits real soon
+                        for (int i = 0; i < shotsInSpread; i++)
+                        {
+                            Ray ray = new Ray(GunPos1.position, shotGunDir[i].forward * range);
+                            shotGunRenderer[i].enabled = true;
+                            Debug.DrawRay(GunPos1.position, shotGunDir[i].forward * range, Color.red, 2f);
+                            //shotGunRenderer[i].SetPosition(1, shotGunDir[i].forward * range);
+                            if (Physics.Raycast(ray, out hit, range))
+                            {
+                                Debug.Log("Hit");
+                                // Vector3 distance = new Vector3(0,0, Vector3.Distance(hit.collider.gameObject.transform.position, GunPos1.position));
+                                //myGunShotRenderer1.SetPosition(1, distance);
+                                enemyHealth hitHp = hit.collider.gameObject.GetComponent<enemyHealth>();
+                                //applies damage to object
+                                if (hitHp != null)
+                                {
+                                    hitHp.takeDamage(damage, myWeaponDamageType);
+                                }
+                            }
+                        }
+
+
+
+                        if (rightAmmoCount <= 0)
+                        {
+                            rightHasAmmo = false;
+                        }
+                        updateUI();
+                    }
+
+
+                }
+                if (myWeaponType == weaponType.dualRevolvers || myWeaponType == weaponType.Rifle)
+                {
+                    //Debug.Log("Single Shot");
+                    if (right && canFire && rightHasAmmo)
+                    {
+                        gunShotAudio1.PlayOneShot(gunShotAudio1.clip);
+                        Ray myRay = new Ray(GunPos1.position, shotDirR.forward * range);
+
+                        bulletSystem1.Play();
+                        canFire = false;
+                        rightAmmoCount--;
+
+                        myGunShotRenderer1.enabled = true;
+                        //Debug.Log(rightAmmoCount);
+                        if (rightAmmoCount <= 0)
+                        {
+                            rightHasAmmo = false;
+                        }
+                        if (Physics.Raycast(myRay, out hit, range))
+                        {
+                            float damage = baseBulletDamage + playerstats.damage.GetValue();
+                            Vector3 distance = new Vector3(0, 0, Vector3.Distance(hit.collider.gameObject.transform.position, GunPos1.position));
+                            myGunShotRenderer1.SetPosition(1, distance);
+                            enemyHealth hitHp = hit.collider.gameObject.GetComponent<enemyHealth>();
+                            //applies damage to object
+                            if (hitHp != null)
+                            {
+                                hitHp.takeDamage(damage, myWeaponDamageType);
+                            }
+
+
+                        }
+                        updateUI();
+
+
+
+                    }
+
+
+
+                    if (isDualWeapon)
+                    {
+                        if (!right && canFire && leftHasAmmo)
+                        {
+
+                            gunShotAudio2.PlayOneShot(gunShotAudio2.clip);
+                            Ray myRay = new Ray(GunPos2.position, shotDirL.forward * range);
+                            bulletSystem2.Play();
+                            canFire = false;
+                            leftAmmoCount--;
+
+                            myGunShotRenderer2.enabled = true;
+                            //Debug.Log(leftAmmoCount);
+                            if (leftAmmoCount <= 0)
+                            {
+                                leftHasAmmo = false;
+                            }
+
+                            if (Physics.Raycast(myRay, out hit, range))
+                            {
+                                float damage = baseBulletDamage + playerstats.damage.GetValue();
+                                Vector3 distance = new Vector3(0, 0, Vector3.Distance(hit.collider.gameObject.transform.position, GunPos2.position));
+                                myGunShotRenderer2.SetPosition(1, distance);
+
+                                m_Health hitHp = hit.collider.gameObject.GetComponent<m_Health>();
+                                //applies damage to object
+                                if (hitHp != null)
+                                {
+                                    hitHp.takeDamage(damage, myWeaponDamageType);
+                                }
+                            }
+                            updateUI();
                         }
                     }
-                    updateUI();
                 }
+
+
+
+                ReloadTime = Time.time + timeToReload;
+                right = !right;
+                if (!isDualWeapon)
+                {
+                    right = true;
+                }
+                StartCoroutine("endGunShotRender");
             }
         }
-
-
-
-        ReloadTime = Time.time + timeToReload;
-        right = !right;
-        if (!isDualWeapon)
-        {
-            right = true;
-        }
-        StartCoroutine("endGunShotRender");
     }
-
     IEnumerator endGunShotRender()
     {
         yield return new WaitForSeconds(.05f);

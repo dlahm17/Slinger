@@ -4,12 +4,13 @@
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_Name: ETP Terrain Big 02-2
-  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: _DETAIL_MULX2 _INVERTAOMASK_ON _INVERTTOPBOTTOM_ON _METALLICGLOSSMAP
-    _NORMALMAP _PARALLAXMAP _USELOCALNORMALS_ON
+  m_Shader: {fileID: 4800000, guid: 422843b7d640e3d4bb1c922eebabd8b5, type: 3}
+  m_ShaderKeywords: _INVERTAOMASK_ON _INVERTTOPBOTTOM_ON _METALLICGLOSSMAP _NORMALMAP
+    _PARALLAXMAP _USELOCALNORMALS_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -93,10 +94,14 @@ Material:
     - _DetailMaskMult: 0.93
     - _DetailNormalMapScale: 1
     - _DetailTiling: 4
+    - _Diffuse: 1
     - _DiffuseAO: 2.32
     - _DiffuseAOMask: 0.6
     - _DstBlend: 0
     - _EmissionLM: 0
+    - _FadeDiffuse: 0
+    - _FadeShadow: 0
+    - _FadeSpecular: 0
     - _Fresnel: 2
     - _GlossMapScale: 0
     - _Glossiness: 0
@@ -113,11 +118,14 @@ Material:
     - _NormalSmooth: 2
     - _OcclusionStrenght: 2.48
     - _OcclusionStrength: 1
+    - _Outline: 0.3
     - _Parallax: 0.008
     - _RimPower: 0
     - _SmoothnessTextureChannel: 0
+    - _Specular: 1
     - _SpecularHighlights: 1
     - _SrcBlend: 1
+    - _TexAlpha: 1
     - _TopBottom: -0.47
     - _TopBottomBumpScale: 1
     - _TopBottomMult: 10.2
@@ -137,8 +145,12 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 0.82636774, g: 0.7585424, b: 0.89705884, a: 1}
+    - _DiffuseColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _EmissionColor: {r: 0.39013842, g: 0.51948464, b: 0.64705884, a: 1}
     - _LightWarpTint: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+    - _OutlineColor: {r: 0, g: 0, b: 0, a: 0}
     - _RimColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+    - _ShadowColor: {r: 0.25, g: 0.25, b: 0.25, a: 1}
+    - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}
     - _TopTint: {r: 1, g: 1, b: 1, a: 1}
     - _UpColor: {r: 0.6917179, g: 0.89705884, b: 0.6530061, a: 1}

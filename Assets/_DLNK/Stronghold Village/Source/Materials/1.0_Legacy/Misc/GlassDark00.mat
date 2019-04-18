@@ -98,7 +98,7 @@ Material:
     - _SceneCustomAmbient: 0
     - _Shininess: 0.51
     - _SmoothnessTextureChannel: 0
-    - _Specular: 0.891
+    - _Specular: 1
     - _SpecularHighlights: 1
     - _SpecularLevel: 2.3
     - _SpecularPower: 1.57

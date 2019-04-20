@@ -94,7 +94,7 @@ Material:
     - _NormalSmooth: 0
     - _OcclusionStrenght: 1
     - _OcclusionStrength: 1
-    - _Outline: 0.3
+    - _Outline: 0.5
     - _Parallax: 0.0376
     - _SmoothnessTextureChannel: 0
     - _Specular: 1

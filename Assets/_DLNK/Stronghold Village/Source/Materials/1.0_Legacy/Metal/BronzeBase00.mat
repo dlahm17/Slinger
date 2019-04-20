@@ -100,7 +100,7 @@ Material:
     - _Mode: 0
     - _NormalDetail: 0.5
     - _OcclusionStrength: 0.317
-    - _Outline: 0.3
+    - _Outline: 0.5
     - _Parallax: 0.02
     - _RimFresnel: 1.04
     - _RimPower: 0.5

@@ -75,7 +75,7 @@ Material:
     - _LightWrapPower: 2
     - _MainTiling: 1
     - _NormalDetail: 0.5
-    - _Outline: 0.3
+    - _Outline: 0.5
     - _Parallax: 0.05
     - _Quality: 10
     - _RimFresnel: 1

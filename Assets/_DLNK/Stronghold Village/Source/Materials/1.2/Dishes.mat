@@ -111,7 +111,7 @@ Material:
     - _Metallic: 0.68
     - _Mode: 0
     - _OcclusionStrength: 1
-    - _Outline: 0.3
+    - _Outline: 0.5
     - _Parallax: 0.02
     - _ReflectionLevel: 0.2
     - _Shininess: 0.62648505

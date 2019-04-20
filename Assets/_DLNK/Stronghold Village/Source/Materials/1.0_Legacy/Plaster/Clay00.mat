@@ -118,7 +118,7 @@ Material:
     - _NormalSmooth: 0.8
     - _OcclusionStrength: 1
     - _OclussionPower: 1
-    - _Outline: 0.3
+    - _Outline: 0.5
     - _Parallax: 0.02
     - _SSSAO: 1
     - _SceneCustomAmbient: 0

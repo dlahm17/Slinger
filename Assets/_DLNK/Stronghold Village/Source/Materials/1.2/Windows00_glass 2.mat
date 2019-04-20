@@ -87,7 +87,7 @@ Material:
     - _Metallic: 0.786
     - _Mode: 3
     - _OcclusionStrength: 1
-    - _Outline: 0.3
+    - _Outline: 0.5
     - _Parallax: 0.02
     - _Shininess: 0.5674268
     - _SmoothDiffuseIBL: 4.107143

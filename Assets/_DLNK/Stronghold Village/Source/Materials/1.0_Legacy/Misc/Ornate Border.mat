@@ -101,7 +101,7 @@ Material:
     - _OcclusionStrenght: 1
     - _OcclusionStrength: 1
     - _OclussionPower: 2.44
-    - _Outline: 0.3
+    - _Outline: 0.5
     - _Parallax: 0.0381
     - _Specular: 1
     - _SpecularLevel: 1

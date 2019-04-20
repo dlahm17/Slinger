@@ -81,7 +81,7 @@ Material:
     - _Metallic: 0.44
     - _Mode: 0
     - _OcclusionStrength: 1
-    - _Outline: 0.3
+    - _Outline: 0.5
     - _Parallax: 0.0615
     - _Quality: 1
     - _Shininess: 0.82

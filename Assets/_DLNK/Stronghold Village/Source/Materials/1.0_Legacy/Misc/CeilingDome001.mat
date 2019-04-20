@@ -110,7 +110,7 @@ Material:
     - _OclussionFade: 3.9285715
     - _OclussionIntensity: 0
     - _OclussionPower: -0.03571431
-    - _Outline: 0.3
+    - _Outline: 0.5
     - _Parallax: 0.0198
     - _ParallaxOn: 1
     - _RimAO: 1
@@ -118,7 +118,7 @@ Material:
     - _RimOn: 1
     - _RimPower: 0.375
     - _SmoothnessTextureChannel: 0
-    - _Specular: 0.891
+    - _Specular: 1
     - _SpecularAO: 0.2705882
     - _SpecularHighlights: 1
     - _SpecularLevel: 0.7471092

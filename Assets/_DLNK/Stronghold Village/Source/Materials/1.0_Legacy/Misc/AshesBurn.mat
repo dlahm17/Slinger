@@ -65,7 +65,7 @@ Material:
     - _FresnelOn: 0
     - _Gloss: 0.16071428
     - _MixBurn: 1
-    - _Outline: 0.3
+    - _Outline: 0.5
     - _RangeMin: 1.2142853
     - _RangeTilt: 0.3
     - _Specular: 1

@@ -101,7 +101,7 @@ Material:
     - _NormalSmooth: 0.29
     - _OcclusionStrength: 1
     - _OclussionPower: 1.66
-    - _Outline: 0.3
+    - _Outline: 0.5
     - _Parallax: 0.05
     - _Quality: 20
     - _Shininess: 0.44

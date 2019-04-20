@@ -109,7 +109,7 @@ Material:
     - _OcclusionStrength: 0.618
     - _OclussionMip: 5
     - _OclussionPower: 0.67
-    - _Outline: 0.3
+    - _Outline: 0.5
     - _Parallax: 0.0215
     - _ParallaxOn: 1
     - _RefIntensity: 4.54

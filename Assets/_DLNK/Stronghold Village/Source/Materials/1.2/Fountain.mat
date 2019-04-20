@@ -124,7 +124,7 @@ Material:
     - _Mode: 0
     - _OcclusionStrength: 1
     - _OclussionPower: 0.83
-    - _Outline: 0.3
+    - _Outline: 0.5
     - _Parallax: 0.02
     - _ReflectionLevel: 1.04
     - _SSSAO: 1

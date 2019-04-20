@@ -83,7 +83,7 @@ Material:
     - _Mode: 1
     - _Occlusion: 0.05
     - _OcclusionStrength: 1
-    - _Outline: 0.3
+    - _Outline: 0.5
     - _Parallax: 0.02
     - _ShadowStrength: 0.56
     - _Shininess: 0.078125

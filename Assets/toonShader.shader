@@ -18,7 +18,7 @@ Shader "Custom/toonShader"
 
 
 		  _OutlineColor("OUTLINE", Color) = (0,0,0,0)
-		  _Outline("    Outline size", Range(0,1)) = 0.3
+		  _Outline("    Outline size", Range(0,1)) = 0.5
 
 		// Texture
 		  _MainTex("TEXTURE", 2D) = "AK47" {}

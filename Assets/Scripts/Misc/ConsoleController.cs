@@ -914,7 +914,6 @@ public class ConsoleController : MonoBehaviour
             }
         }
         myIn.text = "";
-        devConsole.instance.onCommand();
     }
 
     void AddGold(int goldToAdd)

@@ -132,7 +132,7 @@ Material:
     - _OcclusionStrenght: 0.71
     - _OcclusionStrength: 1
     - _Offset: 0
-    - _Outline: 0.3
+    - _Outline: 0.5
     - _Parallax: 0.02
     - _SmoothnessTextureChannel: 0
     - _Specular: 1

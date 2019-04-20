@@ -122,7 +122,7 @@ Material:
     - _NormalSmooth: 0
     - _OcclusionStrength: 1
     - _OclussionPower: 2.7
-    - _Outline: 0.3
+    - _Outline: 0.5
     - _Parallax: 0.02
     - _RangeMin: 1.2857141
     - _RangeTilt: 0.5

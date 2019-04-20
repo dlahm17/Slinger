@@ -91,7 +91,7 @@ Material:
     - _Mode: 0
     - _NormalDetail: 1
     - _OcclusionStrength: 1
-    - _Outline: 0.3
+    - _Outline: 0.5
     - _Parallax: 0.08
     - _Quality: 3
     - _RimFresnel: 0.74

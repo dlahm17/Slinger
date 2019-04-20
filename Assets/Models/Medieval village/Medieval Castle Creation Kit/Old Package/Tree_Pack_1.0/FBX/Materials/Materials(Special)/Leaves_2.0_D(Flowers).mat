@@ -48,7 +48,7 @@ Material:
     - _FadeShadow: 0
     - _FadeSpecular: 0
     - _Occlusion: 0.2
-    - _Outline: 0.3
+    - _Outline: 0.5
     - _Shininess: 0.02
     - _Specular: 1
     - _SquashAmount: 1

@@ -132,7 +132,7 @@ Material:
     - _OclussionFade: 1.090226
     - _OclussionIntensity: 0
     - _OclussionPower: 0.99
-    - _Outline: 0.3
+    - _Outline: 0.5
     - _Parallax: 0.0571
     - _ParallaxOn: 0
     - _Quality: 10

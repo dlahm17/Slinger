@@ -101,7 +101,7 @@ Material:
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Opacity: 1
-    - _Outline: 0.3
+    - _Outline: 0.5
     - _Parallax: 0.05
     - _ParallaxScale: 0.21
     - _ParallaxSwitch: 0

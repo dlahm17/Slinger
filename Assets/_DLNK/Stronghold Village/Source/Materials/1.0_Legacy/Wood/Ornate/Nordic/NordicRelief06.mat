@@ -50,7 +50,7 @@ Material:
     - _IBLPower: 5
     - _LightWrap: 0
     - _LightWrapPower: 2
-    - _Outline: 0.3
+    - _Outline: 0.5
     - _RimFresnel: 0.5
     - _RimPower: 1
     - _Shininess: 0.09588597

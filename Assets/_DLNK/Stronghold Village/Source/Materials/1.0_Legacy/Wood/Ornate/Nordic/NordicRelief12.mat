@@ -86,7 +86,7 @@ Material:
     - _LightWrapPower: 4.18
     - _MainTiling: 0.59
     - _NormalDetail: 0
-    - _Outline: 0.3
+    - _Outline: 0.5
     - _Parallax: 0.04
     - _ParallaxDirection: 0.4642857
     - _Quality: 120

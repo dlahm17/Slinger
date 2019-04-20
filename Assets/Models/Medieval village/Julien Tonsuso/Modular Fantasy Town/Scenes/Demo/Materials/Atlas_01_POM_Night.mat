@@ -103,7 +103,7 @@ Material:
     - _Metallic: 0
     - _MetallicScale: 0.5
     - _NormalScale: 0.5
-    - _Outline: 0.3
+    - _Outline: 0.5
     - _ParallaxScale: 0.014
     - _ParallaxSwitch: 0
     - _Ref: -0.03

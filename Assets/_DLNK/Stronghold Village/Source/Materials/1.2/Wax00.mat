@@ -100,7 +100,7 @@ Material:
     - _Mode: 0
     - _NormalSmooth: 0.52
     - _OcclusionStrength: 1
-    - _Outline: 0.3
+    - _Outline: 0.5
     - _Parallax: 0.02
     - _SceneCustomAmbient: 1
     - _Shininess: 0.5

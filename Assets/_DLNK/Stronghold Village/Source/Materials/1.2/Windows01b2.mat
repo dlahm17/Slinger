@@ -89,7 +89,7 @@ Material:
     - _Mode: 3
     - _NormalRefraction: 1
     - _OcclusionStrength: 1
-    - _Outline: 0.3
+    - _Outline: 0.5
     - _Parallax: 0.02
     - _Refraction: -0.01
     - _Shininess: 0.38

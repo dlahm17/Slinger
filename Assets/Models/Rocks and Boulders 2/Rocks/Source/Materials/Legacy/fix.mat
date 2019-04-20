@@ -36,7 +36,7 @@ Material:
     - _FadeDiffuse: 0
     - _FadeShadow: 0
     - _FadeSpecular: 0
-    - _Outline: 0.3
+    - _Outline: 0.5
     - _Parallax: 0.02
     - _Shininess: 0.078125
     - _Specular: 1

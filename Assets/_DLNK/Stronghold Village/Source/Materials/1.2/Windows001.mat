@@ -73,7 +73,7 @@ Material:
     - _MasterTile: 1
     - _OclussionMip: 0
     - _OclussionPower: 0.5
-    - _Outline: 0.3
+    - _Outline: 0.5
     - _ParallaxOn: 1
     - _RefIntensity: 23.81
     - _RimPower: 0.68

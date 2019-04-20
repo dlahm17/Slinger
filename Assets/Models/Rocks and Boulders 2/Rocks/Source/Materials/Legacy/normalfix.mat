@@ -32,7 +32,7 @@ Material:
     - _FadeDiffuse: 0
     - _FadeShadow: 0
     - _FadeSpecular: 0
-    - _Outline: 0.3
+    - _Outline: 0.5
     - _Shininess: 0.8889428
     - _Specular: 1
     - _TexAlpha: 1

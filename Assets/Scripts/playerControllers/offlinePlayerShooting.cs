@@ -361,7 +361,7 @@ public class offlinePlayerShooting : MonoBehaviour {
     IEnumerator endKnife()
     {
         myMovement.startAbsorbDash(1);
-        yield return new WaitForSeconds(reloadAbilityTime);
+        yield return new WaitForSeconds(.5f);
         myAnim.SetBool("Knife", false);
         canFire = true;
         magicKnife.SetActive(false);

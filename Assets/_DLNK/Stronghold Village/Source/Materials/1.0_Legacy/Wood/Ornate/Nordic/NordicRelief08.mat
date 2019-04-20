@@ -62,7 +62,7 @@ Material:
     - _IBLPower: 2
     - _LightWrap: 1
     - _LightWrapPower: 2
-    - _Outline: 0.3
+    - _Outline: 0.5
     - _Parallax: 0.03
     - _Quality: 20
     - _RimFresnel: 1

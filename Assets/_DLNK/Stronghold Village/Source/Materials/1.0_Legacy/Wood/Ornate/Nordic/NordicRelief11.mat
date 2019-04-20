@@ -52,7 +52,7 @@ Material:
     - _FadeShadow: 0
     - _FadeSpecular: 0
     - _IBLPower: 3
-    - _Outline: 0.3
+    - _Outline: 0.5
     - _Parallax: 0.03
     - _Quality: 20
     - _Shininess: 0.63110334

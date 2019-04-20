@@ -71,7 +71,7 @@ Material:
     - _FadeSpecular: 0
     - _Fresnel: 2.1
     - _Gloss: 0.5
-    - _Outline: 0.3
+    - _Outline: 0.5
     - _ReflectionLevel: 1.04
     - _Shininess: 0.5674268
     - _SmoothDiffuseIBL: 5.892857

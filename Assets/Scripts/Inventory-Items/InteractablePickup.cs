@@ -10,7 +10,7 @@ public class InteractablePickup : MonoBehaviour {
     //is in radius is the bool that determines if they're active.  It's public so the playermovement script can access it.
     public bool isInRadius = false;
     //This canvas houses the name of the object, the text that shows the name, and the name itself.
-    public Canvas myItemNameCanvas;
+    Canvas myItemNameCanvas;
     Text myTxt;
     public string nameToShow;
     void OnDrawGizmosSelected()
@@ -22,6 +22,14 @@ public class InteractablePickup : MonoBehaviour {
     private void Start()
     {
         //This initializes the canvas and then disables it until the player is in range.
+        if(myItemNameCanvas == null)
+        {
+            myItemNameCanvas = GetComponent<Canvas>();
+            if(myItemNameCanvas == null)
+            {
+                myItemNameCanvas = GetComponentInChildren<Canvas>();
+            }
+        }
         myTxt = myItemNameCanvas.GetComponentInChildren<Text>();
         myTxt.text = nameToShow;
         myItemNameCanvas.enabled = false;

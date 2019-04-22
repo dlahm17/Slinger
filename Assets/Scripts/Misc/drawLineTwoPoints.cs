@@ -3,14 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 public class drawLineTwoPoints : MonoBehaviour
 {
+    //This script will merely set the node script's values, and activate lines/materials when the node has been bought.
     GameObject origin;
+    node myNode;
     public GameObject[] target = new GameObject[10];
     public Material ActiveMaterial;
     public Material InActiveMaterial;
     public bool active = false;
     public bool haveBought = false;
-    float baseCost = 5;
-    float myCost;
+    int baseCost = 5;
+    int myCost;
     int tier = 1;
     LineRenderer myLine;
     private void OnDrawGizmos()
@@ -32,6 +34,7 @@ public class drawLineTwoPoints : MonoBehaviour
     
     private void Awake()
     {
+        myNode = GetComponent<node>();
         //count up the number of connections to create the illusion of lines between connected nodes.
         int numOfConnections = 0;
         foreach(GameObject go in target)
@@ -104,18 +107,24 @@ public class drawLineTwoPoints : MonoBehaviour
         {
             myCost = baseCost * 50;
         }
-
+        
+        myNode.cost = myCost;
+        myNode.isAvailableForPurchase = active;
+        myNode.isPurchased = haveBought;
 
     }
     public void setActive()
     {
         active = true;
+        foreach(GameObject go in target)
+        {
+            node n = go.GetComponent<node>();
+            if(n != null)
+            {
+                n.isAvailableForPurchase = true;
+            }
+        }
         myLine.material = ActiveMaterial;
-    }
-
-    public void setStat()
-    {
-
     }
 
     public GameObject[] ReturnAllConnections()
@@ -132,5 +141,7 @@ public class drawLineTwoPoints : MonoBehaviour
         }
         return connections;
     }
+
+
 
 }

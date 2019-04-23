@@ -39,8 +39,10 @@ public class node : InteractablePickup
         if(Inventory.instance.checkExp() > cost)
         {
             //There's enough experience to buy it
+            Debug.Log("Enough EXP");
             return true;
         }
+        Debug.Log("Not Enough exp");
         return false;
     }
 

@@ -23,12 +23,14 @@ public class nodeController : MonoBehaviour
     GameObject player;
     public void Start()
     {
+       
         UI.SetActive(false);
         player = GameObject.FindGameObjectWithTag("Player");
     }
 
     public void spawnUI(node n)
     {
+        Debug.Log("Spawning UI");
         UI.SetActive(true);
         currentlySelectedNode = n;
     }
@@ -84,7 +86,6 @@ public class nodeController : MonoBehaviour
     public void unSelected()
     {
         UI.SetActive(false);
-        playerStats pst = player.GetComponent<playerStats>();
         currentlySelectedNode.changeStat(stat.unSelected);
     }
 

@@ -14,7 +14,6 @@ public class drawLineTwoPoints : MonoBehaviour
     int baseCost = 5;
     int myCost;
     int tier = 1;
-    LineRenderer myLine;
     private void OnDrawGizmos()
     {
         if(origin == null)
@@ -35,42 +34,7 @@ public class drawLineTwoPoints : MonoBehaviour
     private void Awake()
     {
         myNode = GetComponent<node>();
-        //count up the number of connections to create the illusion of lines between connected nodes.
-        int numOfConnections = 0;
-        foreach(GameObject go in target)
-        {
-            if(go != null)
-            {
-                numOfConnections++;
-            }
-        }
-        myLine = gameObject.AddComponent<LineRenderer>();
-        if (ActiveMaterial != null && InActiveMaterial != null)
-        {
-            if (active)
-            {
-                myLine.material = ActiveMaterial;
-            }
-            if (!active)
-            {
-                myLine.material = InActiveMaterial;
-            }
-        }
-        myLine.positionCount = numOfConnections * 2;
-        myLine.receiveShadows = false;
-        myLine.startWidth = 2;
-        myLine.endWidth = 2;
-        int x = 0;
-        foreach(GameObject go in target)
-        {
-            if(go != null)
-            {
-                myLine.SetPosition(x, gameObject.transform.position);
-                x++;
-                myLine.SetPosition(x, go.transform.position);
-                x++;
-            }
-        }
+        
         if(gameObject.name == "NodeT1")
         {
             myCost = baseCost * 1;
@@ -116,15 +80,17 @@ public class drawLineTwoPoints : MonoBehaviour
     public void setActive()
     {
         active = true;
-        foreach(GameObject go in target)
+        foreach (GameObject go in target)
         {
-            node n = go.GetComponent<node>();
-            if(n != null)
+            if (go != null)
             {
-                n.isAvailableForPurchase = true;
+                node n = go.GetComponent<node>();
+                if (n != null)
+                {
+                    n.isAvailableForPurchase = true;
+                }
             }
         }
-        myLine.material = ActiveMaterial;
     }
 
     public GameObject[] ReturnAllConnections()

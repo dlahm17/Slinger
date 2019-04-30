@@ -9,6 +9,7 @@ public class drawLineTwoPoints : MonoBehaviour
     public GameObject[] target = new GameObject[10];
     public Material ActiveMaterial;
     public Material InActiveMaterial;
+    public Material act_mat;
     public bool active = false;
     public bool haveBought = false;
     int baseCost = 5;
@@ -51,6 +52,10 @@ public class drawLineTwoPoints : MonoBehaviour
         {
             myCost = baseCost * 10;
         }
+        if(gameObject.name == "NodeT5")
+        {
+            myCost = baseCost * 20;
+        }
         if (gameObject.name == "LargeNodeT1")
         {
             myCost = baseCost * 10;
@@ -67,7 +72,7 @@ public class drawLineTwoPoints : MonoBehaviour
         {
             myCost = baseCost * 40;
         }
-        if (gameObject.name == "LargeNodeT1")
+        if (gameObject.name == "LargeNodeT5")
         {
             myCost = baseCost * 50;
         }
@@ -75,6 +80,12 @@ public class drawLineTwoPoints : MonoBehaviour
         myNode.cost = myCost;
         myNode.isAvailableForPurchase = active;
         myNode.isPurchased = haveBought;
+
+        if (myNode.isPurchased)
+        {
+            Renderer myRender = GetComponent<Renderer>();
+            myRender.material = act_mat;
+        }
 
     }
     public void setActive()

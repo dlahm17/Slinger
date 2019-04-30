@@ -31,6 +31,8 @@ public class nodeController : MonoBehaviour
     public void spawnUI(node n)
     {
         Debug.Log("Spawning UI");
+        player.GetComponent<offlinePlayerMovement>().canMove = false;
+        player.GetComponent<offlinePlayerShooting>().canFire = false;
         UI.SetActive(true);
         currentlySelectedNode = n;
     }
@@ -40,6 +42,8 @@ public class nodeController : MonoBehaviour
         playerStats pst = player.GetComponent<playerStats>();
         currentlySelectedNode.changeStat(stat.health);
         pst.health.addModifier(currentlySelectedNode.value);
+        player.GetComponent<offlinePlayerMovement>().canMove = false;
+        player.GetComponent<offlinePlayerShooting>().canFire = false;
     }
     public void DMGSelect()
     {
@@ -47,6 +51,8 @@ public class nodeController : MonoBehaviour
         playerStats pst = player.GetComponent<playerStats>();
         currentlySelectedNode.changeStat(stat.damage);
         pst.damage.addModifier(currentlySelectedNode.value);
+        player.GetComponent<offlinePlayerMovement>().canMove = false;
+        player.GetComponent<offlinePlayerShooting>().canFire = false;
     }
     public void MagDmgSelect()
     {
@@ -54,6 +60,8 @@ public class nodeController : MonoBehaviour
         playerStats pst = player.GetComponent<playerStats>();
         currentlySelectedNode.changeStat(stat.magicDamage);
         pst.magicDamage.addModifier(currentlySelectedNode.value);
+        player.GetComponent<offlinePlayerMovement>().canMove = false;
+        player.GetComponent<offlinePlayerShooting>().canFire = false;
     }
     public void ArmorSelect()
     {
@@ -61,6 +69,8 @@ public class nodeController : MonoBehaviour
         playerStats pst = player.GetComponent<playerStats>();
         currentlySelectedNode.changeStat(stat.armor);
         pst.armor.addModifier(currentlySelectedNode.value);
+        player.GetComponent<offlinePlayerMovement>().canMove = false;
+        player.GetComponent<offlinePlayerShooting>().canFire = false;
     }
     public void MagArmorSelect()
     {
@@ -68,6 +78,8 @@ public class nodeController : MonoBehaviour
         playerStats pst = player.GetComponent<playerStats>();
         currentlySelectedNode.changeStat(stat.magicArmor);
         pst.magicArmor.addModifier(currentlySelectedNode.value);
+        player.GetComponent<offlinePlayerMovement>().canMove = false;
+        player.GetComponent<offlinePlayerShooting>().canFire = false;
     }
     public void SpdSelect()
     {
@@ -75,6 +87,8 @@ public class nodeController : MonoBehaviour
         playerStats pst = player.GetComponent<playerStats>();
         currentlySelectedNode.changeStat(stat.Speed);
         pst.speed.addModifier(currentlySelectedNode.value);
+        player.GetComponent<offlinePlayerMovement>().canMove = false;
+        player.GetComponent<offlinePlayerShooting>().canFire = false;
     }
     public void StlthSelect()
     {
@@ -82,11 +96,15 @@ public class nodeController : MonoBehaviour
         playerStats pst = player.GetComponent<playerStats>();
         currentlySelectedNode.changeStat(stat.Stealth);
         pst.stealth.addModifier(currentlySelectedNode.value);
+        player.GetComponent<offlinePlayerMovement>().canMove = false;
+        player.GetComponent<offlinePlayerShooting>().canFire = false;
     }
     public void unSelected()
     {
         UI.SetActive(false);
         currentlySelectedNode.changeStat(stat.unSelected);
+        player.GetComponent<offlinePlayerMovement>().canMove = false;
+        player.GetComponent<offlinePlayerShooting>().canFire = false;
     }
 
 }

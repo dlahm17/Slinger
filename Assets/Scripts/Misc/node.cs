@@ -10,6 +10,7 @@ public class node : InteractablePickup
     public bool isAvailableForPurchase;
     public bool isPurchased;
     nodeController myCtrl;
+    public Material Act_Mat;
 
     stat myS = stat.unSelected;
     public override void Interact()
@@ -58,6 +59,7 @@ public class node : InteractablePickup
         myS = changed;
         drawLineTwoPoints me = GetComponent<drawLineTwoPoints>();
         me.setActive();
-        
+        Renderer myRender = GetComponent<Renderer>();
+        myRender.material = Act_Mat;
     }
 }

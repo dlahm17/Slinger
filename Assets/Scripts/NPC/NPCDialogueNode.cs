@@ -18,10 +18,10 @@ public class NPCDialogueNode : InteractablePickup
 
 
 
-    public void Start()
+    public override void Start()
     {
         //This gets the variables for the dialogue controller and player along with setting the node properly.  Note that the NPC behaviour should control what node is active on the npc's dialogue tree.
-
+        base.Start();
         dialogueCtrl = DialogueController.instance;
         i = 0;
         player = GameObject.FindGameObjectWithTag("Player");

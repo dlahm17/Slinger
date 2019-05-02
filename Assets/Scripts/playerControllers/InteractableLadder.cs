@@ -16,8 +16,9 @@ public class InteractableLadder : InteractablePickup
     public Transform lowerLimit;
     public Transform LowerPlayerSet;
     // Start is called before the first frame update
-    void Awake()
+    public override void Start()
     {
+        base.Start();
         player = GameObject.FindGameObjectWithTag("Player");
         if (player != null)
         {

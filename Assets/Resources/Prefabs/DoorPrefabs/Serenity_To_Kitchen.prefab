@@ -723,7 +723,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4300043971046181090}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6199951648939957574
 GameObject:
@@ -832,7 +832,8 @@ Transform:
   m_LocalRotation: {x: -1, y: -0, z: -0, w: 0}
   m_LocalPosition: {x: -0.4420166, y: 2.67, z: -0.9825134}
   m_LocalScale: {x: 0.05, y: 0.2, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 8628953748773366198}
   m_Father: {fileID: 4300043971046181090}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -911,7 +912,6 @@ MonoBehaviour:
     m_Bits: 1024
   interactionRadius: 2.87
   isInRadius: 0
-  myItemNameCanvas: {fileID: 8444255802449015945}
   nameToShow: To Kitchens
   myDoor: {fileID: 11400000, guid: 9ca81889d419f6749afba53d084bcb62, type: 2}
   myTransOnChangingScene: {fileID: 5914614539993348660}
@@ -1095,17 +1095,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7872096627572204036}
-  m_LocalRotation: {x: -0.5, y: 0.5, z: 0.5, w: 0.5}
-  m_LocalPosition: {x: 0, y: 0, z: -1.16}
-  m_LocalScale: {x: 0.010000008, y: 0.010000008, z: 0.010000008}
+  m_LocalRotation: {x: 0.5, y: -0.5, z: 0.5, w: 0.5}
+  m_LocalPosition: {x: 0, y: 0, z: 0.17748654}
+  m_LocalScale: {x: 0.01000001, y: 0.20000024, z: 0.050000075}
   m_Children:
   - {fileID: 898474314363369280}
-  m_Father: {fileID: 4300043971046181090}
-  m_RootOrder: 12
+  m_Father: {fileID: 7474096891288294009}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 2.87}
+  m_AnchoredPosition: {x: 8.840333, y: -1.0000112}
   m_SizeDelta: {x: 605, y: 340}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &8444255802449015945
@@ -1209,7 +1209,6 @@ Transform:
   - {fileID: 3213980450552089621}
   - {fileID: 4267977927982326261}
   - {fileID: 880806252571751903}
-  - {fileID: 8628953748773366198}
   - {fileID: 5914614539993348660}
   m_Father: {fileID: 0}
   m_RootOrder: 0

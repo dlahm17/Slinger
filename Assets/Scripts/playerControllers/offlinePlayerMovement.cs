@@ -78,14 +78,20 @@ public class offlinePlayerMovement : MonoBehaviour
         Camera[] Cameras = GameObject.FindObjectsOfType<Camera>();
         foreach (Camera Cam in Cameras)
         {
-            thisCam = Cam.GetComponent<camFollowTarget>();
-            bool hasTarget = thisCam.returnTarget();
-            if (!hasTarget)
+            camFollowTarget temp = Cam.GetComponent<camFollowTarget>();
+            if (temp != null)
             {
-                thisCam.target = CamTarget.transform;
-                myCam = Cam;
-                break;
+                thisCam = Cam.GetComponent<camFollowTarget>();
+
+                bool hasTarget = thisCam.returnTarget();
+                if (!hasTarget)
+                {
+                    thisCam.target = CamTarget.transform;
+                    myCam = Cam;
+                    break;
+                }
             }
+            
         }
 
 
@@ -240,7 +246,7 @@ public class offlinePlayerMovement : MonoBehaviour
             if (animUp)
             {
                 InventoryScreen.SetActive(false);
-            PlayerPrefs.SetFloat("InventoryUp", 0);
+                PlayerPrefs.SetFloat("InventoryUp", 0);
                 myShooting.canFire = true;
                 animUp = false;
                 return;
@@ -248,9 +254,8 @@ public class offlinePlayerMovement : MonoBehaviour
             if (!animUp)
             {
                 InventoryScreen.SetActive(true);
-            PlayerPrefs.SetFloat("InventoryUp", 1);
-            myShooting.canFire = false;
-                
+                PlayerPrefs.SetFloat("InventoryUp", 1);
+                myShooting.canFire = false;
                 animUp = true;
                 return;
             }
@@ -310,6 +315,7 @@ public class offlinePlayerMovement : MonoBehaviour
             myShooting.canFire = true;
         }
         movement = (movement.normalized * myspd) * Time.smoothDeltaTime;
+        movement.y = fallSpeed;
         playerRigidbody.velocity = movement;
         if(movX != 0 || movZ != 0)
         {

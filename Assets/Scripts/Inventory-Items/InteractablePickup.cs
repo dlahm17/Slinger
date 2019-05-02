@@ -19,12 +19,12 @@ public class InteractablePickup : MonoBehaviour {
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, interactionRadius);
     }
-    private void Start()
+    public virtual void Start()
     {
         //This initializes the canvas and then disables it until the player is in range.
         if(myItemNameCanvas == null)
         {
-            myItemNameCanvas = GetComponent<Canvas>();
+            //myItemNameCanvas = GetComponent<Canvas>();
             if(myItemNameCanvas == null)
             {
                 myItemNameCanvas = GetComponentInChildren<Canvas>();
@@ -36,15 +36,19 @@ public class InteractablePickup : MonoBehaviour {
     }
     private void Update()
     {
-        //update merely checks if the player can interact with it.
-        isInRadius = Physics.CheckSphere(transform.position, interactionRadius, PlayerLayer);
-        if (isInRadius)
+        if (myItemNameCanvas != null)
         {
-            myItemNameCanvas.enabled = true;
-        }
-        if (!isInRadius)
-        {
-            myItemNameCanvas.enabled = false;
+            //update merely checks if the player can interact with it.
+            isInRadius = Physics.CheckSphere(transform.position, interactionRadius, PlayerLayer);
+        
+            if (isInRadius)
+            {
+                myItemNameCanvas.enabled = true;
+            }
+            if (!isInRadius)
+            {
+                myItemNameCanvas.enabled = false;
+            }
         }
     }
 

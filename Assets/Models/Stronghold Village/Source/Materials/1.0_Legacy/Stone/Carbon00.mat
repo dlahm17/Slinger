@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Carbon00
-  m_Shader: {fileID: 4800000, guid: 422843b7d640e3d4bb1c922eebabd8b5, type: 3}
+  m_Shader: {fileID: 4800000, guid: 5aee3908d6fc5d647b56474239e43e9b, type: 3}
   m_ShaderKeywords: _DETAILSPEC_ON _EMISSION _NORMALMAP _PARALLAXMAP _USETINT_ON
   m_LightmapFlags: 1
   m_EnableInstancingVariants: 0
@@ -47,6 +47,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _HeightMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _MainTex:
         m_Texture: {fileID: 2800000, guid: 6e57e4a238336934d96b0c11f4bf5d19, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -63,6 +67,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _Occlusion:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
         m_Texture: {fileID: 2800000, guid: a4cca421d98b02b4f8aae541f3cb7c2c, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -75,14 +83,54 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _Texture_01:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture_01Height:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture_01MetalSmooth:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture_01Normal:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture_02:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture_02Height:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture_02MetalSmooth:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture_02Normal:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _TranslucentMask:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _texcoord:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _AOPower: 3.01
+    - _AOstrength: 0.5
     - _BumpPower: 0
     - _BumpScale: 1
+    - _CurvFix: 0
+    - _CurvatureU: 0
+    - _CurvatureV: 0
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DetailSpec: 0.122353
@@ -99,11 +147,15 @@ Material:
     - _GlossyReflections: 1
     - _MainTiling: 1
     - _Metallic: 0.59
+    - _MetallicScale: 0.5
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Outline: 0.5
     - _Parallax: 0.0435
+    - _ParallaxScale: 0
+    - _ParallaxSwitch: 0
     - _Quality: 2
+    - _RefPlane: 0
     - _Shininess: 0.06
     - _SmoothnessTextureChannel: 0
     - _Specular: 1
@@ -112,13 +164,26 @@ Material:
     - _SpecularPower: 1
     - _SrcBlend: 1
     - _TexAlpha: 0.901
+    - _Texture_01HeightOffset: 1
+    - _Texture_01Metallic: 0
+    - _Texture_01NormalScale: 0
+    - _Texture_01Smoothness: 0.5
+    - _Texture_02ColorOffset: 1
+    - _Texture_02ColorScale: 1
+    - _Texture_02HeightOffset: 1
+    - _Texture_02HeightScale: 1
+    - _Texture_02Metallic: 0
+    - _Texture_02NormalScale: 0
+    - _Texture_02Smoothness: 0.5
     - _TranslucentPower: 3
     - _UVSec: 0
     - _UseTint: 0.1925504
     - _ZWrite: 1
+    - __dirty: 1
     m_Colors:
     - _Color: {r: 0.25735295, g: 0.25735295, b: 0.25735295, a: 1}
     - _ColorTint: {r: 0.6323529, g: 0.6323529, b: 0.6323529, a: 1}
+    - _Curvature: {r: 0, g: 0, b: 0, a: 0}
     - _DiffuseColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 0}
     - _EmissionColorUI: {r: 1, g: 1, b: 1, a: 1}

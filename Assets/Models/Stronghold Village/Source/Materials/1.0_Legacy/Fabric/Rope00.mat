@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Rope00
-  m_Shader: {fileID: 4800000, guid: 422843b7d640e3d4bb1c922eebabd8b5, type: 3}
+  m_Shader: {fileID: 4800000, guid: 5aee3908d6fc5d647b56474239e43e9b, type: 3}
   m_ShaderKeywords: _NORMALMAP _PARALLAXMAP
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -47,6 +47,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _HeightMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _MainTex:
         m_Texture: {fileID: 2800000, guid: fdfdaf8f243f7894c8f8ffa8b3669916, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -57,6 +61,10 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _NormalMap:
         m_Texture: {fileID: 2800000, guid: 690a3e2b7bcdb5843aacc71d120e6bac, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Occlusion:
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
@@ -71,9 +79,17 @@ Material:
         m_Texture: {fileID: 2800000, guid: b69a9f4c1c8ddf54b9e3a368024114c5, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _texcoord:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Floats:
+    - _AOstrength: 0.5
     - _BumpPower: -1
     - _BumpScale: 1
+    - _CurvFix: 0
+    - _CurvatureU: 0
+    - _CurvatureV: 0
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _Diffuse: 1
@@ -88,11 +104,15 @@ Material:
     - _GlossyReflections: 1
     - _MainTiling: 1
     - _Metallic: 0
+    - _MetallicScale: 0.5
     - _Mode: 0
     - _NormalSmooth: 0.5
     - _OcclusionStrength: 1
     - _Outline: 0.5
     - _Parallax: 0.02
+    - _ParallaxScale: 0
+    - _ParallaxSwitch: 0
+    - _RefPlane: 0
     - _RimLevel: 2
     - _RimPower: 1
     - _SceneCustomAmbient: 0
@@ -109,6 +129,7 @@ Material:
     - _TransPower: 1.07
     - _UVSec: 0
     - _ZWrite: 1
+    - __dirty: 1
     m_Colors:
     - _AmbientColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _Color: {r: 0.60294116, g: 0.60294116, b: 0.60294116, a: 1}

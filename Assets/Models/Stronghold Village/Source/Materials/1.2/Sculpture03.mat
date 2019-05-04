@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Sculpture03
-  m_Shader: {fileID: 4800000, guid: 422843b7d640e3d4bb1c922eebabd8b5, type: 3}
+  m_Shader: {fileID: 4800000, guid: 5aee3908d6fc5d647b56474239e43e9b, type: 3}
   m_ShaderKeywords: _DETAILSPEC_ON _DETAIL_MULX2 _METALLICGLOSSMAP _NORMALMAP _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
     _USEGLOSSMAP_ON
   m_LightmapFlags: 4
@@ -64,6 +64,10 @@ Material:
         m_Texture: {fileID: 2800000, guid: f83d69693fb9ed44c9226d5763fcf8be, type: 3}
         m_Scale: {x: 7, y: 7}
         m_Offset: {x: 0, y: 0}
+    - _HeightMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _MainTex:
         m_Texture: {fileID: 2800000, guid: 76232749fcbaafd45a48460ab96458bd, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -82,6 +86,10 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _NormalMap:
         m_Texture: {fileID: 2800000, guid: cb454e6eefc629b46ac58434a9601fd9, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Occlusion:
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
@@ -108,12 +116,20 @@ Material:
         m_Texture: {fileID: 2800000, guid: 69dd83014f2bc044487df3d2646e3396, type: 3}
         m_Scale: {x: 5, y: 5}
         m_Offset: {x: 0, y: 0}
+    - _texcoord:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Floats:
     - _AOBlendPower: -0.33
     - _AOPower: 2
+    - _AOstrength: 0.5
     - _BumpDetailPower: 0.5
     - _BumpPower: -1
     - _BumpScale: 1
+    - _CurvFix: 0
+    - _CurvatureU: 0
+    - _CurvatureV: 0
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 0.91
     - _DetailSpec: 1
@@ -129,12 +145,16 @@ Material:
     - _GlossyReflections: 1
     - _MainTiling: 1
     - _Metallic: 0
+    - _MetallicScale: 0.5
     - _Mode: 0
     - _NormalSmooth: 0
     - _OcclusionStrength: 1
     - _OclussionPower: 2
     - _Outline: 0.5
     - _Parallax: 0.02
+    - _ParallaxScale: 0
+    - _ParallaxSwitch: 0
+    - _RefPlane: 0
     - _SSSAO: 3.05
     - _Shininess: 0.1
     - _SmoothnessTextureChannel: 1
@@ -151,6 +171,7 @@ Material:
     - _UseGlossMap: 1
     - _UseTint: 0
     - _ZWrite: 1
+    - __dirty: 1
     m_Colors:
     - _Color: {r: 0.5661765, g: 0.5661765, b: 0.5661765, a: 1}
     - _ColorTint: {r: 1, g: 1, b: 1, a: 1}

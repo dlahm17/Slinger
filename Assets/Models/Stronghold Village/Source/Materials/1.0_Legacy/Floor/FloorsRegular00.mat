@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: FloorsRegular00
-  m_Shader: {fileID: 4800000, guid: 422843b7d640e3d4bb1c922eebabd8b5, type: 3}
+  m_Shader: {fileID: 4800000, guid: 5aee3908d6fc5d647b56474239e43e9b, type: 3}
   m_ShaderKeywords: _AFFECTAO_ON _NORMALMAP _PARALLAXMAP _PARALLAXON_ON _RIMAO_ON
     _SPECULARAO_ON _USEGLOSSMAP_ON _USESPECULARMAP_ON
   m_LightmapFlags: 5
@@ -80,6 +80,10 @@ Material:
         m_Texture: {fileID: 2800000, guid: 07f00da4396ef6640b2e7af9a5800eb9, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _Occlusion:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -100,10 +104,18 @@ Material:
         m_Texture: {fileID: 2800000, guid: 5e975417f1d1f154ca6cca5ff0b22c8b, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _texcoord:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Floats:
+    - _AOstrength: 0.5
     - _AffectAO: 1
     - _BumpScale: 1
     - _ColorDetail: 0
+    - _CurvFix: 0
+    - _CurvatureU: 0
+    - _CurvatureV: 0
     - _Cutoff: 0.5
     - _Depth: 0.06
     - _DepthDirection: 1
@@ -123,6 +135,7 @@ Material:
     - _HeightPower: 0.05
     - _MasterTile: 1
     - _Metallic: 0.01
+    - _MetallicScale: 0.5
     - _Mode: 0
     - _NormalSmooth: 0
     - _OcclusionStrength: 1
@@ -132,6 +145,9 @@ Material:
     - _Outline: 0.5
     - _Parallax: 0.02
     - _ParallaxOn: 1
+    - _ParallaxScale: 0
+    - _ParallaxSwitch: 0
+    - _RefPlane: 0
     - _RimAO: 1
     - _RimFresnel: 3
     - _RimOn: 0
@@ -149,6 +165,7 @@ Material:
     - _UseNormalDetail: 0
     - _UseSpecularMap: 1
     - _ZWrite: 1
+    - __dirty: 1
     m_Colors:
     - _Color: {r: 0.588, g: 0.588, b: 0.588, a: 1}
     - _ColorTint: {r: 0.8161765, g: 0.8161765, b: 0.8161765, a: 1}

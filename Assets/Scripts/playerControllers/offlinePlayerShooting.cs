@@ -6,9 +6,10 @@ public enum specialAbility {Absorb, Knife, Reflect, Dynamite, Icicle, Stealth, T
 
 
 public class offlinePlayerShooting : MonoBehaviour {
-
-    public float dynamiteThrowForceForward = 50f;
-    public float dynamiteThrowForceUpward = 50f;
+    public Transform icicleSpawn;
+    public float icicleSpeed = 100f;
+    public float dynamiteThrowForceForward = 10f;
+    public float dynamiteThrowForceUpward = 10f;
     //These positions are where the bullets come from.
     public Transform GunPos1;
     public Transform GunPos2;
@@ -412,24 +413,34 @@ public class offlinePlayerShooting : MonoBehaviour {
     IEnumerator endDynamite()
     {
         canFire = false;
-        throwDynamite();
+        float holdTime = Time.time + 5f;
+        float throwMultiplier = 1f;
+        while (Input.GetAxis("SpecialAbility") > 0 && Time.time < holdTime)
+        {
+            throwMultiplier++;
+            yield return new WaitForSeconds(.1f);
+        }
+
+        throwDynamite(throwMultiplier);
         yield return new WaitForSeconds(reloadAbilityTime);
         canFire = true;
     }
-    void throwDynamite()
+    void throwDynamite(float force)
     {
         GameObject thrower;
         thrower = Instantiate(dynamite, absorbChecker.transform.position, Quaternion.Euler(0, 0, 0));
         Rigidbody throwRB;
         throwRB = thrower.GetComponent<Rigidbody>();
-        throwRB.AddForce(transform.forward * dynamiteThrowForceForward);
-        throwRB.AddForce(transform.up * dynamiteThrowForceUpward);
+        throwRB.AddForce(transform.forward * (dynamiteThrowForceForward * force));
+        throwRB.AddForce(transform.up * (dynamiteThrowForceUpward * force));
     }
     IEnumerator endIcicle()
     {
         canFire = false;
-        Instantiate(icicle, absorbChecker.transform.position, Quaternion.Euler(0, 0, 0));
-        icicle.transform.rotation = gameObject.transform.rotation;
+        GameObject i;
+        i = Instantiate(icicle, icicleSpawn.transform.position, Quaternion.Euler(0, 0, 0));
+        i.transform.rotation = gameObject.transform.rotation;
+        i.GetComponent<Rigidbody>().AddForce(i.transform.forward * icicleSpeed);
         yield return new WaitForSeconds(reloadAbilityTime);
         canFire = true;
 
@@ -465,11 +476,12 @@ public class offlinePlayerShooting : MonoBehaviour {
         {
             Debug.Log("kaboom");
             StartCoroutine("endDynamite");
-            reloadAbilityTime = 1f;
+            reloadAbilityTime = 5f;
         }
         if (myabi == global::specialAbility.Icicle)
         {
             Debug.Log("Icy");
+            StartCoroutine("endIcicle");
             reloadAbilityTime = 1f;
         }
         if (myabi == global::specialAbility.Knife)

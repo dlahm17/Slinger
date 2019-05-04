@@ -8,8 +8,8 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Block_2x4x1_Patterned_Lined_Stone_Grey
-  m_Shader: {fileID: 4800000, guid: 422843b7d640e3d4bb1c922eebabd8b5, type: 3}
-  m_ShaderKeywords: _METALLICGLOSSMAP _NORMALMAP _PARALLAXSWITCH_ON
+  m_Shader: {fileID: 4800000, guid: 5aee3908d6fc5d647b56474239e43e9b, type: 3}
+  m_ShaderKeywords: _METALLICGLOSSMAP _NORMALMAP
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -126,7 +126,7 @@ Material:
     - _Outline: 0.5
     - _Parallax: 0.02
     - _ParallaxScale: 0
-    - _ParallaxSwitch: 1
+    - _ParallaxSwitch: 0
     - _RefPlane: 0
     - _SmoothnessTextureChannel: 0
     - _Specular: 1

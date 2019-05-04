@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: FloorsPortuguese00
-  m_Shader: {fileID: 4800000, guid: 422843b7d640e3d4bb1c922eebabd8b5, type: 3}
+  m_Shader: {fileID: 4800000, guid: 5aee3908d6fc5d647b56474239e43e9b, type: 3}
   m_ShaderKeywords: _DETAILSPEC_ON _ENABLEAO_ON _NORMALMAP _PARALLAXMAP _USETINT_ON
   m_LightmapFlags: 5
   m_EnableInstancingVariants: 0
@@ -91,6 +91,10 @@ Material:
         m_Texture: {fileID: 2800000, guid: 362d1bb7db063224b86700c3a7a6b8e4, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _Occlusion:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
         m_Texture: {fileID: 2800000, guid: 8974c7b8aacdfdb41b7a98e5235e24a1, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -107,10 +111,18 @@ Material:
         m_Texture: {fileID: 2800000, guid: 5533d6b5f2cbd6d499fa1dc0c34585f5, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _texcoord:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Floats:
     - _AOPower: 1
+    - _AOstrength: 0.5
     - _BumpPower: 0
     - _BumpScale: 1
+    - _CurvFix: 0
+    - _CurvatureU: 0
+    - _CurvatureV: 0
     - _CustomAmbient: 0
     - _Cutoff: 0.5
     - _Depth: 0.01
@@ -132,6 +144,7 @@ Material:
     - _IBLPower: 0.95
     - _MainTiling: 2
     - _Metallic: 0
+    - _MetallicScale: 0.5
     - _Mode: 0
     - _NormalPower: 1.65
     - _NormalSmooth: -0.62
@@ -140,7 +153,10 @@ Material:
     - _OclussionSmooth: 0.64
     - _Outline: 0.5
     - _Parallax: 0.0128
+    - _ParallaxScale: 0
+    - _ParallaxSwitch: 0
     - _Quality: 2
+    - _RefPlane: 0
     - _SceneAL: 0
     - _Shininess: 0.5
     - _SmoothnessTextureChannel: 0
@@ -155,6 +171,7 @@ Material:
     - _UseGlossMap: 0
     - _UseTint: 0.1736454
     - _ZWrite: 1
+    - __dirty: 1
     m_Colors:
     - _Color: {r: 0.588, g: 0.588, b: 0.588, a: 1}
     - _ColorTint: {r: 0.7205882, g: 0.7205882, b: 0.7205882, a: 1}

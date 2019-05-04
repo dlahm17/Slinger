@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: RoofScales00-2016-04-22_02-43-31-757
-  m_Shader: {fileID: 4800000, guid: 422843b7d640e3d4bb1c922eebabd8b5, type: 3}
+  m_Shader: {fileID: 4800000, guid: 5aee3908d6fc5d647b56474239e43e9b, type: 3}
   m_ShaderKeywords: _AFFECTAO_ON _NORMALMAP _PARALLAXMAP _PARALLAXON_ON _SPECULARAO_ON
     _USESPECULARMAP_ON
   m_LightmapFlags: 5
@@ -88,6 +88,10 @@ Material:
         m_Texture: {fileID: 2800000, guid: 40251bffc88cb5442a14e0d8a7f68c59, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _Occlusion:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
         m_Texture: {fileID: 2800000, guid: 8ee57ccbb2734d943ae85232b3c9be95, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -108,12 +112,20 @@ Material:
         m_Texture: {fileID: 2800000, guid: 89080482089013848ada265c9c127ac9, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _texcoord:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Floats:
+    - _AOstrength: 0.5
     - _AffectAO: 0.09607843
     - _BumpDetailPower: 0.5
     - _BumpPower: 0
     - _BumpScale: 1
     - _ColorDetail: 0
+    - _CurvFix: 0
+    - _CurvatureU: 0
+    - _CurvatureV: 0
     - _Cutoff: 0.5
     - _Depth: 0.03
     - _DepthDirection: 0
@@ -135,6 +147,7 @@ Material:
     - _MainTiling: 1
     - _MasterTile: 1
     - _Metallic: 0
+    - _MetallicScale: 0.5
     - _Mode: 0
     - _NormalSmooth: 0.76
     - _OcclusionStrength: 1
@@ -144,6 +157,9 @@ Material:
     - _Outline: 0.5
     - _Parallax: 0.02
     - _ParallaxOn: 1
+    - _ParallaxScale: 0
+    - _ParallaxSwitch: 0
+    - _RefPlane: 0
     - _RimAO: 0
     - _RimFresnel: 3
     - _RimOn: 0
@@ -163,6 +179,7 @@ Material:
     - _UseNormalDetail: 0
     - _UseSpecularMap: 1
     - _ZWrite: 1
+    - __dirty: 1
     m_Colors:
     - _Color: {r: 0.5441177, g: 0.5441177, b: 0.5441177, a: 1}
     - _ColorTint: {r: 0.5588235, g: 0.5588235, b: 0.5588235, a: 1}

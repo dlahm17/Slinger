@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Windows01b2
-  m_Shader: {fileID: 4800000, guid: 422843b7d640e3d4bb1c922eebabd8b5, type: 3}
+  m_Shader: {fileID: 4800000, guid: 5aee3908d6fc5d647b56474239e43e9b, type: 3}
   m_ShaderKeywords: _ALPHAPREMULTIPLY_ON _IGNOREALPHA_ON _NORMALMAP
   m_LightmapFlags: 5
   m_EnableInstancingVariants: 0
@@ -39,6 +39,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _HeightMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _IBLDiffuse:
         m_Texture: {fileID: 8900000, guid: d3a8ef8a8f3f08342b7c6a950525af74, type: 2}
         m_Scale: {x: 1, y: 1}
@@ -55,6 +59,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _Occlusion:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -67,9 +75,17 @@ Material:
         m_Texture: {fileID: 2800000, guid: 96f09256f9ed9ed4782e392c3cfea9c0, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _texcoord:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Floats:
+    - _AOstrength: 0.5
     - _BumpPower: 0
     - _BumpScale: 1.41
+    - _CurvFix: 0
+    - _CurvatureU: 0
+    - _CurvatureV: 0
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _Diffuse: 1
@@ -86,11 +102,15 @@ Material:
     - _IgnoreAlpha: 2.007843
     - _MainTiling: 1
     - _Metallic: 0.78
+    - _MetallicScale: 0.5
     - _Mode: 3
     - _NormalRefraction: 1
     - _OcclusionStrength: 1
     - _Outline: 0.5
     - _Parallax: 0.02
+    - _ParallaxScale: 0
+    - _ParallaxSwitch: 0
+    - _RefPlane: 0
     - _Refraction: -0.01
     - _Shininess: 0.38
     - _SmoothDiffuseIBL: 8
@@ -105,6 +125,7 @@ Material:
     - _TransparentMix: 0.39285713
     - _UVSec: 0
     - _ZWrite: 0
+    - __dirty: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _DiffuseColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}

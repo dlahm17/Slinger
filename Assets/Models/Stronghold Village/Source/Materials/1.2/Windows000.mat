@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Windows000
-  m_Shader: {fileID: 4800000, guid: 422843b7d640e3d4bb1c922eebabd8b5, type: 3}
+  m_Shader: {fileID: 4800000, guid: 5aee3908d6fc5d647b56474239e43e9b, type: 3}
   m_ShaderKeywords: _ALPHAPREMULTIPLY_ON _AOON_ON _DETAIL_MULX2 _EMISSION _NORMALMAP
     _PARALLAXMAP _PARALLAXON_ON
   m_LightmapFlags: 1
@@ -48,6 +48,10 @@ Material:
         m_Texture: {fileID: 2800000, guid: 899dc37f8530fba4a8cf15a44aad285c, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _HeightMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _MainTex:
         m_Texture: {fileID: 2800000, guid: 15711b01d97e3ce44bdaca3fc3af5ec0, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -58,6 +62,10 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _Normal:
         m_Texture: {fileID: 2800000, guid: 66c589b78c6f9f84fbf66669115456ec, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Occlusion:
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
@@ -84,9 +92,17 @@ Material:
         m_Texture: {fileID: 2800000, guid: efe0647215e5fa0498283ab2b9134f74, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _texcoord:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Floats:
     - _AOon: 1
+    - _AOstrength: 0.5
     - _BumpScale: 1
+    - _CurvFix: 0
+    - _CurvatureU: 0
+    - _CurvatureV: 0
     - _Cutoff: 0.5
     - _Depth: 0.05
     - _DetailNormalMapScale: 1
@@ -101,6 +117,7 @@ Material:
     - _GlossyReflections: 1
     - _MasterTile: 1
     - _Metallic: 0.77
+    - _MetallicScale: 0.5
     - _Mode: 3
     - _OcclusionStrength: 1
     - _OclussionMip: 0
@@ -108,7 +125,10 @@ Material:
     - _Outline: 0.5
     - _Parallax: 0.02
     - _ParallaxOn: 1
+    - _ParallaxScale: 0
+    - _ParallaxSwitch: 0
     - _RefIntensity: 1
+    - _RefPlane: 0
     - _RimPower: 0.68
     - _SmoothnessTextureChannel: 0
     - _SpecIntensity: 4.47
@@ -118,6 +138,7 @@ Material:
     - _TexAlpha: 1
     - _UVSec: 0
     - _ZWrite: 0
+    - __dirty: 1
     m_Colors:
     - _Color: {r: 0.588, g: 0.588, b: 0.588, a: 1}
     - _ColorOclussion: {r: 0, g: 0, b: 0, a: 1}

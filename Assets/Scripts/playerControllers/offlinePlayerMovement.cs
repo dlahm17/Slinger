@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
 public class offlinePlayerMovement : MonoBehaviour
 {
     //Inventory Screen is the canvas that holds the inventory UI
@@ -13,6 +12,7 @@ public class offlinePlayerMovement : MonoBehaviour
     //floormask is the int of the floor, this is used to rotate the player. camraylength just makes sure that the raycast is far enough to hit the floor
     public int floormask;
     public float camRayLength = 1000;
+    public float acceleration;
     //player rigidbody is the physics object we are controlling to affect the player's movement.
     Rigidbody playerRigidbody;
     //speed is an averaged speed that uses time.deltatime to be as smooth as possible
@@ -64,6 +64,7 @@ public class offlinePlayerMovement : MonoBehaviour
         myconsole = devConsole.instance;
         myHealth = GetComponent<player_Health>();
         myStats = GetComponent<playerStats>();
+        
         speed = baseSpeed + (myStats.speed.GetValue() / 10);
         myCam = Camera.main;
         if(InventoryScreen != null)
@@ -109,7 +110,16 @@ public class offlinePlayerMovement : MonoBehaviour
     }
     public void setSpeed()
     {
-        speed = baseSpeed + (myStats.speed.GetValue()/10);
+        if (myStats != null)
+        {
+            speed = baseSpeed + (myStats.speed.GetValue() / 10);
+        }
+        else
+        {
+            Debug.LogWarning("Player Stats not found");
+            myStats = GetComponent<playerStats>();
+            setSpeed();
+        }
         //Debug.Log(speed);
         return;
     }
@@ -129,12 +139,6 @@ public class offlinePlayerMovement : MonoBehaviour
 
         if (PlayerPrefs.GetFloat("devConsoleUp") == 0)
         {
-            if (Input.GetButtonDown("8"))
-            {
-                Debug.Log("took damage");
-                player_Health myhp = GetComponent<player_Health>();
-                myhp.takeDamage(1, damageType.physical);
-            }
             if (climbing)
             {
                 if (Input.GetAxisRaw("Vertical") > 0)
@@ -316,7 +320,7 @@ public class offlinePlayerMovement : MonoBehaviour
         }
         movement = (movement.normalized * myspd) * Time.smoothDeltaTime;
         movement.y = fallSpeed;
-        playerRigidbody.velocity = movement;
+        playerRigidbody.velocity = Vector3.Lerp(playerRigidbody.velocity, movement, acceleration);
         if(movX != 0 || movZ != 0)
         {
             myAnim.SetFloat("Speed", 1);

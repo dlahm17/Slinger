@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Windows00_glass 4
-  m_Shader: {fileID: 4800000, guid: 422843b7d640e3d4bb1c922eebabd8b5, type: 3}
+  m_Shader: {fileID: 4800000, guid: 5aee3908d6fc5d647b56474239e43e9b, type: 3}
   m_ShaderKeywords: _ALPHAPREMULTIPLY_ON _DETAIL_MULX2 _IGNOREALPHA_ON _METALLICGLOSSMAP
     _NORMALMAP
   m_LightmapFlags: 4
@@ -44,6 +44,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _HeightMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _IBLDiffuse:
         m_Texture: {fileID: 8900000, guid: d3a8ef8a8f3f08342b7c6a950525af74, type: 2}
         m_Scale: {x: 1, y: 1}
@@ -60,6 +64,10 @@ Material:
         m_Texture: {fileID: 2800000, guid: 3f1f789cf4a64d04ab6e777201e4703f, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _Occlusion:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -68,9 +76,17 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _texcoord:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Floats:
+    - _AOstrength: 0.5
     - _BumpPower: 0
     - _BumpScale: -1.1
+    - _CurvFix: 0
+    - _CurvatureU: 0
+    - _CurvatureV: 0
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _Diffuse: 1
@@ -86,10 +102,14 @@ Material:
     - _GlossyReflections: 1
     - _IgnoreAlpha: 1
     - _Metallic: 0.031
+    - _MetallicScale: 0.5
     - _Mode: 3
     - _OcclusionStrength: 1
     - _Outline: 0.5
     - _Parallax: 0.02
+    - _ParallaxScale: 0
+    - _ParallaxSwitch: 0
+    - _RefPlane: 0
     - _Shininess: 0.5674268
     - _SmoothDiffuseIBL: 4.107143
     - _SmoothnessTextureChannel: 0
@@ -101,6 +121,7 @@ Material:
     - _TexAlpha: 1
     - _UVSec: 0
     - _ZWrite: 0
+    - __dirty: 1
     m_Colors:
     - _Color: {r: 0.3970588, g: 0.3970588, b: 0.3970588, a: 1}
     - _DiffuseColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}

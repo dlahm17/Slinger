@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: WallBrick08
-  m_Shader: {fileID: 4800000, guid: 422843b7d640e3d4bb1c922eebabd8b5, type: 3}
+  m_Shader: {fileID: 4800000, guid: 5aee3908d6fc5d647b56474239e43e9b, type: 3}
   m_ShaderKeywords: _EMISSION _INVERTMASK_ON _METALALPHAGLOSS_ON _METALLICGLOSSMAP
     _NORMALMAP _PARALLAXMAP _USEMETALMAPS_ON
   m_LightmapFlags: 1
@@ -56,6 +56,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _HeightMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _MainTex:
         m_Texture: {fileID: 2800000, guid: f8c09549f850dc542a9902295395a366, type: 3}
         m_Scale: {x: 2, y: 2}
@@ -63,6 +67,10 @@ Material:
     - _MetallicGlossMap:
         m_Texture: {fileID: 2800000, guid: 74b9147e520147446a17a0bbe02f90cc, type: 3}
         m_Scale: {x: 2, y: 2}
+        m_Offset: {x: 0, y: 0}
+    - _Occlusion:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
         m_Texture: {fileID: 2800000, guid: 058e16243f402a24ab0ba0a76d5b9f0b, type: 3}
@@ -76,10 +84,18 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _texcoord:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Floats:
     - Depth: -0.02
+    - _AOstrength: 0.5
     - _AlphaMetalMult: 1
     - _BumpScale: 1
+    - _CurvFix: 0
+    - _CurvatureU: 0
+    - _CurvatureV: 0
     - _CustomMaps: 0
     - _Cutoff: 0.5
     - _DetailGloss: 1
@@ -107,12 +123,16 @@ Material:
     - _MaskSmooth: 0
     - _MetalAlphaGloss: 1
     - _Metallic: 0
+    - _MetallicScale: 0.5
     - _Mode: 0
     - _NormalSmooth: 1
     - _OcclusionStrenght: 0.5
     - _OcclusionStrength: 0.513
     - _Outline: 0.5
     - _Parallax: 0.0376
+    - _ParallaxScale: 0
+    - _ParallaxSwitch: 0
+    - _RefPlane: 0
     - _RimPower: 0
     - _SmoothnessTextureChannel: 0
     - _Specular: 1
@@ -124,6 +144,7 @@ Material:
     - _UVSecondaryTiling: 2
     - _UseMetalMaps: 1
     - _ZWrite: 1
+    - __dirty: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _DetailColor: {r: 1, g: 1, b: 1, a: 1}

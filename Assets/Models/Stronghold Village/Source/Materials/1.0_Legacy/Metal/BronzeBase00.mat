@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: BronzeBase00
-  m_Shader: {fileID: 4800000, guid: 422843b7d640e3d4bb1c922eebabd8b5, type: 3}
+  m_Shader: {fileID: 4800000, guid: 5aee3908d6fc5d647b56474239e43e9b, type: 3}
   m_ShaderKeywords: _DETAILCOLOR_ON _DETAIL_MULX2 _IGNOREALPHA_ON _METALLICGLOSSMAP
     _NORMALDETAIL_ON _NORMALMAP _SPECDETAIL_ON _SPECULARIBL_ON
   m_LightmapFlags: 4
@@ -40,6 +40,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _HeightMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _IBLDiffuse:
         m_Texture: {fileID: 8900000, guid: 9b2d3ffa79837de4eb9a3cc995c07db3, type: 2}
         m_Scale: {x: 1, y: 1}
@@ -60,6 +64,10 @@ Material:
         m_Texture: {fileID: 2800000, guid: f940cc0f4e4d518418ff5cac7f399e7a, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _Occlusion:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
         m_Texture: {fileID: 2800000, guid: 1aa4741fbcbb8f34b94fe58a5aca026d, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -68,10 +76,18 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _texcoord:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Floats:
     - _AOPower: 1
+    - _AOstrength: 0.5
     - _BumpPower: 0.5
     - _BumpScale: 1
+    - _CurvFix: 0
+    - _CurvatureU: 0
+    - _CurvatureV: 0
     - _CustomDetailNormal: 0
     - _CustomDetailTex: 0
     - _Cutoff: 0.5
@@ -97,11 +113,15 @@ Material:
     - _LightWrapPower: 2
     - _MainTiling: 1
     - _Metallic: 0
+    - _MetallicScale: 0.5
     - _Mode: 0
     - _NormalDetail: 0.5
     - _OcclusionStrength: 0.317
     - _Outline: 0.5
     - _Parallax: 0.02
+    - _ParallaxScale: 0
+    - _ParallaxSwitch: 0
+    - _RefPlane: 0
     - _RimFresnel: 1.04
     - _RimPower: 0.5
     - _Shininess: 0.73331064
@@ -118,6 +138,7 @@ Material:
     - _UVSec: 0
     - _UseDetailMask: 0
     - _ZWrite: 1
+    - __dirty: 1
     m_Colors:
     - _Color: {r: 0.9117647, g: 0.60254145, b: 0.32179928, a: 1}
     - _DiffuseColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}

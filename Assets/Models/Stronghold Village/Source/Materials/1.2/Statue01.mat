@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Statue01
-  m_Shader: {fileID: 4800000, guid: 422843b7d640e3d4bb1c922eebabd8b5, type: 3}
+  m_Shader: {fileID: 4800000, guid: 5aee3908d6fc5d647b56474239e43e9b, type: 3}
   m_ShaderKeywords: _DETAILSPEC_ON _EMISSION _NORMALMAP _USEGLOSSMAP_ON _USETINT_ON
   m_LightmapFlags: 1
   m_EnableInstancingVariants: 0
@@ -55,6 +55,10 @@ Material:
         m_Texture: {fileID: 2800000, guid: 49ecd020c81f99a49bbd62ce66a78e44, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _HeightMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _IBLDiffuse:
         m_Texture: {fileID: 8900000, guid: 9b2d3ffa79837de4eb9a3cc995c07db3, type: 2}
         m_Scale: {x: 1, y: 1}
@@ -83,6 +87,10 @@ Material:
         m_Texture: {fileID: 2800000, guid: f8ba622867ab18b4faaab11bd110b402, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _Occlusion:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
         m_Texture: {fileID: 2800000, guid: 2efc941976b7dca40a9f509149ea5524, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -99,9 +107,17 @@ Material:
         m_Texture: {fileID: 2800000, guid: 49ecd020c81f99a49bbd62ce66a78e44, type: 3}
         m_Scale: {x: 5, y: 5}
         m_Offset: {x: 0, y: 0}
+    - _texcoord:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Floats:
+    - _AOstrength: 0.5
     - _BumpPower: 0
     - _BumpScale: 1
+    - _CurvFix: 0
+    - _CurvatureU: 0
+    - _CurvatureV: 0
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 0.3
     - _DetailSpec: 1
@@ -118,12 +134,16 @@ Material:
     - _Glossiness: 0.32
     - _GlossyReflections: 1
     - _Metallic: 0
+    - _MetallicScale: 0.5
     - _Mode: 0
     - _NormalSmooth: -0.36
     - _OcclusionStrength: 1
     - _OclussionPower: 0.3
     - _Outline: 0.5
     - _Parallax: 0.005
+    - _ParallaxScale: 0
+    - _ParallaxSwitch: 0
+    - _RefPlane: 0
     - _SSSAO: 1
     - _Shininess: 0.4626644
     - _SmoothDiffuseIBL: 10
@@ -139,6 +159,7 @@ Material:
     - _UseGlossMap: 1
     - _UseTint: 1
     - _ZWrite: 1
+    - __dirty: 1
     m_Colors:
     - _Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _ColorTint: {r: 0.9044118, g: 0.88221425, b: 0.75810987, a: 1}

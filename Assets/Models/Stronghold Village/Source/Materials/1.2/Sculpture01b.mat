@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Sculpture01b
-  m_Shader: {fileID: 4800000, guid: 422843b7d640e3d4bb1c922eebabd8b5, type: 3}
+  m_Shader: {fileID: 4800000, guid: 5aee3908d6fc5d647b56474239e43e9b, type: 3}
   m_ShaderKeywords: _DETAIL_MULX2 _EMISSION _NORMALMAP
   m_LightmapFlags: 1
   m_EnableInstancingVariants: 0
@@ -55,6 +55,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _HeightMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _MainTex:
         m_Texture: {fileID: 2800000, guid: c21dcd0525e44b848b6f87d9f2b932bf, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -65,6 +69,10 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _NormalMap:
         m_Texture: {fileID: 2800000, guid: d7af0ab48ec2005468d38415726f7094, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Occlusion:
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
@@ -83,8 +91,16 @@ Material:
         m_Texture: {fileID: 2800000, guid: c33e14e373c476349a72b6a21373cce3, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _texcoord:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Floats:
+    - _AOstrength: 0.5
     - _BumpScale: 1
+    - _CurvFix: 0
+    - _CurvatureU: 0
+    - _CurvatureV: 0
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _Diffuse: 1
@@ -98,12 +114,16 @@ Material:
     - _Glossiness: 0.316
     - _GlossyReflections: 1
     - _Metallic: 0.427
+    - _MetallicScale: 0.5
     - _Mode: 0
     - _NormalSmooth: -0.53
     - _OcclusionStrength: 1
     - _OclussionPower: 1.32
     - _Outline: 0.5
     - _Parallax: 0.02
+    - _ParallaxScale: 0
+    - _ParallaxSwitch: 0
+    - _RefPlane: 0
     - _SceneCustomAmbient: 0.30357143
     - _Shininess: 0.041251715
     - _SmoothnessTextureChannel: 0
@@ -118,6 +138,7 @@ Material:
     - _UVSec: 0
     - _UseGlossMap: 0
     - _ZWrite: 1
+    - __dirty: 1
     m_Colors:
     - _AmbientColor: {r: 0.42387545, g: 0.43953586, b: 0.5147059, a: 1}
     - _Color: {r: 0.5514706, g: 0.5514706, b: 0.5514706, a: 1}

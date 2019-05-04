@@ -79,7 +79,7 @@ Material:
     - _AOstrength: 0.5
     - _BumpAmt: 45
     - _BumpScale: 1
-    - _CurvFix: 1
+    - _CurvFix: 0
     - _CurvatureU: 0
     - _CurvatureV: 0
     - _Cutoff: 0.5
@@ -101,9 +101,9 @@ Material:
     - _OcclusionStrength: 1
     - _Outline: 0.3
     - _Parallax: 0.02
-    - _ParallaxScale: 0.4247461
+    - _ParallaxScale: 0
     - _ParallaxSwitch: 0
-    - _RefPlane: 0.4247461
+    - _RefPlane: 0
     - _SmoothnessTextureChannel: 0
     - _Specular: 1
     - _SpecularHighlights: 1

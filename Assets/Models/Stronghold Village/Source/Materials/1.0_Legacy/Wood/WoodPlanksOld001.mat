@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: WoodPlanksOld001
-  m_Shader: {fileID: 4800000, guid: 422843b7d640e3d4bb1c922eebabd8b5, type: 3}
+  m_Shader: {fileID: 4800000, guid: 5aee3908d6fc5d647b56474239e43e9b, type: 3}
   m_ShaderKeywords: _DETAILSPEC_ON _NORMALMAP _USETINT_ON
   m_LightmapFlags: 5
   m_EnableInstancingVariants: 0
@@ -47,6 +47,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _HeightMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _MainTex:
         m_Texture: {fileID: 2800000, guid: 543d259d2c253b346bf9c40aa6a77624, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -61,6 +65,10 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _NormalMain:
         m_Texture: {fileID: 2800000, guid: eecfe412f94e68647ba2765166c31940, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Occlusion:
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
@@ -79,9 +87,17 @@ Material:
         m_Texture: {fileID: 2800000, guid: 0a43933372d8dcf4bb1d00aa09de05b8, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _texcoord:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Floats:
+    - _AOstrength: 0.5
     - _BumpPower: 0
     - _BumpScale: 1
+    - _CurvFix: 0
+    - _CurvatureU: 0
+    - _CurvatureV: 0
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DetailSpec: 1
@@ -97,10 +113,14 @@ Material:
     - _Glossiness: 0.19
     - _MainTiling: 1
     - _Metallic: 0
+    - _MetallicScale: 0.5
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Outline: 0.5
     - _Parallax: 0.02
+    - _ParallaxScale: 0
+    - _ParallaxSwitch: 0
+    - _RefPlane: 0
     - _ReflectionLevel: 1
     - _Shininess: 0.17
     - _Specular: 1
@@ -111,6 +131,7 @@ Material:
     - _UVSec: 0
     - _UseTint: 0.1736454
     - _ZWrite: 1
+    - __dirty: 1
     m_Colors:
     - _Color: {r: 0.85294116, g: 0.85294116, b: 0.85294116, a: 1}
     - _ColorTint: {r: 0.6323529, g: 0.6323529, b: 0.6323529, a: 1}

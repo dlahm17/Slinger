@@ -59,11 +59,11 @@ public class DialogueController : MonoBehaviour
         //This asks if the dialoguegameobject's activity is equal to the active state of the controller and changes it do be so.
         if(!dialogueActive && DialogueGameObject.activeInHierarchy)
         {
-            DialogueGameObject.SetActive(false);
+            UIController.instance.deactivateUI();
         }
         if(dialogueActive && !DialogueGameObject.activeInHierarchy)
         {
-            DialogueGameObject.SetActive(true);
+            UIController.instance.activateUI("DialogueUI");
         }
         
         if(dialogueActive && DialogueGameObject.activeInHierarchy && Input.GetButtonDown("Interact"))

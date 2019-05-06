@@ -4,28 +4,49 @@ using UnityEngine;
 
 public class OnContactStayStill : MonoBehaviour
 {
-    public bool isIcycle = false;
+    public bool isDamaging = false;
     Rigidbody myrb;
 
     bool stuck = false;
-    Transform target;
+    public Transform target;
 
     private void Awake()
     {
         myrb = GetComponent<Rigidbody>();
     }
+    
     private void OnCollisionEnter(Collision collision)
     {
-        if (isIcycle == true)
+        if (stuck == false)
         {
-            GetComponent<OnContactDealDamage>().enabled = false;
-            GetComponent<Collider>().enabled = false;
-        }
-        myrb.isKinematic = true;
-        myrb.velocity = Vector3.zero;
+            if (isDamaging == true)
+            {
+                GetComponent<OnContactDealDamage>().enabled = false;
+                GetComponent<Collider>().enabled = false;
 
-        target = collision.transform;
-        gameObject.transform.SetParent(target);
-        
+                GetComponent<destroyInSeconds>().enabled = true;
+                GetComponent<destroyInSeconds>().setTime();
+            }
+
+            myrb.constraints = RigidbodyConstraints.FreezePositionX;
+            myrb.constraints = RigidbodyConstraints.FreezePositionY;
+            myrb.constraints = RigidbodyConstraints.FreezePositionZ;
+            myrb.velocity = Vector3.zero;
+
+            target.transform.SetParent(collision.gameObject.transform);
+
+            stuck = true;
+        }
+    }
+    private void Update()
+    {
+        if (stuck)
+        {
+            if (target != null)
+            {
+                gameObject.transform.position = target.transform.position;
+                gameObject.transform.rotation = target.transform.rotation;
+            }
+        }
     }
 }

@@ -14,8 +14,9 @@ public class UnlockableDoor_Directional : InteractablePickup
     public NPCDialogueNode negativeNode;
     public AudioSource negativeAudio;
 
-    private void Start()
+    public override void Start()
     {
+        base.Start();
         player = GameObject.FindGameObjectWithTag("Player");
     }
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 public class offlinePlayerMovement : MonoBehaviour
 {
+    UIController UI;
     //Inventory Screen is the canvas that holds the inventory UI
     public GameObject InventoryScreen;
     //CamTarget allows us to target specific areas of the screen or swap targets between the player
@@ -61,6 +62,7 @@ public class offlinePlayerMovement : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        UI = UIController.instance;
         myconsole = devConsole.instance;
         myHealth = GetComponent<player_Health>();
         myStats = GetComponent<playerStats>();
@@ -249,7 +251,8 @@ public class offlinePlayerMovement : MonoBehaviour
     {
             if (animUp)
             {
-                InventoryScreen.SetActive(false);
+                //InventoryScreen.SetActive(false);
+                UI.deactivateUI();
                 PlayerPrefs.SetFloat("InventoryUp", 0);
                 myShooting.canFire = true;
                 animUp = false;
@@ -257,6 +260,7 @@ public class offlinePlayerMovement : MonoBehaviour
             }
             if (!animUp)
             {
+                UI.activateUI("InventoryUI");
                 InventoryScreen.SetActive(true);
                 PlayerPrefs.SetFloat("InventoryUp", 1);
                 myShooting.canFire = false;

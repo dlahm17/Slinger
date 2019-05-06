@@ -33,12 +33,12 @@ public class nodeController : MonoBehaviour
         Debug.Log("Spawning UI");
         player.GetComponent<offlinePlayerMovement>().canMove = false;
         player.GetComponent<offlinePlayerShooting>().canFire = false;
-        UI.SetActive(true);
+        UIController.instance.activateUI("NodeUI");
         currentlySelectedNode = n;
     }
     public void HPSelect()
     {
-        UI.SetActive(false);
+        UIController.instance.deactivateUI();
         playerStats pst = player.GetComponent<playerStats>();
         currentlySelectedNode.changeStat(stat.health);
         pst.health.addModifier(currentlySelectedNode.value);
@@ -47,7 +47,7 @@ public class nodeController : MonoBehaviour
     }
     public void DMGSelect()
     {
-        UI.SetActive(false);
+        UIController.instance.deactivateUI();
         playerStats pst = player.GetComponent<playerStats>();
         currentlySelectedNode.changeStat(stat.damage);
         pst.damage.addModifier(currentlySelectedNode.value);
@@ -56,7 +56,7 @@ public class nodeController : MonoBehaviour
     }
     public void MagDmgSelect()
     {
-        UI.SetActive(false);
+        UIController.instance.deactivateUI();
         playerStats pst = player.GetComponent<playerStats>();
         currentlySelectedNode.changeStat(stat.magicDamage);
         pst.magicDamage.addModifier(currentlySelectedNode.value);
@@ -65,7 +65,7 @@ public class nodeController : MonoBehaviour
     }
     public void ArmorSelect()
     {
-        UI.SetActive(false);
+        UIController.instance.deactivateUI();
         playerStats pst = player.GetComponent<playerStats>();
         currentlySelectedNode.changeStat(stat.armor);
         pst.armor.addModifier(currentlySelectedNode.value);
@@ -74,7 +74,7 @@ public class nodeController : MonoBehaviour
     }
     public void MagArmorSelect()
     {
-        UI.SetActive(false);
+        UIController.instance.deactivateUI();
         playerStats pst = player.GetComponent<playerStats>();
         currentlySelectedNode.changeStat(stat.magicArmor);
         pst.magicArmor.addModifier(currentlySelectedNode.value);
@@ -83,7 +83,7 @@ public class nodeController : MonoBehaviour
     }
     public void SpdSelect()
     {
-        UI.SetActive(false);
+        UIController.instance.deactivateUI();
         playerStats pst = player.GetComponent<playerStats>();
         currentlySelectedNode.changeStat(stat.Speed);
         pst.speed.addModifier(currentlySelectedNode.value);
@@ -92,7 +92,7 @@ public class nodeController : MonoBehaviour
     }
     public void StlthSelect()
     {
-        UI.SetActive(false);
+        UIController.instance.deactivateUI();
         playerStats pst = player.GetComponent<playerStats>();
         currentlySelectedNode.changeStat(stat.Stealth);
         pst.stealth.addModifier(currentlySelectedNode.value);
@@ -101,7 +101,7 @@ public class nodeController : MonoBehaviour
     }
     public void unSelected()
     {
-        UI.SetActive(false);
+        UIController.instance.deactivateUI();
         currentlySelectedNode.changeStat(stat.unSelected);
         player.GetComponent<offlinePlayerMovement>().canMove = false;
         player.GetComponent<offlinePlayerShooting>().canFire = false;

@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class wallScript : MonoBehaviour {
 
-    MeshRenderer myrender;
+   //MeshRenderer myrender;
    
     public bool isInvis = false;
 
 
     private void Start()
     {
-        myrender = GetComponent<MeshRenderer>();
+        //myrender = GetComponent<MeshRenderer>();
     }
     /*
     private void OnTriggerEnter(Collider other)

@@ -913,6 +913,52 @@ public class ConsoleController : MonoBehaviour
                 }
             }
         }
+        if(checkString == "fade")
+        {
+            int checker = 0;
+            Debug.Log("fade command detected");
+            x++;
+            checkChar = commandString[x];
+            while(checkChar == '.')
+            {
+                if (checker > commandString.Length)
+                {
+                    Debug.Log("command unavailable, aborting");
+                    return;
+                }
+                x++;
+                checkChar = commandString[x];
+                checker++;
+            }
+            y = x;
+            char[] subCommandChar = new char[100];
+            while (checkChar != '.' && x < commandString.Length)
+            {
+                subCommandChar[x] = commandString[x];
+                x++;
+                //if the char check goes off of the command string's length it'll end early and send a warning
+                if (x >= commandString.Length)
+                {
+                    Debug.Log("Command not recognized, please check devConsoleReadmeFile for applicable commands");
+                    return;
+                }
+                checkChar = commandString[x];
+            }
+            string subCheckString = "";
+            while (y < x)
+            {
+                subCheckString += subCommandChar[y];
+                y++;
+            }
+            if(subCheckString == "-1")
+            {
+                FadeOut.instance.BeginFade(-1);
+            }
+            if(subCheckString == "1")
+            {
+                FadeOut.instance.BeginFade(1);
+            }
+        }
         myIn.text = "";
     }
 

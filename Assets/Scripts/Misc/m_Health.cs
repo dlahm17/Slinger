@@ -14,7 +14,7 @@ public class m_Health : MonoBehaviour {
     /// </summary>
     public float health;
 
-    float maxhp;
+    public float maxhp;
     public bool amDed = false;
     
     public Slider hpSlider;

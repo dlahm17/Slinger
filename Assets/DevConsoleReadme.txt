@@ -9,10 +9,11 @@ addexp.(integer). --adds exp to character equal to integer
 subexp.(integer). --subtracts exp from character equal to integer
 addwpn.(string). --adds weapon to inventory (note that weapon name must be the same as the file name in the project of the weapon you want to add)
 addabi.(string). --adds ability to available abilities without need to collect in world (note that ability name must be the exact same as ability file name in the project)
-spawn.
-additem.(string).(string).
+spawn. --Not implemented yet.
+additem.(string).(string). --Adds specific item
 clearinventory. --clears inventory of all items
-stat.(string).(integer).
+stat.(string).(integer). --Adds to your stat
+fade.(integer). --Fades the screen in with a 1, or out with a -1
 
 
 example commands
@@ -32,3 +33,5 @@ stat.magicdamage.10.
 stat.magicarmor.10.
 stat.speed.10.
 stat.stealth.10.
+fade.-1. (fade in)
+fade.1. (fade out)

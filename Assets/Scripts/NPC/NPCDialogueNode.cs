@@ -26,6 +26,7 @@ public class NPCDialogueNode : InteractablePickup
         i = 0;
         player = GameObject.FindGameObjectWithTag("Player");
     }
+
     //interact activates the dialogue so long as the dialogue isn't active.
     public override void Interact()
     {

@@ -50,7 +50,7 @@ public class NPCDialogueNode : InteractablePickup
         }
     }
     //Activate both activates the initial dialogue and it also swaps to  the further dialogue items in the tree.  If there's no more items, the dialogue ends.
-    public void activateDialogue()
+    public virtual void activateDialogue()
     {
         if(myDialogue[i] == null)
         {

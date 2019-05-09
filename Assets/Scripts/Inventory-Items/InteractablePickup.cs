@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class InteractablePickup : MonoBehaviour {
 
-   //player layer is set in the editor, should be the layer labeled "player"
+    //player layer is set in the editor, should be the layer labeled "player"
     public LayerMask PlayerLayer;
     //interaction radius is the distance the player has to be to interact with the object
     public float interactionRadius = 2f;

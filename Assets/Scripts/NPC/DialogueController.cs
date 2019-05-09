@@ -39,6 +39,7 @@ public class DialogueController : MonoBehaviour
         speakerImage.sprite = dialogueToSpeak.speakerFace;
         StartCoroutine("waitFrameForActivation");
     }
+
     IEnumerator waitFrameForActivation()
     {
         yield return new WaitForEndOfFrame();

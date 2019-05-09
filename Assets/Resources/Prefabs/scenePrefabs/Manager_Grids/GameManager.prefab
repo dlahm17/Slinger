@@ -134,7 +134,7 @@ RectTransform:
   m_GameObject: {fileID: 43037197}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 83754840}
   m_RootOrder: 1
@@ -2700,7 +2700,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -2768,7 +2768,7 @@ RectTransform:
   m_GameObject: {fileID: 1281022370}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 83754840}
   m_RootOrder: 2
@@ -3064,7 +3064,7 @@ RectTransform:
   m_GameObject: {fileID: 1582052959}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 686270}
   - {fileID: 967573510}
@@ -17883,6 +17883,7 @@ MonoBehaviour:
   maxhp: 0
   amDed: 0
   hpSlider: {fileID: 4224546552834687340}
+  usesInGameSlider: 1
   myName: Doc
   myTxt: {fileID: 1116649809545408358}
   CurrentExp: 0
@@ -18285,7 +18286,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 98.3999, y: -8.421143}
+  m_AnchoredPosition: {x: 98.3999, y: -8.421082}
   m_SizeDelta: {x: -196.7, y: -75.458}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6646775564693564666

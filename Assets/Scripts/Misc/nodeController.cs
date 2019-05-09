@@ -42,8 +42,8 @@ public class nodeController : MonoBehaviour
         playerStats pst = player.GetComponent<playerStats>();
         currentlySelectedNode.changeStat(stat.health);
         pst.health.addModifier(currentlySelectedNode.value);
-        player.GetComponent<offlinePlayerMovement>().canMove = false;
-        player.GetComponent<offlinePlayerShooting>().canFire = false;
+        player.GetComponent<offlinePlayerMovement>().canMove = true;
+        player.GetComponent<offlinePlayerShooting>().canFire = true;
     }
     public void DMGSelect()
     {
@@ -51,8 +51,8 @@ public class nodeController : MonoBehaviour
         playerStats pst = player.GetComponent<playerStats>();
         currentlySelectedNode.changeStat(stat.damage);
         pst.damage.addModifier(currentlySelectedNode.value);
-        player.GetComponent<offlinePlayerMovement>().canMove = false;
-        player.GetComponent<offlinePlayerShooting>().canFire = false;
+        player.GetComponent<offlinePlayerMovement>().canMove = true;
+        player.GetComponent<offlinePlayerShooting>().canFire = true;
     }
     public void MagDmgSelect()
     {
@@ -60,8 +60,8 @@ public class nodeController : MonoBehaviour
         playerStats pst = player.GetComponent<playerStats>();
         currentlySelectedNode.changeStat(stat.magicDamage);
         pst.magicDamage.addModifier(currentlySelectedNode.value);
-        player.GetComponent<offlinePlayerMovement>().canMove = false;
-        player.GetComponent<offlinePlayerShooting>().canFire = false;
+        player.GetComponent<offlinePlayerMovement>().canMove = true;
+        player.GetComponent<offlinePlayerShooting>().canFire = true;
     }
     public void ArmorSelect()
     {
@@ -69,8 +69,8 @@ public class nodeController : MonoBehaviour
         playerStats pst = player.GetComponent<playerStats>();
         currentlySelectedNode.changeStat(stat.armor);
         pst.armor.addModifier(currentlySelectedNode.value);
-        player.GetComponent<offlinePlayerMovement>().canMove = false;
-        player.GetComponent<offlinePlayerShooting>().canFire = false;
+        player.GetComponent<offlinePlayerMovement>().canMove = true;
+        player.GetComponent<offlinePlayerShooting>().canFire = true;
     }
     public void MagArmorSelect()
     {
@@ -78,8 +78,8 @@ public class nodeController : MonoBehaviour
         playerStats pst = player.GetComponent<playerStats>();
         currentlySelectedNode.changeStat(stat.magicArmor);
         pst.magicArmor.addModifier(currentlySelectedNode.value);
-        player.GetComponent<offlinePlayerMovement>().canMove = false;
-        player.GetComponent<offlinePlayerShooting>().canFire = false;
+        player.GetComponent<offlinePlayerMovement>().canMove = true;
+        player.GetComponent<offlinePlayerShooting>().canFire = true;
     }
     public void SpdSelect()
     {
@@ -87,8 +87,8 @@ public class nodeController : MonoBehaviour
         playerStats pst = player.GetComponent<playerStats>();
         currentlySelectedNode.changeStat(stat.Speed);
         pst.speed.addModifier(currentlySelectedNode.value);
-        player.GetComponent<offlinePlayerMovement>().canMove = false;
-        player.GetComponent<offlinePlayerShooting>().canFire = false;
+        player.GetComponent<offlinePlayerMovement>().canMove = true;
+        player.GetComponent<offlinePlayerShooting>().canFire = true;
     }
     public void StlthSelect()
     {
@@ -96,15 +96,15 @@ public class nodeController : MonoBehaviour
         playerStats pst = player.GetComponent<playerStats>();
         currentlySelectedNode.changeStat(stat.Stealth);
         pst.stealth.addModifier(currentlySelectedNode.value);
-        player.GetComponent<offlinePlayerMovement>().canMove = false;
-        player.GetComponent<offlinePlayerShooting>().canFire = false;
+        player.GetComponent<offlinePlayerMovement>().canMove = true;
+        player.GetComponent<offlinePlayerShooting>().canFire = true;
     }
     public void unSelected()
     {
         UIController.instance.deactivateUI();
         currentlySelectedNode.changeStat(stat.unSelected);
-        player.GetComponent<offlinePlayerMovement>().canMove = false;
-        player.GetComponent<offlinePlayerShooting>().canFire = false;
+        player.GetComponent<offlinePlayerMovement>().canMove = true;
+        player.GetComponent<offlinePlayerShooting>().canFire = true;
     }
 
 }

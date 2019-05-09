@@ -59,12 +59,12 @@ public class enemyHealth : m_Health
     }
     public bool isDead()
     {
-        UI.deactivateUI();
         return amDed;
     }
     public override void death()
     {
         base.death();
+        UI.deactivateUI();
         if (deathByExplosion)
         {
             Explosion.SetActive(true);
@@ -87,6 +87,7 @@ public class enemyHealth : m_Health
     IEnumerator waitForAnimFinish()
     {
         yield return new WaitForSeconds(timeForAnimation);
+        UI.deactivateUI();
         Destroy(gameObject);
     }
 }

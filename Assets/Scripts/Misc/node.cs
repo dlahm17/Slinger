@@ -17,16 +17,17 @@ public class node : InteractablePickup
     {
         base.Interact();
         myCtrl = nodeController.instance;
-        if (isAvailableForPurchase == true && isPurchased == false)
+        bool canBuy = checkEXP();
+        if (canBuy)
         {
-            if (checkEXP() == true)
+            if (isAvailableForPurchase == true && isPurchased == false)
             {
                 sendInformation();
             }
-        }
-        if(isAvailableForPurchase == true && isPurchased == true && myS == stat.unSelected)
-        {
-            selectStat();
+            if (isAvailableForPurchase == true && isPurchased == false && myS == stat.unSelected)
+            {
+                selectStat();
+            }
         }
     }
 
@@ -37,7 +38,7 @@ public class node : InteractablePickup
 
     public bool checkEXP()
     {
-        if(Inventory.instance.checkExp() > cost)
+        if(Inventory.instance.checkExp() >= cost)
         {
             //There's enough experience to buy it
             Debug.Log("Enough EXP");
@@ -59,6 +60,8 @@ public class node : InteractablePickup
         myS = changed;
         drawLineTwoPoints me = GetComponent<drawLineTwoPoints>();
         me.setActive();
+        me.haveBought = true;
+        isPurchased = true;
         Renderer myRender = GetComponent<Renderer>();
         myRender.material = Act_Mat;
     }

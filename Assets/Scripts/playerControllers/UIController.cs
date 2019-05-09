@@ -60,6 +60,13 @@ public class UIController : MonoBehaviour
                 }
                 PauseUI.SetActive(true);
                 break;
+            case "CustomUI":
+                Debug.Log("Custom UI up");
+                foreach(GameObject U in PlayerGameplayUI)
+                {
+                    U.SetActive(false);
+                }
+                break;
             default:
                 Debug.LogWarning("Improper call to UIController, see activated UI code to fix it");
                 break;

@@ -4646,7 +4646,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &224788159522762032
 RectTransform:
   m_ObjectHideFlags: 0
@@ -14145,7 +14145,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -14316,8 +14316,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 1
+  maxhp: 0
   amDed: 0
   hpSlider: {fileID: 114551649009480762}
+  usesInGameSlider: 1
   myName: Minion
   myTxt: {fileID: 114959365544773370}
 --- !u!114 &5972112402571949342
@@ -14333,8 +14335,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 5
+  maxhp: 0
   amDed: 0
   hpSlider: {fileID: 114551649009480762}
+  usesInGameSlider: 1
   myName: Minion
   myTxt: {fileID: 114959365544773370}
   deathByExplosion: 1
@@ -14712,7 +14716,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &224743674465695338
 RectTransform:
   m_ObjectHideFlags: 0
@@ -14886,19 +14890,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.50000024
       objectReference: {fileID: 0}
-    - target: {fileID: 19876264, guid: 01c90d96de0b76349be8c08a0dde7d6a, type: 3}
-      propertyPath: playOnAwake
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8200296, guid: 01c90d96de0b76349be8c08a0dde7d6a, type: 3}
       propertyPath: m_PlayOnAwake
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 19802690, guid: 01c90d96de0b76349be8c08a0dde7d6a, type: 3}
-      propertyPath: playOnAwake
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 19854634, guid: 01c90d96de0b76349be8c08a0dde7d6a, type: 3}
+    - target: {fileID: 19876264, guid: 01c90d96de0b76349be8c08a0dde7d6a, type: 3}
       propertyPath: playOnAwake
       value: 1
       objectReference: {fileID: 0}
@@ -14911,6 +14907,14 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 19865500, guid: 01c90d96de0b76349be8c08a0dde7d6a, type: 3}
+      propertyPath: playOnAwake
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 19854634, guid: 01c90d96de0b76349be8c08a0dde7d6a, type: 3}
+      propertyPath: playOnAwake
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 19802690, guid: 01c90d96de0b76349be8c08a0dde7d6a, type: 3}
       propertyPath: playOnAwake
       value: 1
       objectReference: {fileID: 0}

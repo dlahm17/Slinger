@@ -19,7 +19,7 @@ public class m_Health : MonoBehaviour {
     
     public Slider hpSlider;
 
-
+    public bool usesInGameSlider = true;
 
 
     public string myName;
@@ -50,22 +50,24 @@ public class m_Health : MonoBehaviour {
     //Update is only used to smoothly show the healthbar going down
     private void Update()
     {
-        
-        if (hpSlider.value > health)
+        if (usesInGameSlider)
         {
-            if (health > 0)
+            if (hpSlider.value > health)
             {
-                hpSlider.value -= .1f;
-            }
-            if(health <= 0)
-            {
-                hpSlider.value = 0;
-            }
+                if (health > 0)
+                {
+                    hpSlider.value -= .1f;
+                }
+                if (health <= 0)
+                {
+                    hpSlider.value = 0;
+                }
 
-         }
-        if (hpSlider.value < health)
-        {
+            }
+            if (hpSlider.value < health)
+            {
                 hpSlider.value += .1f;
+            }
         }
     }
     //heal and takeDamage cause the health to go down, and under takeDamage, it also asks if the object has been killed

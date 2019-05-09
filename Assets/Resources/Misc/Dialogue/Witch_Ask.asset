@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 132eb6d1b4c6ddf47b7f89eeb3222cf0, type: 3}
-  m_Name: Witch1
+  m_Name: Witch_Ask
   m_EditorClassIdentifier: 
-  name: Witch 1
+  name: Witch 3
   speakerFace: {fileID: 0}
-  dialogueString: Hello there, you must be the new arrival.  My name is Aisling
+  dialogueString: Do you wish to go within your mind once more?

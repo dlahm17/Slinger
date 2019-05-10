@@ -44,6 +44,7 @@ public class nodeController : MonoBehaviour
         pst.health.addModifier(currentlySelectedNode.value);
         player.GetComponent<offlinePlayerMovement>().canMove = true;
         player.GetComponent<offlinePlayerShooting>().canFire = true;
+        pst.updateUI();
     }
     public void DMGSelect()
     {
@@ -53,6 +54,7 @@ public class nodeController : MonoBehaviour
         pst.damage.addModifier(currentlySelectedNode.value);
         player.GetComponent<offlinePlayerMovement>().canMove = true;
         player.GetComponent<offlinePlayerShooting>().canFire = true;
+        pst.updateUI();
     }
     public void MagDmgSelect()
     {
@@ -62,6 +64,7 @@ public class nodeController : MonoBehaviour
         pst.magicDamage.addModifier(currentlySelectedNode.value);
         player.GetComponent<offlinePlayerMovement>().canMove = true;
         player.GetComponent<offlinePlayerShooting>().canFire = true;
+        pst.updateUI();
     }
     public void ArmorSelect()
     {
@@ -71,6 +74,7 @@ public class nodeController : MonoBehaviour
         pst.armor.addModifier(currentlySelectedNode.value);
         player.GetComponent<offlinePlayerMovement>().canMove = true;
         player.GetComponent<offlinePlayerShooting>().canFire = true;
+        pst.updateUI();
     }
     public void MagArmorSelect()
     {
@@ -80,6 +84,7 @@ public class nodeController : MonoBehaviour
         pst.magicArmor.addModifier(currentlySelectedNode.value);
         player.GetComponent<offlinePlayerMovement>().canMove = true;
         player.GetComponent<offlinePlayerShooting>().canFire = true;
+        pst.updateUI();
     }
     public void SpdSelect()
     {
@@ -89,6 +94,7 @@ public class nodeController : MonoBehaviour
         pst.speed.addModifier(currentlySelectedNode.value);
         player.GetComponent<offlinePlayerMovement>().canMove = true;
         player.GetComponent<offlinePlayerShooting>().canFire = true;
+        pst.updateUI();
     }
     public void StlthSelect()
     {
@@ -98,6 +104,7 @@ public class nodeController : MonoBehaviour
         pst.stealth.addModifier(currentlySelectedNode.value);
         player.GetComponent<offlinePlayerMovement>().canMove = true;
         player.GetComponent<offlinePlayerShooting>().canFire = true;
+        pst.updateUI();
     }
     public void unSelected()
     {

@@ -118,7 +118,7 @@ public class player_Health : m_Health
 
     public override void takeDamage(float damage, damageType damageTyping)
     {
-        Debug.Log("Taking Damage to Player");
+        //Debug.Log("Taking Damage to Player");
         if (isDashing == false)
         {
             if (canTakeDamage)

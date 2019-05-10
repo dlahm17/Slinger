@@ -69,6 +69,7 @@ public class EquipmentManager : MonoBehaviour {
         }
         if(onEquipmentChanged != null)
         {
+            //Debug.Log("New Item: " + newItem + " old item: " + oldItem);
             onEquipmentChanged.Invoke(newItem, oldItem);
         }
 

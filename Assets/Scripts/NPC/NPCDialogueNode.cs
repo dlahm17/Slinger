@@ -54,7 +54,7 @@ public class NPCDialogueNode : InteractablePickup
     {
         if(myDialogue[i] == null)
         {
-            Debug.Log("Dialogue null, resetting");
+            //Debug.Log("Dialogue null, resetting");
             dialogueCtrl.DeactivateDialogue();
             active = false;
             i = 0;
@@ -62,7 +62,7 @@ public class NPCDialogueNode : InteractablePickup
         }
         if (myDialogue[i] != null)
         {
-            Debug.Log("Sending Dialogue Upwards");
+            //Debug.Log("Sending Dialogue Upwards");
             dialogueCtrl.ActivateDialogue(myDialogue[i], this);
             i++;
         }

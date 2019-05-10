@@ -38,7 +38,7 @@ public class EnemyActivation_Controller : MonoBehaviour {
     {
         if (newGrid != null)
         {
-            Debug.Log("Changing active grid to " + newGrid.transform.position);
+            //Debug.Log("Changing active grid to " + newGrid.transform.position);
             EnemyGridController tempGrid = currentActiveGrid;
             currentActiveGrid = newGrid;
             currentActiveGrid.activateGrid();

@@ -1,6 +1,4 @@
-﻿
-
-using UnityEngine;
+﻿using UnityEngine;
 
 public class characterStats : MonoBehaviour {
     public Stat health;

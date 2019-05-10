@@ -30,7 +30,7 @@ public class enemyHealth : m_Health
     }
     public override void takeDamage(float damage, damageType damageTyping)
     {
-        Debug.Log("Taking Damage in enemy health");
+        //Debug.Log("Taking Damage in enemy health");
         float damageToTake = damage;
         if(damageTyping == damageType.physical)
         {

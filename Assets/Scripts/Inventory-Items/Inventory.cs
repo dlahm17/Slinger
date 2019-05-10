@@ -75,7 +75,6 @@ public class Inventory : MonoBehaviour {
     }
     public float checkExp()
     {
-        Debug.Log(currentExp);
         return currentExp;
     }
     public void resetExp()

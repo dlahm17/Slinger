@@ -39,7 +39,7 @@ public class gunEnemyCtrl : MonoBehaviour {
                     //Debug.Log(hit.collider.gameObject.name);
                     if (hit.collider.gameObject.tag.Equals("Player"))
                     {
-                        Debug.Log("Firing on player");
+                        //Debug.Log("Firing on player");
                         shoot();
                         reloadTime = Time.time + timeToReload;
                     }

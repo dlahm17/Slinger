@@ -37,7 +37,7 @@ public class Choice_TP_Nodes : MonoBehaviour
 
     IEnumerator WaitForFade()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1.5f);
         if (isSerenityWitch == true)
         {
             player.transform.position = NodeSpot.position;

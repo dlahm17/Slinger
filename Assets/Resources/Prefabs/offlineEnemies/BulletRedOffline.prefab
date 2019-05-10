@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 108840387065044974}
   - component: {fileID: 114566241195130744}
   - component: {fileID: 65079508216637362}
-  - component: {fileID: 114914883937974506}
+  - component: {fileID: 1504658313947366366}
   m_Layer: 0
   m_Name: BulletRedOffline
   m_TagString: Untagged
@@ -4768,7 +4768,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.5, y: 0.5, z: 0.5}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &114914883937974506
+--- !u!114 &1504658313947366366
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4777,10 +4777,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1308464299110626}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e229225d08ecb0647b1f8d6e3cf1f259, type: 3}
+  m_Script: {fileID: 11500000, guid: 831e080d11f5ee64c9c052e237ba3406, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToDestroy: 2
+  timeTilDestruction: 5
 --- !u!1 &1426612263980900
 GameObject:
   m_ObjectHideFlags: 0

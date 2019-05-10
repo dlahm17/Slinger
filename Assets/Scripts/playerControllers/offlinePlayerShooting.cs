@@ -202,74 +202,76 @@ public class offlinePlayerShooting : MonoBehaviour {
 
     public void setStats(Weapon wpn)
     {
-        right = true;
-        isDualWeapon = wpn.isDualWeapon;
-        spread = wpn.spread;
-        shotsInSpread = wpn.shotsInSpread;
-        myWeaponType = wpn.myWeaponType;
-        myWeaponDamageType = wpn.myType;
-        baseBulletDamage = wpn.damageModifier;
+            //Debug.Log("new weapon equipped");
+            right = true;
+            isDualWeapon = wpn.isDualWeapon;
+            spread = wpn.spread;
+            shotsInSpread = wpn.shotsInSpread;
+            myWeaponType = wpn.myWeaponType;
+            myWeaponDamageType = wpn.myType;
+            baseBulletDamage = wpn.damageModifier;
 
-        maxRAmmoCount = wpn.maxAmmo;
-        maxLAmmoCount = wpn.maxAmmo;
-        rightAmmoCount = wpn.maxAmmo;
-        leftAmmoCount = wpn.maxAmmo;
+            maxRAmmoCount = wpn.maxAmmo;
+            maxLAmmoCount = wpn.maxAmmo;
+            rightAmmoCount = wpn.maxAmmo;
+            leftAmmoCount = wpn.maxAmmo;
+
+
+            gunShotAudio1.clip = wpn.myAudio;
+            gunShotAudio2.clip = wpn.myAudio;
+
+            timeToReloadBullet = wpn.timeToReloadSingleShot;
+            timeToReload = wpn.timeBetweenShots;
+
+            maxRtxt.text = maxRAmmoCount.ToString();
+            maxLtxt.text = maxLAmmoCount.ToString();
+            reloadAllImmediately();
+            updateUI();
+
+            if (!isDualWeapon)
+            {
+                LeftAmmoCounter.SetActive(false);
+                Text[] myTxts = LeftAmmoCounter.GetComponentsInChildren<Text>();
+                foreach (Text txt in myTxts)
+                {
+                    txt.enabled = false;
+                }
+            }
+            if (isDualWeapon)
+            {
+                LeftAmmoCounter.SetActive(true);
+                Text[] myTxts = LeftAmmoCounter.GetComponentsInChildren<Text>();
+                foreach (Text txt in myTxts)
+                {
+                    txt.enabled = true;
+                }
+            }
+            int i = 0;
+            while (i < 10)
+            {
+                //shotGunDir[i].RotateAround(gameObject.transform.position, Vector3.up, spread);
+                shotGunDir[i].rotation = baseShotGunDir[i].rotation;
+                //shotGunDir[i+1].RotateAround(gameObject.transform.position, Vector3.up, -spread);
+                shotGunDir[i + 1].rotation = baseShotGunDir[i].rotation;
+                i += 2;
+            }
+            i = 0;
+            while (i < 10)
+            {
+
+                //shotGunDir[i].RotateAround(gameObject.transform.position, Vector3.up, spread);
+                shotGunDir[i].Rotate(new Vector3(0, ((spread / 2) * (i + 1)), 0));
+                //shotGunDir[i+1].RotateAround(gameObject.transform.position, Vector3.up, -spread);
+                shotGunDir[i + 1].Rotate(new Vector3(0, ((-spread / 2) * (i + 1)), 0));
+                i += 2;
+            }
+
+            /*
+            Debug.Log(wpn.name);
+            Debug.Log(shotsInSpread);
+            Debug.Log(spread);
+            */
         
-
-        gunShotAudio1.clip = wpn.myAudio;
-        gunShotAudio2.clip = wpn.myAudio;
-
-        timeToReloadBullet = wpn.timeToReloadSingleShot;
-        timeToReload = wpn.timeBetweenShots;
-
-        maxRtxt.text = maxRAmmoCount.ToString();
-        maxLtxt.text = maxLAmmoCount.ToString();
-        reloadAllImmediately();
-        updateUI();
-
-        if (!isDualWeapon)
-        {
-            LeftAmmoCounter.GetComponent<Image>().enabled = false;
-            Text[] myTxts = LeftAmmoCounter.GetComponentsInChildren<Text>();
-            foreach(Text txt in myTxts)
-            {
-                txt.enabled = false;
-            }
-        }
-        if (isDualWeapon)
-        {
-            LeftAmmoCounter.GetComponent<Image>().enabled = true;
-            Text[] myTxts = LeftAmmoCounter.GetComponentsInChildren<Text>();
-            foreach (Text txt in myTxts)
-            {
-                txt.enabled = true;
-            }
-        }
-        int i = 0;
-        while(i < 10)
-        {
-            //shotGunDir[i].RotateAround(gameObject.transform.position, Vector3.up, spread);
-            shotGunDir[i].rotation = baseShotGunDir[i].rotation;
-            //shotGunDir[i+1].RotateAround(gameObject.transform.position, Vector3.up, -spread);
-            shotGunDir[i + 1].rotation = baseShotGunDir[i].rotation;
-            i += 2;
-        }
-        i = 0;
-        while(i < 10)
-        {
-
-            //shotGunDir[i].RotateAround(gameObject.transform.position, Vector3.up, spread);
-            shotGunDir[i].Rotate(new Vector3(0, ((spread/2) * (i + 1)), 0));
-            //shotGunDir[i+1].RotateAround(gameObject.transform.position, Vector3.up, -spread);
-            shotGunDir[i + 1].Rotate(new Vector3(0, ((-spread/2) * (i+1)), 0));
-            i+=2;
-        }
-
-        /*
-        Debug.Log(wpn.name);
-        Debug.Log(shotsInSpread);
-        Debug.Log(spread);
-        */
     }
 
     private void OnDrawGizmos()
@@ -326,6 +328,7 @@ public class offlinePlayerShooting : MonoBehaviour {
                 {
                     if (absorbConnected == false)
                     {
+                        Debug.DrawRay(absorbChecker.transform.position, absorbChecker.transform.forward, Color.red, 2f);
                         absorbConnected = Physics.CheckSphere(absorbChecker.transform.position, .1f);
 
                         Debug.Log("absorbConnected is: " + absorbConnected);
@@ -334,8 +337,7 @@ public class offlinePlayerShooting : MonoBehaviour {
                             if (enemyToAbsorb == null)
                             {
                                 RaycastHit hit;
-                                Debug.DrawRay(absorbChecker.transform.position, absorbChecker.transform.forward, Color.red, 2f);
-                                Ray newRay = new Ray(absorbChecker.transform.position, absorbChecker.transform.forward);
+                                Ray newRay = new Ray(absorbChecker.transform.position, absorbChecker.transform.forward * 2f);
                                 if (Physics.Raycast(newRay, out hit, 2f))
                                 {
                                     if (hit.collider.tag == "Enemy")
@@ -373,9 +375,9 @@ public class offlinePlayerShooting : MonoBehaviour {
         enemyToAbsorb = null;
         absorbConnected = false;
         myMovement.startAbsorbDash(1.5f);
+        AbsorbActive = true;
         myHealth.isDashing = true;
         yield return new WaitForSeconds(reloadAbilityTime);
-        AbsorbActive = true;
         yield return new WaitForSeconds(.2f);
 
         if (absorbConnected == false)
@@ -466,7 +468,7 @@ public class offlinePlayerShooting : MonoBehaviour {
     {
         if(myabi == global::specialAbility.Absorb)
         {
-            Debug.Log("Absorbing");
+            //Debug.Log("Absorbing");
             myAnim.SetBool("Absorb", true);
             reloadAbilityTime = 1f;
             canFire = false;
@@ -474,19 +476,19 @@ public class offlinePlayerShooting : MonoBehaviour {
         }
         if (myabi == global::specialAbility.Dynamite)
         {
-            Debug.Log("kaboom");
+            //Debug.Log("kaboom");
             StartCoroutine("endDynamite");
             reloadAbilityTime = 5f;
         }
         if (myabi == global::specialAbility.Icicle)
         {
-            Debug.Log("Icy");
+            //Debug.Log("Icy");
             StartCoroutine("endIcicle");
             reloadAbilityTime = 1f;
         }
         if (myabi == global::specialAbility.Knife)
         {
-            Debug.Log("Shank");
+            //Debug.Log("Shank");
             canFire = false;
             myAnim.SetBool("Knife", true);
             magicKnife.SetActive(true);
@@ -495,17 +497,17 @@ public class offlinePlayerShooting : MonoBehaviour {
         }
         if (myabi == global::specialAbility.Reflect)
         {
-            Debug.Log("Reflecting");
+            //Debug.Log("Reflecting");
             reloadAbilityTime = 1f;
         }
         if (myabi == global::specialAbility.Stealth)
         {
-            Debug.Log("Stealthing");
+            //Debug.Log("Stealthing");
             reloadAbilityTime = 1f;
         }
         if (myabi == global::specialAbility.Tank)
         {
-            Debug.Log("Tank Time");
+            //Debug.Log("Tank Time");
             reloadAbilityTime = 1f;
         }
         
@@ -534,7 +536,7 @@ public class offlinePlayerShooting : MonoBehaviour {
         {
             currentSpAbility = mySpAbilities.Count - 1;
         }
-        Debug.Log(mySpAbilities[currentSpAbility]);
+        //Debug.Log(mySpAbilities[currentSpAbility]);
         updateSpUI();
     }
     public void addSpAbility(SpecialAbilityObject abiToAdd)
@@ -640,7 +642,7 @@ public class offlinePlayerShooting : MonoBehaviour {
                 {
                     if (canFire && rightHasAmmo)
                     {
-                        Debug.Log("Shotgun Blast");
+                       // Debug.Log("Shotgun Blast");
                         gunShotAudio1.PlayOneShot(gunShotAudio1.clip);
                         bulletSystem1.Play();
                         canFire = false;
@@ -671,7 +673,7 @@ public class offlinePlayerShooting : MonoBehaviour {
                             //shotGunRenderer[i].SetPosition(1, shotGunDir[i].forward * range);
                             if (Physics.Raycast(ray, out hit, range))
                             {
-                                Debug.Log("Hit");
+                                //Debug.Log("Hit");
                                 // Vector3 distance = new Vector3(0,0, Vector3.Distance(hit.collider.gameObject.transform.position, GunPos1.position));
                                 //myGunShotRenderer1.SetPosition(1, distance);
                                 enemyHealth hitHp = hit.collider.gameObject.GetComponent<enemyHealth>();

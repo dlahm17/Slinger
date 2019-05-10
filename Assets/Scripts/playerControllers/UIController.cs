@@ -25,11 +25,11 @@ public class UIController : MonoBehaviour
     public bool active = false;
     public void activateUI(string UIToActivate)
     {
-        Debug.Log("UI Activated");
+        //Debug.Log("UI Activated");
         switch (UIToActivate)
         {
             case "NodeUI":
-                Debug.Log("Node UI Up");
+                //Debug.Log("Node UI Up");
                 foreach (GameObject U in PlayerGameplayUI)
                 {
                     U.SetActive(false);
@@ -37,7 +37,7 @@ public class UIController : MonoBehaviour
                 NodeUI.SetActive(true);
                 break;
             case "DialogueUI":
-                Debug.Log("Dialogue UI Up");
+                //Debug.Log("Dialogue UI Up");
                 foreach (GameObject U in PlayerGameplayUI)
                 {
                     U.SetActive(false);
@@ -45,7 +45,7 @@ public class UIController : MonoBehaviour
                 DialogueUI.SetActive(true);
                 break;
             case "InventoryUI":
-                Debug.Log("Inventory UI Up");
+                //Debug.Log("Inventory UI Up");
                 foreach (GameObject U in PlayerGameplayUI)
                 {
                     U.SetActive(false);
@@ -53,7 +53,7 @@ public class UIController : MonoBehaviour
                 InventoryUI.SetActive(true);
                 break;
             case "PauseUI":
-                Debug.Log("Pause UI Up");
+                //Debug.Log("Pause UI Up");
                 foreach (GameObject U in PlayerGameplayUI)
                 {
                     U.SetActive(false);
@@ -61,7 +61,7 @@ public class UIController : MonoBehaviour
                 PauseUI.SetActive(true);
                 break;
             case "CustomUI":
-                Debug.Log("Custom UI up");
+                //Debug.Log("Custom UI up");
                 foreach(GameObject U in PlayerGameplayUI)
                 {
                     U.SetActive(false);

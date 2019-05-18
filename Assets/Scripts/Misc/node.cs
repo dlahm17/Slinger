@@ -5,6 +5,7 @@ using UnityEngine;
 public enum stat { health, armor, damage, magicDamage, magicArmor, Speed, Stealth, unSelected}
 public class node : InteractablePickup
 {
+    public int id;
     public int value;
     public int cost;
     public bool isAvailableForPurchase;
@@ -62,7 +63,10 @@ public class node : InteractablePickup
         me.setActive();
         me.haveBought = true;
         isPurchased = true;
-        Renderer myRender = GetComponent<Renderer>();
-        myRender.material = Act_Mat;
+        Renderer[] myRender = GetComponentsInChildren<Renderer>();
+        foreach (Renderer R in myRender)
+        {
+            R.materials[1] = Act_Mat;
+        }
     }
 }

@@ -5,6 +5,18 @@ using UnityEngine.UI;
 
 public class DialogueController : MonoBehaviour
 {
+    public AudioSource AS;
+    public void instantiationOfBullshit(AudioClip A)
+    {
+        if (!AS.isPlaying)
+        {
+            AS.clip = A;
+            AS.Play();
+        }
+
+    }
+
+
     
     #region singleton
 

@@ -359,6 +359,7 @@ public class offlinePlayerMovement : MonoBehaviour
     }
     public void changeGridAnim(EnemyGridController grid)
     {
+       
         thisCam.getNewGrid(grid, grid.offset);
     }
     //Start and Stop climbing effect how the player gets on ladders

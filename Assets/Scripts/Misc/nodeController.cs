@@ -26,6 +26,7 @@ public class nodeController : MonoBehaviour
        
         UI.SetActive(false);
         player = GameObject.FindGameObjectWithTag("Player");
+        UIController.instance.NodeUI = UI;
     }
 
     public void spawnUI(node n)

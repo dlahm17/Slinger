@@ -57,6 +57,11 @@ public class EquipmentManager : MonoBehaviour {
         
     }
 
+    public Equipment getEquipment(int eqSlot)
+    {
+        return currentEquipment[eqSlot];
+    }
+
     public void Equip(Equipment newItem)
     {
         int slotIndex = (int)newItem.equipSlot;

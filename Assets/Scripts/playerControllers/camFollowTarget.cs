@@ -32,6 +32,7 @@ public class camFollowTarget : MonoBehaviour {
         baseOffset = offset;
     }
 
+
     public EnemyGridController getCurrentGrid()
     {
         return currentGrid;

@@ -29,12 +29,15 @@ public class UIController : MonoBehaviour
         switch (UIToActivate)
         {
             case "NodeUI":
-                //Debug.Log("Node UI Up");
-                foreach (GameObject U in PlayerGameplayUI)
+                if (NodeUI != null)
                 {
-                    U.SetActive(false);
+                    //Debug.Log("Node UI Up");
+                    foreach (GameObject U in PlayerGameplayUI)
+                    {
+                        U.SetActive(false);
+                    }
+                    NodeUI.SetActive(true);
                 }
-                NodeUI.SetActive(true);
                 break;
             case "DialogueUI":
                 //Debug.Log("Dialogue UI Up");
@@ -74,10 +77,22 @@ public class UIController : MonoBehaviour
     }
     public void deactivateUI()
     {
-        NodeUI.SetActive(false);
-        DialogueUI.SetActive(false);
-        InventoryUI.SetActive(false);
-        PauseUI.SetActive(false);
+        if (NodeUI != null)
+        {
+            NodeUI.SetActive(false);
+        }
+        if (DialogueUI != null)
+        {
+            DialogueUI.SetActive(false);
+        }
+        if (InventoryUI != null)
+        {
+            InventoryUI.SetActive(false);
+        }
+        if (PauseUI != null)
+        {
+            PauseUI.SetActive(false);
+        }
         foreach (GameObject U in PlayerGameplayUI)
         {
             U.SetActive(true);

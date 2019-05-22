@@ -33,8 +33,6 @@ public class EnemyGridController : MonoBehaviour {
     /// </summary>
     // Use this for initialization
     void Start() {
-        //This grabs the movement script from the player, and the enemySpawners that are within the grid.
-        playCtrl = GameObject.FindGameObjectWithTag("Player").GetComponent<offlinePlayerMovement>();
         enemySpawn = gameObject.GetComponentsInChildren<EnemySpawn>();
         //The collider that is attached to this gameobject
         myCollider = GetComponent<BoxCollider>();
@@ -56,6 +54,8 @@ public class EnemyGridController : MonoBehaviour {
         bufZ.localPosition = new Vector3(0, 0, ((radiusZ / 2)) - (BufferZ));
         minBufZ.localPosition = new Vector3(0, 0, ((-radiusZ / 2)) + (BufferZ / 2));
 
+        //This grabs the movement script from the player, and the enemySpawners that are within the grid.
+        playCtrl = GameObject.FindGameObjectWithTag("Player").GetComponent<offlinePlayerMovement>();
     }
     void OnDrawGizmos()
     {
@@ -86,6 +86,11 @@ public class EnemyGridController : MonoBehaviour {
     {
         if (other.gameObject.tag.Equals("Player"))
         {
+            if(playCtrl == null)
+            {
+                Debug.Log("DuckFuck");
+                playCtrl = GameObject.FindGameObjectWithTag("Player").GetComponent<offlinePlayerMovement>();
+            }
             playCtrl.changeGridAnim(this);
             myCtrl.Activate(this);
         }

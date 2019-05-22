@@ -47,6 +47,22 @@ public class Inventory : MonoBehaviour {
 
     public List<Key> keys = new List<Key>();
 
+
+    public Item getItem(int itemToGet)
+    {
+        if(itemToGet >= items.Count)
+        {
+            return null;
+        }
+        if (items[itemToGet] != null)
+        {
+            return items[itemToGet];
+        }
+        else
+        {
+            return null;
+        }
+    }
     public void giveGold(int goldtoGive)
     {
         currentGold += goldtoGive;

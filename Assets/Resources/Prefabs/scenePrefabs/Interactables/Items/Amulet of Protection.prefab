@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 223793924358615188}
   - component: {fileID: 114260321340823234}
   - component: {fileID: 114295295309669840}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -110,7 +110,7 @@ GameObject:
   - component: {fileID: 224052522007749808}
   - component: {fileID: 222114893528506136}
   - component: {fileID: 114621154317373884}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -191,7 +191,7 @@ GameObject:
   - component: {fileID: 65848763208726496}
   - component: {fileID: 23875975658759394}
   - component: {fileID: 114846678458082550}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Amulet of Protection
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -252,7 +252,6 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: be9ffcb02a3d8f442a992dfb8c3f4860, type: 2}
-  - {fileID: 2100000, guid: be9ffcb02a3d8f442a992dfb8c3f4860, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -289,6 +288,6 @@ MonoBehaviour:
     m_Bits: 1024
   interactionRadius: 2
   isInRadius: 0
-  myItemNameCanvas: {fileID: 223793924358615188}
   nameToShow: Amulet of Protection
   item: {fileID: 11400000, guid: b09e62df6233bed4ba5dc12db5fc9628, type: 2}
+  ID: 0

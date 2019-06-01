@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 224668855458953694}
   - component: {fileID: 222781682880037842}
   - component: {fileID: 114992985383650340}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -91,7 +91,7 @@ GameObject:
   - component: {fileID: 223406846041251970}
   - component: {fileID: 114356274342503352}
   - component: {fileID: 114807379711457622}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Canvas (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -191,7 +191,7 @@ GameObject:
   - component: {fileID: 65477455646794904}
   - component: {fileID: 23929211293897196}
   - component: {fileID: 114144238770003536}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Billy's Boots
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -289,6 +289,6 @@ MonoBehaviour:
     m_Bits: 1024
   interactionRadius: 2
   isInRadius: 0
-  myItemNameCanvas: {fileID: 223406846041251970}
   nameToShow: Billy's Boots
   item: {fileID: 11400000, guid: e2f9fa50d0f25344a9a9e6a7433d5f5b, type: 2}
+  ID: 0

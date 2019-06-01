@@ -11,9 +11,96 @@ public class node : InteractablePickup
     public bool isAvailableForPurchase;
     public bool isPurchased;
     nodeController myCtrl;
+    NodeData myDat;
     public Material Act_Mat;
+    GameData currentData;
 
     stat myS = stat.unSelected;
+    public override void Start()
+    {
+        base.Start();
+        loadData();
+        
+    }
+    public void loadData()
+    {
+        currentData = DataSave_Load.instance.GDat;
+        bool amIBought = currentData.node_Bought[id].bought;
+        if (amIBought == false)
+        {
+            return;
+        }
+
+        if (amIBought == true)
+        {
+            if (currentData.node_Bought[id].nameID != id.ToString())
+            {
+                Debug.LogWarning("node data id doesn't match id on node using it.  Node number: " + id.ToString());
+            }
+            myDat = currentData.node_Bought[id];
+            setStats();
+        }
+    }
+    private void setStats()
+    {
+        myS = myDat.assignedStat;
+        drawLineTwoPoints me = GetComponent<drawLineTwoPoints>();
+        me.setActive();
+        me.haveBought = true;
+        isPurchased = true;
+        MeshRenderer[] myRender = GetComponentsInChildren<MeshRenderer>();
+        foreach (MeshRenderer R in myRender)
+        {
+            R.materials[1] = Act_Mat;
+        }
+        if (myS != stat.unSelected)
+        {
+            if (myS == stat.health)
+            {
+                playerStats pst = GameObject.FindGameObjectWithTag("Player").GetComponent<playerStats>();
+                pst.health.addModifier(value);
+                pst.updateUI();
+                GameObject.FindGameObjectWithTag("Player").GetComponent<player_Health>().setHPBarValues(pst.health.GetValue(), GameObject.FindGameObjectWithTag("Player").GetComponent<player_Health>().health);
+            }
+            if (myS == stat.damage)
+            {
+                playerStats pst = GameObject.FindGameObjectWithTag("Player").GetComponent<playerStats>();
+                pst.damage.addModifier(value);
+                pst.updateUI();
+            }
+            if (myS == stat.magicDamage)
+            {
+                playerStats pst = GameObject.FindGameObjectWithTag("Player").GetComponent<playerStats>();
+                pst.magicDamage.addModifier(value);
+                pst.updateUI();
+            }
+            if (myS == stat.armor)
+            {
+                playerStats pst = GameObject.FindGameObjectWithTag("Player").GetComponent<playerStats>();
+                pst.armor.addModifier(value);
+                pst.updateUI();
+            }
+            if (myS == stat.magicArmor)
+            {
+                playerStats pst = GameObject.FindGameObjectWithTag("Player").GetComponent<playerStats>();
+                pst.magicArmor.addModifier(value);
+                pst.updateUI();
+            }
+            if (myS == stat.Speed)
+            {
+                playerStats pst = GameObject.FindGameObjectWithTag("Player").GetComponent<playerStats>();
+                pst.speed.addModifier(value);
+                pst.updateUI();
+            }
+            if (myS == stat.Stealth)
+            {
+                playerStats pst = GameObject.FindGameObjectWithTag("Player").GetComponent<playerStats>();
+                pst.stealth.addModifier(value);
+                pst.updateUI();
+            }
+        }
+    }
+
     public override void Interact()
     {
         base.Interact();
@@ -42,10 +129,8 @@ public class node : InteractablePickup
         if(Inventory.instance.checkExp() >= cost)
         {
             //There's enough experience to buy it
-            Debug.Log("Enough EXP");
             return true;
         }
-        Debug.Log("Not Enough exp");
         return false;
     }
 
@@ -63,10 +148,19 @@ public class node : InteractablePickup
         me.setActive();
         me.haveBought = true;
         isPurchased = true;
-        Renderer[] myRender = GetComponentsInChildren<Renderer>();
-        foreach (Renderer R in myRender)
+        MeshRenderer[] myRender = GetComponentsInChildren<MeshRenderer>();
+        foreach (MeshRenderer R in myRender)
         {
-            R.materials[1] = Act_Mat;
+          R.materials[1] = Act_Mat;
         }
+
+        saveStats();
+    }
+    void saveStats()
+    {
+        Debug.Log("Sending stat change to game data");
+        currentData.node_Bought[id].bought = true;
+        currentData.node_Bought[id].nameID = id.ToString();
+        currentData.node_Bought[id].assignedStat = myS;
     }
 }

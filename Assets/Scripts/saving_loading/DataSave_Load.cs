@@ -30,25 +30,28 @@ public class DataSave_Load : MonoBehaviour
     }
     public void updateSaveFile()
     {
-
         string dataP = "GameData_" + savefile.ToString() + ".hzg";
+        GDat.saveFile = savefile;
         dataPath = Path.Combine(Application.persistentDataPath, dataP);
+        //Debug.Log(dataPath);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyDown(KeyCode.M))
         {
+            Debug.Log("Saving Data");
             GDat.saveFile = savefile;
             saveTime(GDat);
+            GDat.exp = (int)Inventory.instance.checkExp();
+            GDat.gold = (int)Inventory.instance.checkGold();
             Debug.Log("Getting Items");
             int x = 0;
             while (x < 20)
             {
                 if(Inventory.instance.getItem(x) == null)
                 {
-                    Debug.Log("Fucky");
                     break;
                 }
                 GDat.inventoryItems[x].It = Inventory.instance.getItem(x);
@@ -56,7 +59,6 @@ public class DataSave_Load : MonoBehaviour
                 x++;
             }
             x = 0;
-            Debug.Log("Getting Equipment");
             while (x < 5)
             {
                 if (EquipmentManager.instance.getEquipment(x) == null)
@@ -64,15 +66,55 @@ public class DataSave_Load : MonoBehaviour
                     break;
                 }
                 GDat.Player_Equipment[x].Eq = EquipmentManager.instance.getEquipment(x);
-                 Debug.Log("Equipment " + x + " : " + GDat.Player_Equipment[x].Eq);
                  x++;
             }
             saveMyData(GDat, dataPath);
         }
 
         if (Input.GetKeyDown(KeyCode.L))
+        {
+            Debug.Log("Loading data");
             GDat = loadMyData(dataPath);
+            applyData();
+        }
     }
+
+    public void applyData()
+    {
+        playerStats pst = GameObject.FindGameObjectWithTag("Player").GetComponent<playerStats>();
+        pst.resetAllStats();
+
+        EquipmentManager eqM = EquipmentManager.instance;
+        for(int x = 0; x < 5; x++)
+        {
+            eqM.Equip(GDat.Player_Equipment[x].Eq);
+            
+        }
+        Inventory In = Inventory.instance;
+        In.RemoveAll();
+        for (int x = 0; x < 20; x++)
+        {
+            if(GDat.inventoryItems[x].It == null)
+            {
+                break;
+            }
+            In.Add(GDat.inventoryItems[x].It);
+            
+        }
+
+        GameObject[] n = GameObject.FindGameObjectsWithTag("Node");
+        foreach(GameObject ni in n)
+        {
+            ni.GetComponent<node>().loadData();
+        }
+
+        Inventory.instance.resetGold();
+        Inventory.instance.giveGold(GDat.gold);
+        Inventory.instance.resetExp();
+        Inventory.instance.giveExp(GDat.exp);
+
+    }
+
 
     static void saveMyData(GameData data, string path)
     {
@@ -90,39 +132,9 @@ public class DataSave_Load : MonoBehaviour
     public void saveTime(GameData data)
     {
         Debug.Log("Getting Time");
-        data.time = Time.time;
+        data.time += Time.time;
     }
-    /*
-    public void saveItems(GameData data)
-    {
-        Debug.Log("Getting Items");
-        int x = 0;
-        while(x < 20)
-        {
-            Debug.Log(Inventory.instance.items[x]);
-            if (Inventory.instance.items[x] != null)
-            {
-                data.inventoryItems[x].It = Inventory.instance.items[x];
-                Debug.Log("Item " + x + " : " + data.inventoryItems[x].It);
-            }
-            x++;
-        }
-    }
-    public void saveEquipment(GameData data)
-    {
-        Debug.Log("Getting Equipment");
-        int x = 0;
-        while(x < 5)
-        {
-            if (EquipmentManager.instance.getEquipment(x) != null)
-            {
-                data.Player_Equipment[x].Eq = EquipmentManager.instance.getEquipment(x);
-                Debug.Log("Equipment " + x + " : " + data.Player_Equipment[x].Eq);
-            }
-            x++;
-        }
-    }
-    */
+    
     
 
 
@@ -130,7 +142,6 @@ public class DataSave_Load : MonoBehaviour
 
     static GameData loadMyData(string path)
     {
-        Debug.Log("Loading");
         using (StreamReader streamReader = File.OpenText(path))
         {
             string jsonString = streamReader.ReadToEnd();

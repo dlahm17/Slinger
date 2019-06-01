@@ -13,7 +13,16 @@ public class playerStats :  characterStats {
         statManage = EquipmentManager.instance;
         statManage.onEquipmentChanged += OnEquipmentChanged;
 	}
-
+    public void resetAllStats()
+    {
+        armor.removeAllModifiers();
+        damage.removeAllModifiers();
+        magicArmor.removeAllModifiers();
+        magicDamage.removeAllModifiers();
+        stealth.removeAllModifiers();
+        speed.removeAllModifiers();
+        playMove.setSpeed();
+    }
 
     void OnEquipmentChanged(Equipment newItem, Equipment oldItem)
     {

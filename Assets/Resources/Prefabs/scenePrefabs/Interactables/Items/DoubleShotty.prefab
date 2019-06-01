@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4535978083632037295}
   - component: {fileID: 7667267877803285557}
   - component: {fileID: 2895716371643286365}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: DoubleShotty
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -111,9 +111,9 @@ MonoBehaviour:
     m_Bits: 1024
   interactionRadius: 2
   isInRadius: 0
-  myItemNameCanvas: {fileID: 5081538832446489314}
   nameToShow: Double Barrel Shotgun
   item: {fileID: 11400000, guid: d6473635446b45349960f58c4b983cfa, type: 2}
+  ID: 0
 --- !u!1 &1912774600945136521
 GameObject:
   m_ObjectHideFlags: 0
@@ -125,7 +125,7 @@ GameObject:
   - component: {fileID: 1245151959391490338}
   - component: {fileID: 6951005584017128572}
   - component: {fileID: 552725907985898718}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -205,7 +205,7 @@ GameObject:
   - component: {fileID: 5081538832446489314}
   - component: {fileID: 7687131184031001303}
   - component: {fileID: 113170142004169191}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Canvas (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

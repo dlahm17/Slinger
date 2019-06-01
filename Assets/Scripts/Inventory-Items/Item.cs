@@ -6,7 +6,7 @@ public class Item : ScriptableObject {
     public Sprite Icon = null;
 
     public bool isDefault = false;
-
+    public bool isConsumable = false;
 
     public virtual void Use()
     {

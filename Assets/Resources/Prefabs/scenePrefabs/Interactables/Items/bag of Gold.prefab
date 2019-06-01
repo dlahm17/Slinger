@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 65512287341110680}
   - component: {fileID: 23484110768763394}
   - component: {fileID: 114101580715730344}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: bag of Gold
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -110,9 +110,9 @@ MonoBehaviour:
     m_Bits: 1024
   interactionRadius: 2
   isInRadius: 0
-  myItemNameCanvas: {fileID: 223462800965391716}
   nameToShow: Small Bag of Gold
   item: {fileID: 11400000, guid: 96cd1fe0d2c891944aed0c739f9e2c47, type: 2}
+  ID: 0
 --- !u!1 &1196957062073966
 GameObject:
   m_ObjectHideFlags: 0
@@ -124,7 +124,7 @@ GameObject:
   - component: {fileID: 224587061826408504}
   - component: {fileID: 222645516248845442}
   - component: {fileID: 114518790165068916}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -204,7 +204,7 @@ GameObject:
   - component: {fileID: 223462800965391716}
   - component: {fileID: 114039520109045544}
   - component: {fileID: 114402819930700178}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}

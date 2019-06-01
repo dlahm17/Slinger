@@ -81,14 +81,17 @@ public class offlinePlayerMovement : MonoBehaviour
         Camera[] Cameras = GameObject.FindObjectsOfType<Camera>();
         foreach (Camera Cam in Cameras)
         {
+            //Debug.Log("Finding Cameras");
             camFollowTarget temp = Cam.GetComponent<camFollowTarget>();
             if (temp != null)
             {
+                //Debug.Log("Cam Follow Target has been found");
                 thisCam = Cam.GetComponent<camFollowTarget>();
 
                 bool hasTarget = thisCam.returnTarget();
                 if (!hasTarget)
                 {
+                    //Debug.Log("Target set");
                     thisCam.target = CamTarget.transform;
                     myCam = Cam;
                     break;
@@ -127,7 +130,6 @@ public class offlinePlayerMovement : MonoBehaviour
     }
     public void startAbsorbDash(float amt)
     {
-        
         absorbDash(amt);
     }
     // Update is called once per frame
@@ -194,7 +196,12 @@ public class offlinePlayerMovement : MonoBehaviour
                             Dash(MovX, movZ);
                             dashReload = Time.time + timetoReloadDash;
                         }
+                        if (Input.GetButtonDown("QuickUse"))
+                        {
+                            QuickUse();
+                        }
                     }
+
                 }
             }
             if (animUp)
@@ -241,6 +248,36 @@ public class offlinePlayerMovement : MonoBehaviour
                 {
                     //If it's interactable and you're within the radius of the object, call the interaction funciton on it.
                     interactable.Interact();
+                }
+            }
+        }
+    }
+
+    void QuickUse()
+    {
+        if(myHealth.health < myHealth.maxhp) { 
+        Debug.Log("Using Quick Use");
+        bool potionUsed = false;
+        for(int x = 0; x < 20; x++) {
+            Item i = Inventory.instance.getItem(x);
+                if (potionUsed == false)
+                {
+                    if (i != null)
+                    {
+                        Debug.Log("Item is: " + i.name);
+                        if (i.isConsumable == true)
+                        {
+                            Debug.Log("Item is consumable");
+
+                            Consumable itemToUse = (Consumable)i;
+                            if (itemToUse.isPotion)
+                            {
+                                Debug.Log("Item is a potion");
+                                itemToUse.Use();
+                                potionUsed = true;
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -359,7 +396,10 @@ public class offlinePlayerMovement : MonoBehaviour
     }
     public void changeGridAnim(EnemyGridController grid)
     {
-       
+       if(thisCam == null)
+        {
+            //Debug.Log("Camera not available");
+        }
         thisCam.getNewGrid(grid, grid.offset);
     }
     //Start and Stop climbing effect how the player gets on ladders

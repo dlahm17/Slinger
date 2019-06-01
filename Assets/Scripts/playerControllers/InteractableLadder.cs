@@ -55,6 +55,14 @@ public class InteractableLadder : InteractablePickup
         if (!climbing)
         {
             climbing = true;
+            if(player == null || pMove == null)
+            {
+                player = GameObject.FindGameObjectWithTag("Player");
+                if (player != null)
+                {
+                    pMove = player.GetComponent<offlinePlayerMovement>();
+                }
+            }
             player.transform.position = basePositionY.position;
             pMove.StartClimbing();
         }

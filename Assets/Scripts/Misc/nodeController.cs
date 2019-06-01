@@ -37,8 +37,10 @@ public class nodeController : MonoBehaviour
         UIController.instance.activateUI("NodeUI");
         currentlySelectedNode = n;
     }
+    
     public void HPSelect()
     {
+        Debug.Log("HP has been selected");
         UIController.instance.deactivateUI();
         playerStats pst = player.GetComponent<playerStats>();
         currentlySelectedNode.changeStat(stat.health);
@@ -46,6 +48,10 @@ public class nodeController : MonoBehaviour
         player.GetComponent<offlinePlayerMovement>().canMove = true;
         player.GetComponent<offlinePlayerShooting>().canFire = true;
         pst.updateUI();
+
+        GameObject.FindGameObjectWithTag("Player").GetComponent<player_Health>().maxhp = GameObject.FindGameObjectWithTag("Player").GetComponent<player_Health>().maxhp + currentlySelectedNode.value;
+        GameObject.FindGameObjectWithTag("Player").GetComponent<player_Health>().setHPBarValues(pst.health.GetValue(), GameObject.FindGameObjectWithTag("Player").GetComponent<player_Health>().health);
+        GameObject.FindGameObjectWithTag("Player").GetComponent<player_Health>().heal(currentlySelectedNode.value);
     }
     public void DMGSelect()
     {

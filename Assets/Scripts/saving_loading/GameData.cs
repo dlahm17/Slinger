@@ -7,6 +7,9 @@ public class GameData
 
     //The save file is the number of the save file this data is saved to.  1 - 12.
     public int saveFile;
+    //Save the gold and experience the player had
+    public int gold;
+    public int exp;
     //An array of 20 items will hold all the items that the player is holding onto.
     public InventoryData[] inventoryItems = new InventoryData[20];
     //Player Equipment is held in an array
@@ -22,7 +25,7 @@ public class GameData
     //Current Time of game will be placed in a double
     public double time;
     //Interactable pickups will be stored with a name ID and a bool to show if it has been picked up in the world.
-    public InteractablePickupData[] pickupData = new InteractablePickupData[500];
+    public InteractablePickupData[] pickupData = new InteractablePickupData[1000];
 
 
 

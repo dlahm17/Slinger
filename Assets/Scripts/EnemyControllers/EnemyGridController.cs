@@ -88,10 +88,15 @@ public class EnemyGridController : MonoBehaviour {
         {
             if(playCtrl == null)
             {
-                Debug.Log("DuckFuck");
                 playCtrl = GameObject.FindGameObjectWithTag("Player").GetComponent<offlinePlayerMovement>();
             }
+            //Debug.Log("Changing Grid anim");
             playCtrl.changeGridAnim(this);
+            if(myCtrl == null)
+            {
+                myCtrl = EnemyActivation_Controller.instance;
+            }
+           // Debug.Log("Sending to my control");
             myCtrl.Activate(this);
         }
     }

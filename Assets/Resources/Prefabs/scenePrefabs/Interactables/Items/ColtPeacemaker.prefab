@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 223028874608356290}
   - component: {fileID: 114844035834692996}
   - component: {fileID: 114167985243820690}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Canvas (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -112,7 +112,7 @@ GameObject:
   - component: {fileID: 65943524039816748}
   - component: {fileID: 23027046359939418}
   - component: {fileID: 114413639391669720}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: ColtPeacemaker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -210,9 +210,9 @@ MonoBehaviour:
     m_Bits: 1024
   interactionRadius: 2
   isInRadius: 0
-  myItemNameCanvas: {fileID: 223028874608356290}
   nameToShow: Dual Colt Peacemakers
-  item: {fileID: 11400000, guid: b7fa91d2fbdf03544bf4ba22390b9f29, type: 2}
+  item: {fileID: 11400000, guid: 6c9ddb70b35e95b428bba6c9fe5166a9, type: 2}
+  ID: 0
 --- !u!1 &1484444019088302
 GameObject:
   m_ObjectHideFlags: 0
@@ -224,7 +224,7 @@ GameObject:
   - component: {fileID: 224889283239177372}
   - component: {fileID: 222232046715085318}
   - component: {fileID: 114927238273939310}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}

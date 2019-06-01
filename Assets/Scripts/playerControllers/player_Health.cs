@@ -51,12 +51,14 @@ public class player_Health : m_Health
         
         playerstats = GetComponent<playerStats>();
         health = playerstats.health.GetValue();
+        maxhp = health;
         setHPBarValues(playerstats.health.GetValue(), playerstats.health.GetValue());
         setName(myName);
     }
 
     private void FixedUpdate()
     {
+        //Debug.Log(health);
         if (!canTakeDamage)
         {
             if(Time.time > bufferDamageTaking)
@@ -110,10 +112,22 @@ public class player_Health : m_Health
             }
         }
     }
-
+    
     void changeHP(Equipment newItem, Equipment oldItem)
     {
+        maxhp = playerstats.health.GetValue();
         setHPBarValues(playerstats.health.GetValue(), health);
+    }
+    public override void heal(float damageToHeal)
+    {
+        base.heal(damageToHeal);
+        Debug.Log("Healing for: " + damageToHeal.ToString() + " health");
+        health += damageToHeal;
+        if (health > maxhp)
+        {
+            Debug.Log("Health is above maxhp");
+            health = maxhp;
+        }
     }
 
     public override void takeDamage(float damage, damageType damageTyping)

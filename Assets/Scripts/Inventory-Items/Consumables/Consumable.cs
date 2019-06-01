@@ -6,11 +6,14 @@ using UnityEngine;
 public class Consumable : Item {
     public int goldGain = 0;
     public int HPGain = 0;
-   
+    public bool isPotion = false;
     public override void Use()
     {
-        base.Use();
-        GameObject.FindGameObjectWithTag("Player").GetComponent<m_Health>().heal(HPGain);
+        if (isPotion)
+        {
+            Debug.Log("consumable used");
+        }
+        GameObject.FindGameObjectWithTag("Player").GetComponent<player_Health>().heal(HPGain);
         Inventory.instance.giveGold(goldGain);
         RemoveFromInventory();
     }

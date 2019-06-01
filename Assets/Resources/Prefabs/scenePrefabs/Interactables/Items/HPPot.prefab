@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 223618815578681092}
   - component: {fileID: 114372615099660314}
   - component: {fileID: 114510994723072530}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Canvas (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -112,7 +112,7 @@ GameObject:
   - component: {fileID: 65986957620802124}
   - component: {fileID: 23238382430679530}
   - component: {fileID: 114697344609149406}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: HPPot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -209,9 +209,9 @@ MonoBehaviour:
     m_Bits: 1024
   interactionRadius: 2
   isInRadius: 0
-  myItemNameCanvas: {fileID: 223618815578681092}
   nameToShow: Small Potion
   item: {fileID: 11400000, guid: 80510d4a387506f4d8d71ee165a8a29b, type: 2}
+  ID: 0
 --- !u!1 &1790278574477618
 GameObject:
   m_ObjectHideFlags: 0
@@ -223,7 +223,7 @@ GameObject:
   - component: {fileID: 224344989623811440}
   - component: {fileID: 222276147022736726}
   - component: {fileID: 114074467631868278}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -71,13 +71,9 @@ public class m_Health : MonoBehaviour {
         }
     }
     //heal and takeDamage cause the health to go down, and under takeDamage, it also asks if the object has been killed
-    public void heal(float damageToHeal)
+    public virtual void heal(float damageToHeal)
     {
-        health += damageToHeal;
-        if(health > maxhp)
-        {
-            health = maxhp;
-        }
+        Debug.Log("healing");
     }
     
 

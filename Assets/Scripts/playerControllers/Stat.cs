@@ -14,7 +14,10 @@ public class Stat  {
         modifiers.ForEach(x => finalValue += x);
         return finalValue;
     }
-
+    public void removeAllModifiers()
+    {
+        modifiers.Clear();
+    }
     public void addModifier(int modifier)
     {
         if (modifier != 0)

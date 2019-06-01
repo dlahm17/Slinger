@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 224495060724679344}
   - component: {fileID: 222476719123079354}
   - component: {fileID: 114467131948616748}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 65630555726395298}
   - component: {fileID: 23861801445242066}
   - component: {fileID: 114494748909429446}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Slinger's Hat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -190,9 +190,9 @@ MonoBehaviour:
     m_Bits: 1024
   interactionRadius: 2
   isInRadius: 0
-  myItemNameCanvas: {fileID: 223617356250709186}
   nameToShow: Slinger's Hat
   item: {fileID: 11400000, guid: a3c307c6ff968ed4a8e83137571464bf, type: 2}
+  ID: 0
 --- !u!1 &1863201063932526
 GameObject:
   m_ObjectHideFlags: 0
@@ -205,7 +205,7 @@ GameObject:
   - component: {fileID: 223617356250709186}
   - component: {fileID: 114993072151283742}
   - component: {fileID: 114328597815979222}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Canvas (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

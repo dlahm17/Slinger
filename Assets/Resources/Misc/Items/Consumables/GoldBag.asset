@@ -15,5 +15,7 @@ MonoBehaviour:
   name: Small Bag of Gold
   Icon: {fileID: 21300000, guid: b26059ffc88638949a4c355a7de29ce5, type: 3}
   isDefault: 0
+  isConsumable: 1
   goldGain: 10
   HPGain: 0
+  isPotion: 0

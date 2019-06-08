@@ -15,7 +15,7 @@ public class EnemyMovement : MonoBehaviour
     }
     public void setDestination(Vector3 destination)
     {
-        Debug.Log("Setting destination to: " + destination);
+        //Debug.Log("Setting destination to: " + destination);
         myAgent.SetDestination(destination);
     }
 }

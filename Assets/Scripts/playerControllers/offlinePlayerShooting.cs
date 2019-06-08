@@ -7,6 +7,7 @@ public enum specialAbility {Absorb, Knife, Reflect, Dynamite, Icicle, Stealth, T
 
 public class offlinePlayerShooting : MonoBehaviour {
     public Transform icicleSpawn;
+    public GameObject Reflector;
     public float icicleSpeed = 100f;
     public float dynamiteThrowForceForward = 10f;
     public float dynamiteThrowForceUpward = 10f;
@@ -401,7 +402,7 @@ public class offlinePlayerShooting : MonoBehaviour {
         if (enemyToAbsorb != null)
         {
             bool kill;
-            enemyToAbsorb.GetComponent<enemyHealth>().takeDamage(10, damageType.magical);
+            enemyToAbsorb.GetComponent<enemyHealth>().takeDamage(GetComponent<playerStats>().magicDamage.GetValue() * 3, damageType.magical);
             kill = enemyToAbsorb.GetComponent<enemyHealth>().isDead();
             if (kill)
             {
@@ -450,6 +451,9 @@ public class offlinePlayerShooting : MonoBehaviour {
     IEnumerator endReflect()
     {
         yield return new WaitForSeconds(reloadAbilityTime);
+        canFire = true;
+        myAnim.SetBool("Reflect", false);
+        Reflector.SetActive(false);
 
     }
     IEnumerator endStealth()
@@ -498,7 +502,11 @@ public class offlinePlayerShooting : MonoBehaviour {
         if (myabi == global::specialAbility.Reflect)
         {
             //Debug.Log("Reflecting");
+            canFire = false;
+            myAnim.SetBool("Reflect", true);
+            Reflector.SetActive(true);
             reloadAbilityTime = 1f;
+            StartCoroutine("endReflect");
         }
         if (myabi == global::specialAbility.Stealth)
         {
@@ -760,7 +768,7 @@ public class offlinePlayerShooting : MonoBehaviour {
                                 Vector3 distance = new Vector3(0, 0, Vector3.Distance(hit.collider.gameObject.transform.position, GunPos2.position));
                                 myGunShotRenderer2.SetPosition(1, distance);
 
-                                m_Health hitHp = hit.collider.gameObject.GetComponent<m_Health>();
+                                enemyHealth hitHp = hit.collider.gameObject.GetComponent<enemyHealth>();
                                 //applies damage to object
                                 if (hitHp != null)
                                 {

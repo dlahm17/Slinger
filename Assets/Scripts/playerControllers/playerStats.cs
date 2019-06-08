@@ -21,6 +21,10 @@ public class playerStats :  characterStats {
         magicDamage.removeAllModifiers();
         stealth.removeAllModifiers();
         speed.removeAllModifiers();
+        if(playMove == null)
+        {
+            playMove = GetComponent<offlinePlayerMovement>();
+        }
         playMove.setSpeed();
     }
 

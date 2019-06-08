@@ -2,13 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class gunEnemyCtrl : MonoBehaviour {
-    m_Health otherHp;
+public class gunEnemyCtrl : Enemy {
     float damage = 1f;
-    m_Health myHP;
+   enemyHealth myHP;
     
     public float range;
     public LayerMask playerLayer;
+
+    float distancetoPlayer;
+    public float desiredDistanceFromPlayer;
 
     public GameObject projectile;
     bulletForce myBullet;
@@ -17,31 +19,76 @@ public class gunEnemyCtrl : MonoBehaviour {
 
     float reloadTime = 1f;
     float timeToReload = 1f;
+    GameObject player;
     // Use this for initialization
-    void Start()
+    public override void Start()
     {
-        myHP = GetComponent<m_Health>();
+        base.Start();
+        myHP = GetComponent<enemyHealth>();
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     private void Update()
     {
-        
-        Debug.DrawRay(gunPos.position, transform.forward * range, Color.red, 1f, true);
-        RaycastHit hit;
-        Ray ray = new Ray(gunPos.position, transform.forward * range);
-        if (Time.time > reloadTime)
+        if (myState == enemyState.combat)
         {
-            
-            if(Physics.Raycast(ray, out hit, playerLayer))
+            distancetoPlayer = Vector3.Distance(transform.position, player.transform.position);
+            if(myMovement.myAgent.hasPath == false && distancetoPlayer < desiredDistanceFromPlayer)
             {
-                if (!myHP.amDed)
+                Debug.Log("time to move");
+                //if the player is to the right and above the enemy, we tell the enemy to go farther down and left.
+                if(player.transform.position.x > transform.position.x)
                 {
-                    //Debug.Log(hit.collider.gameObject.name);
-                    if (hit.collider.gameObject.tag.Equals("Player"))
+                    if(player.transform.position.z > transform.position.z)
                     {
-                        //Debug.Log("Firing on player");
-                        shoot();
-                        reloadTime = Time.time + timeToReload;
+                        Debug.Log("Player is to my right, and above me");
+                        myMovement.setDestination(new Vector3(player.transform.position.x - desiredDistanceFromPlayer, player.transform.position.y, player.transform.position.z - desiredDistanceFromPlayer));
+                    }
+                    if(player.transform.position.z < transform.position.z)
+                    {
+                        Debug.Log("Player is to my right, and below me");
+                        myMovement.setDestination(new Vector3(player.transform.position.x - desiredDistanceFromPlayer, player.transform.position.y, player.transform.position.z + desiredDistanceFromPlayer));
+                    }
+                }
+                if(player.transform.position.x < transform.position.x)
+                {
+                    if(player.transform.position.z > transform.position.z)
+                    {
+                        Debug.Log("Player is to my left, and above me");
+                        myMovement.setDestination(new Vector3(player.transform.position.x + desiredDistanceFromPlayer, player.transform.position.y, player.transform.position.z - desiredDistanceFromPlayer));
+                    }
+                    if(player.transform.position.z < transform.position.z)
+                    {
+                        Debug.Log("Player is to my left and below me");
+                        myMovement.setDestination(new Vector3(player.transform.position.x + desiredDistanceFromPlayer, player.transform.position.y, player.transform.position.z + desiredDistanceFromPlayer));
+                    }
+                }
+            }
+            if (myMovement.myAgent.hasPath == false && distancetoPlayer >= desiredDistanceFromPlayer)
+            {
+                Debug.Log("Let's rotate bois");
+                Vector3 dir = player.transform.position - transform.position;
+                dir.y = 0; // keep the direction strictly horizontal
+                Quaternion rot = Quaternion.LookRotation(dir);
+                transform.rotation = Quaternion.Lerp(transform.rotation, rot, 2f * Time.deltaTime);
+                Debug.DrawRay(gunPos.position, transform.forward * range, Color.red, 1f, true);
+                RaycastHit hit;
+                Ray ray = new Ray(gunPos.position, transform.forward * range);
+                if (Time.time > reloadTime)
+                {
+
+                    if (Physics.Raycast(ray, out hit, playerLayer))
+                    {
+                        if (!myHP.amDed)
+                        {
+                            //Debug.Log(hit.collider.gameObject.name);
+                            if (hit.collider.gameObject.tag.Equals("Player"))
+                            {
+                                //Debug.Log("Firing on player");
+                                shoot();
+                                reloadTime = Time.time + timeToReload;
+                            }
+                        }
                     }
                 }
             }

@@ -6,6 +6,7 @@ public class bulletForce : MonoBehaviour {
     public float speed;
     m_Health otherHp;
     public float bulletDamage = 1;
+    public float forcemultiplier = 1;
 
     public GameObject origin;
     
@@ -33,6 +34,16 @@ public class bulletForce : MonoBehaviour {
                 {
                     if (other.gameObject != origin)
                     {
+                        //create the knockback force
+                        Vector3 force;
+                        //set the force for the applicable direction from the player.  and then we divide the force by the armor value of the player.  Armor value will reduce knockback.
+                        force = other.gameObject.transform.position - transform.position;
+
+                        force = force / other.gameObject.GetComponent<playerStats>().armor.GetValue();
+                        //and multiply it by the forcemultiplier of the attack.
+                        force.y = 0;
+                        other.gameObject.GetComponent<Rigidbody>().AddForce(force * forcemultiplier);
+                        //We then apply bullet damage
                         otherHp.takeDamage(bulletDamage, damageType.physical);
                     }
                 }

@@ -2,24 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MinionCtrl : MonoBehaviour {
-    m_Health otherHp;
-    public float damage = 1f;
-    m_Health myHP;
-	// Use this for initialization
-	void Start () {
-        myHP = GetComponent<m_Health>();
-	}
-    /*
-    private void OnCollisionEnter(Collision other)
+public class MinionCtrl : Enemy {
+    public float damage;
+    public EnemyWpnHitbox myHitBox;
+    // Use this for initialization
+    public override void Start()
     {
-
-        otherHp = other.gameObject.GetComponent<m_Health>();
-        if (otherHp != null)
-        {
-                otherHp.takeDamage(damage, damageType.physical);
-            
-        }
+        base.Start();
     }
-    */
+
+    void Update()
+    {
+        
+    }
 }

@@ -44,8 +44,9 @@ public class camFollowTarget : MonoBehaviour {
         transform.position = target.position - offset;
     }
 
-    public void getNewGrid(EnemyGridController newGrid, Vector3 offsetChange)
+    public void getNewGrid(EnemyGridController newGrid, Vector3 offsetChange, bool clamp)
     {
+        clamped = clamp;
         currentGrid = newGrid;
         if(offsetChange != new Vector3(0, 0, 0))
         {
@@ -63,7 +64,7 @@ public class camFollowTarget : MonoBehaviour {
         minRangeX = newGrid.minBufX.position.x;
         maxRangeZ = newGrid.bufZ.position.z;
         minRangeZ = newGrid.minBufZ.position.z;
-        clamped = false;
+       
         
         return;
     }
@@ -84,32 +85,6 @@ public class camFollowTarget : MonoBehaviour {
                 float xPos = Mathf.Clamp(transform.position.x, minRangeX, maxRangeX);
                 float ZPos = Mathf.Clamp(transform.position.z, minRangeZ, maxRangeZ);
                 transform.position = new Vector3(xPos, target.position.y - offset.y, ZPos);
-            }
-            if (!clamped)
-            {
-                if(transform.position.x < minRangeX)
-                {
-                    transform.Translate(Vector3.right * Time.deltaTime);
-                    
-                }
-                if(transform.position.x > maxRangeX)
-                {
-                    transform.Translate(Vector3.left * Time.deltaTime);
-                }
-                if(transform.position.z < minRangeZ)
-                {
-                    transform.Translate(Vector3.forward * Time.deltaTime);
-                }
-                if(transform.position.z > maxRangeZ)
-                {
-                    transform.Translate(Vector3.back * Time.deltaTime);
-                }
-
-                if(transform.position.x< maxRangeX && transform.position.x > minRangeX && transform.position.z > minRangeZ && transform.position.z < maxRangeZ)
-                {
-                    clamped = true;
-                }
-               
             }
 
 

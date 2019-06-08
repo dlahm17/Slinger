@@ -12,6 +12,7 @@ public class DataSave_Load : MonoBehaviour
         if(instance != null)
         {
             Debug.LogWarning("more than one save and load system in scene");
+            Destroy(gameObject);
             return;
         }
         instance = this;
@@ -34,6 +35,17 @@ public class DataSave_Load : MonoBehaviour
         GDat.saveFile = savefile;
         dataPath = Path.Combine(Application.persistentDataPath, dataP);
         //Debug.Log(dataPath);
+    }
+
+    public void loadGame()
+    {
+        Debug.Log("Loading data at path: " + dataPath);
+        GDat = loadMyData(dataPath);
+    }
+    public void applyAllData()
+    {
+
+        applyData();
     }
 
     // Update is called once per frame
@@ -70,13 +82,7 @@ public class DataSave_Load : MonoBehaviour
             }
             saveMyData(GDat, dataPath);
         }
-
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            Debug.Log("Loading data");
-            GDat = loadMyData(dataPath);
-            applyData();
-        }
+        
     }
 
     public void applyData()

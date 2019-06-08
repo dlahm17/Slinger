@@ -103,6 +103,7 @@ public class offlinePlayerMovement : MonoBehaviour
 
 
         InventoryScreen.SetActive(false);
+        DataSave_Load.instance.applyAllData();
     }
     public void respawn()
     {
@@ -394,13 +395,14 @@ public class offlinePlayerMovement : MonoBehaviour
         }
 
     }
-    public void changeGridAnim(EnemyGridController grid)
+    public void changeGridAnim(EnemyGridController grid, bool restricted)
     {
        if(thisCam == null)
         {
-            //Debug.Log("Camera not available");
+            Debug.LogWarning("Camera is not available");
+            return;
         }
-        thisCam.getNewGrid(grid, grid.offset);
+        thisCam.getNewGrid(grid, grid.offset, restricted);
     }
     //Start and Stop climbing effect how the player gets on ladders
     public void StartClimbing()

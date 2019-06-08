@@ -8,6 +8,8 @@ public class EnemyGridController : MonoBehaviour {
     /// Upon Activation from the EnemyActivation Controller it'll call activate across all the spawners.
     /// Enemy Grid Controller also determines if the player is in range, and will call the activation script in the controller.
     /// </summary>
+
+    public bool isRestricted = false;
     EnemySpawn[] enemySpawn;
     BoxCollider myCollider;
     EnemyActivation_Controller myCtrl;
@@ -91,7 +93,8 @@ public class EnemyGridController : MonoBehaviour {
                 playCtrl = GameObject.FindGameObjectWithTag("Player").GetComponent<offlinePlayerMovement>();
             }
             //Debug.Log("Changing Grid anim");
-            playCtrl.changeGridAnim(this);
+            playCtrl.changeGridAnim(this, isRestricted);
+            
             if(myCtrl == null)
             {
                 myCtrl = EnemyActivation_Controller.instance;

@@ -32,7 +32,7 @@ public class offlinePlayerMovement : MonoBehaviour
     float dashReload = 1f;
     float timetoReloadDash = 5f;
     //dash multiplier is how much faster than normal you move when dashing, currently dashing is a bool that's true when dashing, false when otherwise.  This is used to plan for not being able to reload or dash a second time when dashing.
-    float dashMultiplier = 2f;
+    float dashMultiplier = 5f;
     bool currentlyDashing = false;
     //mylight will be a light that is held by the player eventually, this would most likely be a lantern that affects stealth skills.  With BaseIntensity being the base intensity of the lantern itself.
     public Light mylight;
@@ -103,7 +103,9 @@ public class offlinePlayerMovement : MonoBehaviour
 
 
         InventoryScreen.SetActive(false);
-        DataSave_Load.instance.applyAllData();
+        if (DataSave_Load.instance != null) {
+            DataSave_Load.instance.applyAllData();
+        }
     }
     public void respawn()
     {

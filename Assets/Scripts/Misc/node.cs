@@ -24,21 +24,24 @@ public class node : InteractablePickup
     }
     public void loadData()
     {
-        currentData = DataSave_Load.instance.GDat;
-        bool amIBought = currentData.node_Bought[id].bought;
-        if (amIBought == false)
+        if (DataSave_Load.instance != null)
         {
-            return;
-        }
-
-        if (amIBought == true)
-        {
-            if (currentData.node_Bought[id].nameID != id.ToString())
+            currentData = DataSave_Load.instance.GDat;
+            bool amIBought = currentData.node_Bought[id].bought;
+            if (amIBought == false)
             {
-                Debug.LogWarning("node data id doesn't match id on node using it.  Node number: " + id.ToString());
+                return;
             }
-            myDat = currentData.node_Bought[id];
-            setStats();
+
+            if (amIBought == true)
+            {
+                if (currentData.node_Bought[id].nameID != id.ToString())
+                {
+                    Debug.LogWarning("node data id doesn't match id on node using it.  Node number: " + id.ToString());
+                }
+                myDat = currentData.node_Bought[id];
+                setStats();
+            }
         }
     }
     private void setStats()

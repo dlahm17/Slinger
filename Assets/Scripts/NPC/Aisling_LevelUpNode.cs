@@ -25,6 +25,7 @@ public class Aisling_LevelUpNode : NPCDialogueNode
             j = 0;
             choice.enabled = true;
             choice.activate();
+            active = false;
             return;
         }
         if (myDialogue[j] != null)

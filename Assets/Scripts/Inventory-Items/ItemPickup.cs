@@ -9,9 +9,12 @@ public class ItemPickup : InteractablePickup {
     public override void Start()
     {
         base.Start();
-        if(DataSave_Load.instance.GDat.pickupData[ID].haveBeenPickedUp == true)
+        if (DataSave_Load.instance != null)
         {
-            Destroy(gameObject);
+            if (DataSave_Load.instance.GDat.pickupData[ID].haveBeenPickedUp == true)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 

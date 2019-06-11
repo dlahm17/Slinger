@@ -5,7 +5,7 @@ using UnityEngine;
 public class NPCDialogueNode : InteractablePickup
 {
     //The node will send dialogue items to the controller.  The node can hold up to 100 items.
-    bool active = false;
+    public bool active = false;
     DialogueController dialogueCtrl;
 
 

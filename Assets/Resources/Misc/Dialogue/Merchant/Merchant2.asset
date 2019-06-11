@@ -15,4 +15,4 @@ MonoBehaviour:
   name: Merchant1
   speakerFace: {fileID: 0}
   dialogueString: I am the resident merchant of Serenity.  Though I don't have much
-    to sell, I try my best to make potions from what I find down here.
+    to sell.

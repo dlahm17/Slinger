@@ -77,6 +77,7 @@ public class enemyHealth : m_Health
         {
             UI.setUI(myName, health, maxhp);
         }
+        GetComponent<Enemy>().changeState(enemyState.combat);
     }
     //isDead is a query function other scripts can use to ask if this enemy is dead.
     public bool isDead()

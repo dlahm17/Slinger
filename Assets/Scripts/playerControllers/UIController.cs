@@ -70,6 +70,7 @@ public class UIController : MonoBehaviour
                     U.SetActive(false);
                 }
                 break;
+           
             default:
                 Debug.LogWarning("Improper call to UIController, see activated UI code to fix it");
                 break;

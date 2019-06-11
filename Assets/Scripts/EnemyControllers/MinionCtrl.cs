@@ -12,6 +12,9 @@ public class MinionCtrl : Enemy {
     float bufferUpdate = .2f;
     float timeToUpdateMovement;
     Animator myAnim;
+
+
+    public float rotationTracking = .5f;
     // Use this for initialization
     public override void Start()
     {
@@ -34,7 +37,7 @@ public class MinionCtrl : Enemy {
                 Vector3 dir = player.transform.position - transform.position;
                 dir.y = 0; // keep the direction strictly horizontal
                 Quaternion rot = Quaternion.LookRotation(dir);
-                transform.rotation = Quaternion.Lerp(transform.rotation, rot, 2f * Time.deltaTime);
+                transform.rotation = Quaternion.Lerp(transform.rotation, rot, rotationTracking * Time.deltaTime);
             }
         }
     }
@@ -68,7 +71,7 @@ public class MinionCtrl : Enemy {
         yield return new WaitForSeconds(1.25f);
         myHitBox.enabled = false;
         myAnim.SetBool("Attacking", false);
-        yield return new WaitForSeconds(.25f);
+        yield return new WaitForSeconds(1f);
         currentlyAttacking = false;
         myMovement.myAgent.isStopped = false;
     }

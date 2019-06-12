@@ -5,13 +5,13 @@ using UnityEngine;
 public class MinionCtrl : Enemy {
     public float damage;
     public EnemyWpnHitbox myHitBox;
-    public MeshCollider hitBox;
+    public Collider hitBox;
     public float attackDistanceFromPlayer = 2f;
     GameObject player;
     bool currentlyAttacking = false;
     float bufferUpdate = .2f;
     float timeToUpdateMovement;
-    Animator myAnim;
+    public Animator myAnim;
 
 
     public float rotationTracking = .5f;
@@ -21,7 +21,6 @@ public class MinionCtrl : Enemy {
         base.Start();
         player = GameObject.FindGameObjectWithTag("Player");
         timeToUpdateMovement = Time.time + bufferUpdate;
-        myAnim = GetComponent<Animator>();
 
 
         myHitBox.enabled = true;

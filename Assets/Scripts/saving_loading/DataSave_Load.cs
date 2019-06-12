@@ -53,36 +53,41 @@ public class DataSave_Load : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.M))
         {
-            Debug.Log("Saving Data");
-            GDat.saveFile = savefile;
-            saveTime(GDat);
-            GDat.exp = (int)Inventory.instance.checkExp();
-            GDat.gold = (int)Inventory.instance.checkGold();
-            Debug.Log("Getting Items");
-            int x = 0;
-            while (x < 20)
-            {
-                if(Inventory.instance.getItem(x) == null)
-                {
-                    break;
-                }
-                GDat.inventoryItems[x].It = Inventory.instance.getItem(x);
-                Debug.Log("Item " + x + " : " + GDat.inventoryItems[x].It);
-                x++;
-            }
-            x = 0;
-            while (x < 5)
-            {
-                if (EquipmentManager.instance.getEquipment(x) == null)
-                {
-                    break;
-                }
-                GDat.Player_Equipment[x].Eq = EquipmentManager.instance.getEquipment(x);
-                 x++;
-            }
-            saveMyData(GDat, dataPath);
+            Save();
         }
         
+    }
+
+    public void Save()
+    {
+        Debug.Log("Saving Data");
+        GDat.saveFile = savefile;
+        saveTime(GDat);
+        GDat.exp = (int)Inventory.instance.checkExp();
+        GDat.gold = (int)Inventory.instance.checkGold();
+        Debug.Log("Getting Items");
+        int x = 0;
+        while (x < 20)
+        {
+            if (Inventory.instance.getItem(x) == null)
+            {
+                break;
+            }
+            GDat.inventoryItems[x].It = Inventory.instance.getItem(x);
+            Debug.Log("Item " + x + " : " + GDat.inventoryItems[x].It);
+            x++;
+        }
+        x = 0;
+        while (x < 5)
+        {
+            if (EquipmentManager.instance.getEquipment(x) == null)
+            {
+                break;
+            }
+            GDat.Player_Equipment[x].Eq = EquipmentManager.instance.getEquipment(x);
+            x++;
+        }
+        saveMyData(GDat, dataPath);
     }
 
     public void applyData()

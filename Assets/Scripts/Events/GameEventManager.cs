@@ -17,15 +17,36 @@ public class GameEventManager : MonoBehaviour
         instance = this;
     }
     #endregion
-    // Start is called before the first frame update
-    void Start()
+    DataSave_Load Dat;
+
+    private void Start()
     {
+        if (DataSave_Load.instance != null)
+        {
+            Dat = DataSave_Load.instance;
+        }
         
     }
 
-    // Update is called once per frame
-    void Update()
+    public bool queryEventCompletion(int ID)
     {
+        if (Dat != null)
+        {
+            if (Dat.GDat.eventData[ID].hasHappened)
+            {
+                return true;
+            }
+        }
+            return false;
         
+    }
+
+    public void SetEvent(int ID, bool hasHapp)
+    {
+        if (Dat != null)
+        {
+            Dat.GDat.eventData[ID].hasHappened = hasHapp;
+            Dat.Save();
+        }
     }
 }

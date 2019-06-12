@@ -9,6 +9,7 @@ using UnityEngine;
 public class enemyHealth : m_Health
 {
 
+
     //Derives from the overall health class therefore all the forms for taking damage are in play.
     EnemyUIController UI;
 
@@ -39,11 +40,45 @@ public class enemyHealth : m_Health
     public float Armor = 5f;
     public float magicalArmor = 5f;
 
+    //This, when active, makes enemies latch onto a target object from the grip point
+    Transform grab;
+    public bool isGrabbed;
+
+    //GripPoint is where the player's hand will be placed when the enemy is grabbed by absorb
+    public Transform GripPoint;
+    Vector3 bufferToGrip;
+
     public override void Start()
     {
         base.Start();
         //make sure to grab the enemy UI controller so we can push the health bar to the ui controller.
         UI = EnemyUIController.instance;
+        bufferToGrip = GripPoint.position - transform.position;
+    }
+
+    public override void Update()
+    {
+        base.Update();
+        if (isGrabbed)
+        {
+            Debug.Log("I am grabbed");
+            GripPoint.position = grab.position;
+            transform.position = GripPoint.position - bufferToGrip;
+           
+        }
+    }
+    private void OnDrawGizmos()
+    {
+        if(GripPoint != null)
+        Gizmos.DrawSphere(GripPoint.position, .5f);
+        if(grab!= null)
+        Gizmos.DrawSphere(grab.position, .5f);
+        if(GripPoint != null)
+        Gizmos.DrawSphere(GripPoint.position - bufferToGrip, .5f);
+    }
+    public void updateGrab(Transform g)
+    {
+        grab = g;
     }
 
     //Takedamage overrides the m_health takedamage since they'll also be receiving specific damage types.

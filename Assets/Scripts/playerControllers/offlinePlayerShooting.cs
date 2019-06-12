@@ -345,11 +345,22 @@ public class offlinePlayerShooting : MonoBehaviour {
                                     {
                                         Debug.Log("Collided with enemy");
                                         enemyToAbsorb = hit.collider.gameObject;
+                                        enemyToAbsorb.GetComponent<enemyHealth>().updateGrab(GunPos2);
                                     }
                                 }
                                 Debug.Log("enemy To Absorb is: " + enemyToAbsorb);
                             }
                         }
+                    }
+                    if(enemyToAbsorb != null)
+                    {
+                        enemyToAbsorb.GetComponent<enemyHealth>().isGrabbed = true;
+                        myMovement.canMove = false;
+                        myHealth.canTakeDamage = false;
+                        enemyToAbsorb.GetComponent<Rigidbody>().isKinematic = true;
+                        enemyToAbsorb.GetComponent<Collider>().enabled = false;
+                        enemyToAbsorb.GetComponent<Rigidbody>().freezeRotation = true;
+
                     }
                 }
             }
@@ -375,8 +386,8 @@ public class offlinePlayerShooting : MonoBehaviour {
     {
         enemyToAbsorb = null;
         absorbConnected = false;
-        myMovement.startAbsorbDash(1.5f);
         AbsorbActive = true;
+        myMovement.startAbsorbDash(1.5f);
         myHealth.isDashing = true;
         yield return new WaitForSeconds(reloadAbilityTime);
         yield return new WaitForSeconds(.2f);
@@ -403,6 +414,12 @@ public class offlinePlayerShooting : MonoBehaviour {
         {
             bool kill;
             enemyToAbsorb.GetComponent<enemyHealth>().takeDamage(GetComponent<playerStats>().magicDamage.GetValue() * 3, damageType.magical);
+            enemyToAbsorb.GetComponent<enemyHealth>().isGrabbed = false;
+            enemyToAbsorb.GetComponent<Rigidbody>().freezeRotation = false;
+            enemyToAbsorb.GetComponent<Collider>().enabled = true;
+            enemyToAbsorb.GetComponent<Rigidbody>().isKinematic = false;
+            myMovement.canMove = true;
+            myHealth.canTakeDamage = true;
             kill = enemyToAbsorb.GetComponent<enemyHealth>().isDead();
             if (kill)
             {

@@ -48,7 +48,7 @@ public class m_Health : MonoBehaviour {
 
 
     //Update is only used to smoothly show the healthbar going down
-    private void Update()
+    public virtual void Update()
     {
         if (usesInGameSlider)
         {
